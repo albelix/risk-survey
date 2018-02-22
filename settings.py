@@ -174,7 +174,7 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'Russian games',
-        'display_name': "игры на русском",
+        'display_name': "Dict-Ultim-Trust Games in Russian",
         'num_demo_participants': 4,
         'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
     },
