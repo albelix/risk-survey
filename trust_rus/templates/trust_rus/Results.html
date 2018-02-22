@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Результаты
+{% endblock %}
+
+{% block content %}
+
+    {% if player.role == 'A' %}
+        <p>
+            Вы решили инвестировать <strong> {{ group.sent_amount }} токенов </strong> в Участника 2,
+            Участник 2 вернул Вам <strong>{{ group.sent_back_amount }} токенов </strong>
+        </p>
+        <p>
+            Изначально Вы получили <strong> {{ Constants.endowment }} токенов </strong> ,
+            Вы инвестировали <strong> {{ group.sent_amount }} токенов </strong>,
+            Участник 2 вернул Вам <strong> {{ group.sent_back_amount }} токенов </strong>,
+            поэтому сейчас Вы имеете:
+            {{ Constants.endowment }}-{{ group.sent_amount }}+{{ group.sent_back_amount }} = <strong>{{ group.p1_payoff }}  токенов </strong>
+        </p>
+    {% else %}
+        <p>
+            Участник 1 инвестировал в Вас <strong> {{ group.sent_amount }} токенов </strong>
+            Эти инвестиции утроились, поэтому Вы получили <strong> {{ tripled_amount }} токенов </strong>
+            Вы решили вернуть <strong> {{ group.sent_back_amount }} токенов </strong> Участнику 1 ,
+            поэтому сейчас Вы имеете:
+            ({{ tripled_amount }})-({{ group.sent_back_amount }}) = <strong>{{ group.p2_payoff }} токенов </strong>
+        </p>
+
+    {% endif %}
+
+    <p>{% next_button %}</p>
+
+
+{% endblock %}

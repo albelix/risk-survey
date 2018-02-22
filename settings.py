@@ -172,10 +172,13 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['bret'],
     },
+    {
+    'name': 'Russian games',
+    'display_name': "игры на русском",
+    'num_demo_participants': 4,
+    'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
+    },
 ]
-
-
-
 ### {
 ###     'name': 'trust',
 ###     'display_name': "Trust Game",

@@ -1,0 +1,71 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Выбор Участника 2
+{% endblock %}
+
+{% block content %}
+    <p>
+        Вы являетесь Участником 2.
+    </p>
+
+    <p>
+
+    </p>
+
+    <head>
+    <style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+    <strong>Регионы Участников</strong>
+
+    <table>
+    <tr>
+        <th> Участник </th>
+            <th> Регион </th>
+    </tr>
+    <tr>
+        <td> Участник 1 </td>
+        <td> {{ group.p1_region }} </td>
+    </tr>
+    <tr>
+        <td> Участник 2 </td>
+        <td> {{ group.p2_region }} </td>
+    </tr>
+
+    </table>
+    </body>
+
+
+    <p>
+
+    </p>
+
+    <p>
+        Участник 1 инвестировал в Вас <strong>{{group.sent_amount}} токенов </strong>, эти инвестиции утроились, поэтому Вы получили <strong>{{tripled_amount}} токенов </strong>.
+        Сейчас у Вас есть <strong> {{tripled_amount}} токенов </strong>.
+        Сколько Вы хотите вернуть Участнику 1?
+    </p>
+
+    {% formfield group.sent_back_amount with label=prompt %}
+    <p>{% next_button %}</p>
+    {% include Constants.instructions_template %}
+
+{% endblock %}

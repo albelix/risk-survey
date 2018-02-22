@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+
+        Результаты
+
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% if player.id_in_group == 1 %}
+
+                Вы с Вашим напарником получили <strong>{{ Constants.endowment }} токенов</strong>,
+            из которых <strong>{{ group.sent_amount }} токенов </strong> Вы предложили Участнику 2.
+
+            {% if group.acceptance %}
+
+                    Ваше предложение было принято Участником 2.
+
+            {% else %}
+
+                     Ваше предложение не было принято Участником 2.
+
+            {% endif %}
+
+                Ваш выигрыш <strong>{{ group.p1_payoff }} токенов</strong>.
+        {% else %}
+
+                Участник 1 предложил Вам <strong>{{ group.sent_amount }} токенов</strong>  из суммы <strong>{{ Constants.endowment }}  токенов</strong>,
+            которую вы получили на двоих.
+
+            {% if group.acceptance %}
+
+                    Вы приняли это предложение.
+
+            {% else %}
+
+                    Вы не приняли это предложение.
+
+            {% endif %}
+                Ваш выигрыш <strong>{{ group.p2_payoff }} токенов</strong>.
+        {% endif %}
+    </p>
+
+    <p>{% next_button %}</p>
+{% endblock %}
+
+

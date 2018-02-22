@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Результаты
+{% endblock %}
+
+{% block content %}
+    <p>
+
+        {% if player.id_in_group == 1 %}
+            Вы (Участник 1) решили оставить себе <strong>{{ group.kept }}</strong> токенов, поэтому Участник 2 получил <strong>{{ offer }}</strong> токенов.
+        {% else %}
+            Участник 1 решил оставить себе <strong>{{ group.kept }}</strong> токенов, поэтомы Вы (Участник 2) получили <strong>{{ offer }}</strong> токенов.
+        {% endif %}
+
+        {% next_button %}
+    </p>
+{% endblock %}

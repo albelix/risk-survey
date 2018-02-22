@@ -1,0 +1,68 @@
+{% extends "global/Page.html" %}
+{% load otree_tags %}
+
+{% block title %}Решение Участника 1{% endblock %}
+
+{% block content %}
+
+    <p>
+        Вы являетесь <strong>Участником 1</strong>
+    </p>
+
+
+
+    <head>
+    <style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+    <strong>Регионы Участников</strong>
+
+    <table>
+    <tr>
+        <th> Участник </th>
+            <th> Регион </th>
+    </tr>
+    <tr>
+        <td> Участник 1 </td>
+        <td> {{ group.p1_region }} </td>
+    </tr>
+    <tr>
+        <td> Участник 2 </td>
+        <td> {{ group.p2_region }} </td>
+    </tr>
+
+    </table>
+    </body>
+
+
+    <p>
+
+
+    </p>
+    
+
+    {% formfield group.kept %}
+
+
+
+{% next_button %}
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree_tags %}
+
+{% block title %}Информация о регионе{% endblock %}
+
+{% block content %}
+
+    {% formfield group.p2_region with label="Пожалуйста, укажите регион, в котором Вы проживаете" %}
+
+{% next_button %}
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}
