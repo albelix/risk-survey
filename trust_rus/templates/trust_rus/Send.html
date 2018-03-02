@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 
 {% block title %}
     Выбор Участника 1
@@ -63,7 +63,7 @@
         Сейчас у Вас есть <strong> {{Constants.endowment}} токенов </strong>. Сколько Вы хотите инвестировать в Участника 2?
     </p>
 
-    {% formfield group.sent_amount with label="Введите число от 0 до 100:" %}
+    {% formfield group.sent_amount label="Введите число от 0 до 100:" %}
     <p>
     {% next_button %}
     </p>

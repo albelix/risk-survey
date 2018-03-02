@@ -29,8 +29,8 @@ class Group(BaseGroup):
     sent_amount = models.IntegerField(min = 0, max = 100)
     acceptance = models.BooleanField(choices=[[True, 'Да'], [False, 'Нет']])
 
-    p1_region = models.CharField()
-    p2_region = models.CharField()
+    p1_region = models.StringField()
+    p2_region = models.StringField()
 
     p1_payoff = models.IntegerField()
     p2_payoff = models.IntegerField()

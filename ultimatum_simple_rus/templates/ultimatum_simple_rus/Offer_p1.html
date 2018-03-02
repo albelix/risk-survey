@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 
 
 {% block title %}
@@ -79,7 +79,7 @@
 
     </p>
 
-    {% formfield group.sent_amount with label="Какую сумму Вы предложите Участнику 2?" %}
+    {% formfield group.sent_amount label="Какую сумму Вы предложите Участнику 2?" %}
 
     {% next_button %}
 

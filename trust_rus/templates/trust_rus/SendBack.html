@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 
 {% block title %}
     Выбор Участника 2
@@ -64,7 +64,7 @@
         Сколько Вы хотите вернуть Участнику 1?
     </p>
 
-    {% formfield group.sent_back_amount with label=prompt %}
+    {% formfield group.sent_back_amount label=prompt %}
     <p>{% next_button %}</p>
     {% include Constants.instructions_template %}
 

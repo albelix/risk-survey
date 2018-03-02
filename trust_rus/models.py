@@ -42,8 +42,8 @@ class Group(BaseGroup):
         min=0,
     )
 
-    p1_region = models.CharField()
-    p2_region = models.CharField()
+    p1_region = models.StringField()
+    p2_region = models.StringField()
 
     p1_payoff = models.IntegerField()
     p2_payoff = models.IntegerField()

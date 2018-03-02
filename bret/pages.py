@@ -34,7 +34,7 @@ class Instructions(Page):
 class Decision(Page):
 
     # form fields on player level
-    form_model = models.Player
+    form_model = 'player'
     form_fields = [
         'bomb',
         'boxes_collected',

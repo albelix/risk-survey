@@ -8,7 +8,7 @@ class Introduction(Page):
     pass
 
 class region_question_p1(Page):
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['p1_region']
 
     def is_displayed(self):
@@ -16,7 +16,7 @@ class region_question_p1(Page):
 
 
 class region_question_p2(Page):
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['p2_region']
 
     def is_displayed(self):
@@ -32,7 +32,7 @@ class Send(Page):
     This amount is tripled by experimenter,
     i.e if sent amount by P1 is 5, amount received by P2 is 15"""
 
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['sent_amount']
 
     def is_displayed(self):
@@ -47,7 +47,7 @@ class SendBack(Page):
     """This page is only for P2
     P2 sends back some amount (of the tripled amount received) to P1"""
 
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['sent_back_amount']
 
     def is_displayed(self):

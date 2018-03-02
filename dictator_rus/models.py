@@ -40,8 +40,8 @@ class Group(BaseGroup):
         verbose_name='Теперь, пожалуйста, решите, сколько Вы хотите оставить себе (от 0 до %i) у.е.' % Constants.endowment
     )
 
-    p1_region = models.CharField()
-    p2_region = models.CharField()
+    p1_region = models.StringField()
+    p2_region = models.StringField()
 
     p1_payoff = models.IntegerField()
     p2_payoff = models.IntegerField()
