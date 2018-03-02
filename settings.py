@@ -126,7 +126,7 @@ ROOM_DEFAULTS = {}
 
 ROOMS = [
     {
-        'name': 'lab01',
+        'name': 'lab35',
         'display_name': 'Эксперимент',
         'participant_label_file': 'PlayerList35.txt',
         'use_secure_urls': False,
