@@ -197,13 +197,13 @@ SESSION_CONFIGS = [
 ###     'num_demo_participants': 2,
 ###     'app_sequence': ['ultimatum', 'payment_info'],
 ### },
-### {
-###     'name': 'ultimatum_strategy',
-###     'display_name': "Ultimatum (strategy method treatment)",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['ultimatum', 'payment_info'],
-###     'use_strategy_method': True,
-### },
+{
+    'name': 'ultimatum_strategy',
+    'display_name': "Ultimatum (strategy method treatment)",
+    'num_demo_participants': 2,
+    'app_sequence': ['ultimatum', 'payment_info'],
+    'use_strategy_method': True,
+},
 ### {
 ###     'name': 'ultimatum_non_strategy',
 ###     'display_name': "Ultimatum (direct response treatment)",
