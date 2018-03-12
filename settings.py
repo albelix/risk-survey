@@ -203,7 +203,6 @@ SESSION_CONFIGS = [
         'app_sequence': ['ultimatum', 'payment_info'],
         'use_strategy_method': True,
     },
-]
 ### {
 ###     'name': 'ultimatum_non_strategy',
 ###     'display_name': "Ultimatum (direct response treatment)",
@@ -286,14 +285,15 @@ SESSION_CONFIGS = [
 ###         'bertrand', 'payment_info'
 ###     ],
 ### },
-### {
-###     'name': 'real_effort',
-###     'display_name': "Real-effort transcription task",
-###     'num_demo_participants': 1,
-###     'app_sequence': [
-###         'real_effort',
-###     ],
-### },
+    {
+        'name': 'real_effort',
+        'display_name': "Real-effort transcription task",
+        'num_demo_participants': 1,
+        'app_sequence': [
+            'real_effort',
+        ],
+    },
+    ]
 ### {
 ###     'name': 'lemon_market',
 ###     'display_name': "Lemon Market Game",
