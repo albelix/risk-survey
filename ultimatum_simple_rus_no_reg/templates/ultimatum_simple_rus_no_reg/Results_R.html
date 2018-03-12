@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        Результаты Раунда 1
+    {% elif subsession.round_number == 2 %}
+        Результаты Раунда 2
+    {% elif subsession.round_number == 3 %}
+        Результаты Раунда 3
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <p>
+        Вы являетесь <strong>Участником 2</strong>
+    </p>
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_1 }} токенов,
+    {% elif subsession.round_number == 2 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_2 }} токенов,
+    {% elif subsession.round_number == 3 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_3 }} токенов,
+    {% endif %}
+        в данном раунде 1 токен = 1 экю для Вас и для Участника 1.
+    </p>
+
+
+    {% if group.transfer >= group.R_min_acceptance %}
+        <p>
+            Вы приняли предложение Участника 1,
+            поэтому Вы получили <strong>{{ group.R_payoff_tokens}} токенов</strong>,
+            что для Вас переводится в <strong>{{ group.R_payoff_tokens }} экю</strong>.
+        </p>
+        <p>
+        Участнику 1 получил <strong>{{ group.S_payoff_tokens}} токенов</strong>,
+        что для него переводится в <strong>{{ group.S_payoff_tokens }} экю</strong>.
+        </p>
+    {% else %}
+        <p>
+            Вы не приняли предложение Участника 1, поэтому Вы получили <strong>0 токенов</strong>,
+            что для Вас переводится в <strong>0 экю</strong>.
+        </p>
+        <p>
+        Участнику 1 также получил <strong>0 токенов</strong>,
+        что для него переводится в <strong>0 экю</strong>.
+        </p>
+    {% endif %}
+
+
+    {% next_button %}
+    {% include Constants.instructions_template %}
+{% endblock %}

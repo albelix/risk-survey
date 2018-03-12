@@ -1,0 +1,737 @@
+{% extends "global/Page.html" %}
+{% load otree_tags %}
+
+{% block title %}Решение Участника 2{% endblock %}
+
+{% block content %}
+
+    <p>
+        Вы являетесь <strong>Участником 2</strong>
+    </p>
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_1 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_1 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_1 }} экю для Участника 1.
+    {% elif subsession.round_number == 2 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_2 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_2 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_2 }} экю для Участника 1.
+    {% elif subsession.round_number == 3 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_3 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_3 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_3 }} экю для Участника 1.
+    {% elif subsession.round_number == 4 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_4 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_4 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_4 }} экю для Участника 1.
+    {% elif subsession.round_number == 5 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_5 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_5 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_5 }} экю для Участника 1.
+    {% elif subsession.round_number == 6 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_6 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_6 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_6 }} экю для Участника 1.
+    {% elif subsession.round_number == 7 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_7 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_7 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_7 }} экю для Участника 1.
+    {% elif subsession.round_number == 8 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_8 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_8 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_8 }} экю для Участника 1.
+    {% elif subsession.round_number == 9 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_9 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_9 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_9 }} экю для Участника 1.
+    {% elif subsession.round_number == 10 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_10 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_10 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_10 }} экю для Участника 1.
+    {% elif subsession.round_number == 11 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_11 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_11 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_11 }} экю для Участника 1.
+    {% elif subsession.round_number == 12 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_12 }} токенов,
+        1 токен = {{ unit_values_for_R_iter_12 }} экю для Вас,
+        1 токен = {{ unit_values_for_S_iter_12 }} экю для Участника 1.
+    {% endif %}
+    </p>
+    <p>
+        <strong>Вопрос 1.</strong>
+    </p>
+    <p>
+    {% if subsession.round_number == 1 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 75)?' %}
+    {% elif subsession.round_number == 2 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 40)?' %}
+    {% elif subsession.round_number == 3 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 40)?' %}
+    {% elif subsession.round_number == 4 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 60)?' %}
+    {% elif subsession.round_number == 5 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 60)?' %}
+    {% elif subsession.round_number == 6 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 40)?' %}
+    {% elif subsession.round_number == 7 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 100)?' %}
+    {% elif subsession.round_number == 8 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 75)?' %}
+    {% elif subsession.round_number == 9 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 50)?' %}
+    {% elif subsession.round_number == 10 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 100)?' %}
+    {% elif subsession.round_number == 11 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 50)?' %}
+    {% elif subsession.round_number == 12 %}
+        {% formfield group.prediction_R with label='Как Вы думаете, сколько токенов из этой суммы участник 1 передаст Вам (от 0 до 60)?' %}
+    {% endif %}
+    </p>
+    <p>
+        <strong>Вопрос 2.</strong>
+    </p>
+    <p>
+        Для каждого из возможных предложений, укажите до какой степени Вы были бы удовлетворены этим предложением.
+        (Оцените по 5-балльной шкале, где 1 - совершенно не удовлетворен, а 5 - вполне удовлетворен)
+    </p>
+
+
+    {% if subsession.round_number == 1 %}
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">8 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">16 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">24 токена</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">32 токена</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">40 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">48 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">56 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">64 токена</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 2 %}
+     <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">5 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">10 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">15 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">20 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">25 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">30 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">35 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">40 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 3 %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">5 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">10 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">15 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">20 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">25 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">30 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">35 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">40 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 4 %}
+     <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">8 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">16 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">24 токена</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">32 токена</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">40 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">48 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">56 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">60 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 5 %}
+     <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">8 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">16 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">24 токена</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">32 токена</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">40 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">48 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">56 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">60 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 6 %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">5 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">10 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">15 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">20 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">25 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">30 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">35 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">40 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 7 %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">15 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">25 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">35 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">50 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">65 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">75 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">85 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">95 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 8 %}
+     <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">8 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">16 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">24 токена</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">32 токена</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">40 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">48 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">56 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">64 токена</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 9 %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">5 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">10 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">15 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">20 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">25 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">30 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">35 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">40 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 10 %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">15 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">25 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">35 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">50 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">65 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">75 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">85 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">95 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 11 %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">5 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">10 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">15 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">20 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">25 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">30 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">35 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">40 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 12 %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Предложение от Участника 1</th>
+            <th class="tg-n107">Оцените по 5-балльной шкале, <br>где 1 - совершенно не удовлетворен,<br>а 5 - вполне удовлетворен</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb">8 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_1 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">16 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_2 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">24 токена</td>
+            <td class="tg-kixb">{% formfield group.R_sat_3 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">32 токена</td>
+            <td class="tg-pxng">{% formfield group.R_sat_4 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">40 токенов</td>
+            <td class="tg-kixb">{% formfield group.R_sat_5 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">48 токенов </td>
+            <td class="tg-pxng">{% formfield group.R_sat_6 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb">56 токенов </td>
+            <td class="tg-kixb">{% formfield group.R_sat_7 with label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng">60 токенов</td>
+            <td class="tg-pxng">{% formfield group.R_sat_8 with label=""%}</td>
+          </tr>
+        </table>
+    {%  endif %}
+
+
+    <p>
+        Пожалуйста, нажмите кнопку <strong>Далее</strong> и ожидайте решения Участника 1.
+    </p>
+
+    {% next_button %}
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

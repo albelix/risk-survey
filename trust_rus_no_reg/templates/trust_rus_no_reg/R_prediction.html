@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Выбор Участника 2
+{% endblock %}
+
+{% block content %}
+    <p>
+        Вы являетесь Участником 2.
+    </p>
+
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_1 }} токенов. <br>
+        В данном раунде 1 токен = 1 экю для Вас и для Участника 1. <br>
+        Все, что Учасиник 1 передаст Вам, увеличится в {{ factor_iter_1 }} раза.
+    {% elif subsession.round_number == 2 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_2 }} токенов. <br>
+        В данном раунде 1 токен = 1 экю для Вас и для Участника 1. <br>
+        Все, что Учасиник 1 передаст Вам, увеличится в {{ factor_iter_2 }} раза.
+    {% elif subsession.round_number == 3 %}
+        Участник 1 получил сумму в размере {{ endowment_iter_3 }} токенов. <br>
+        В данном раунде 1 токен = 1 экю для Вас и для Участника 1. <br>
+        Все, что Учасиник 1 передаст Вам, увеличится в {{ factor_iter_3 }} раза.
+    {% endif %}
+    </p>
+
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        {% formfield group.R_prediction with label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 100)?' %}
+    {% elif subsession.round_number == 2 %}
+        {% formfield group.R_prediction with label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 50)?' %}
+    {% elif subsession.round_number == 3 %}
+        {% formfield group.R_prediction with label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 100)?' %}
+    {% endif %}
+    </p>
+
+    <p>{% next_button %}</p>
+    {% include Constants.instructions_template %}
+
+{% endblock %}

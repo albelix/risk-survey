@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Результаты случайно выбранного раунда
+{% endblock %}
+
+{% block content %}
+    <p>
+        Вы являетесь <strong>Участником 1</strong>
+    </p>
+
+    <p>
+        Случайным образом был выбран <strong> Раунд {{ payment_round }}</strong>.
+    </p>
+
+    <p>
+        По итогам этой игры Вы получили <strong>{{ group.S_final_payoff}} экю</strong>.
+    </p>
+    <p>
+        По итогам этой игры Участник 2 получил <strong>{{ group.R_final_payoff}} экю</strong>.
+    </p>
+
+
+    {% next_button %}
+    {% include Constants.instructions_template %}
+{% endblock %}

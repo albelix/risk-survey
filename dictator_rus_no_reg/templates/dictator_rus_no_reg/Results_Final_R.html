@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Результаты случайно выбранного раунда
+{% endblock %}
+
+{% block content %}
+    <p>
+        Вы являетесь <strong>Участником 2</strong>
+    </p>
+
+    <p>
+        По итогам этой игры Вы получили <strong>{{ group.R_final_payoff}} экю</strong>.
+    </p>
+    <p>
+        По итогам этой игры Участник 1 получил <strong>{{ group.S_final_payoff}} экю</strong>.
+    </p>
+
+    {% next_button %}
+    {% include Constants.instructions_template %}
+{% endblock %}

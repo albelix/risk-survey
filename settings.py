@@ -196,13 +196,38 @@ SESSION_CONFIGS = [
 ###     'num_demo_participants': 2,
 ###     'app_sequence': ['ultimatum', 'payment_info'],
 ### },
+    # {
+    #     'name': 'ultimatum_strategy',
+    #     'display_name': "Ultimatum (strategy method treatment)",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['ultimatum', 'payment_info'],
+    #     'use_strategy_method': True,
+    # },
     {
-        'name': 'ultimatum_strategy',
-        'display_name': "Ultimatum (strategy method treatment)",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum', 'payment_info'],
-        'use_strategy_method': True,
+        'name': 'simple_games_rus',
+        'display_name': "Simple Games Russia",
+        'num_demo_participants': 4,
+        'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus']
     },
+    {
+        'name': 'dictator_rus_no_reg',
+        'display_name': "Dictator Game no Regions",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictator_rus_no_reg']
+    },
+    {
+        'name': 'ultimatum_simple_rus_no_reg',
+        'display_name': "Ultimatum Game no Regions",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum_simple_rus_no_reg']
+    },
+    {
+        'name': 'trust_rus_no_reg',
+        'display_name': "Trust Game no Regions",
+        'num_demo_participants': 2,
+        'app_sequence': ['trust_rus_no_reg']
+    }
+
 ]
 ### {
 ###     'name': 'ultimatum_non_strategy',

@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree_tags %}
+
+{% block title %}
+    Начало раунда
+{% endblock %}
+
+{% block content %}
+    {% if subsession.round_number == 1 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 1</strong>
+        </p>
+    {% elif subsession.round_number == 2 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 2</strong>
+        </p>
+    {% elif subsession.round_number == 3 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 3</strong>
+        </p>
+    {% elif subsession.round_number == 4 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 4</strong>
+        </p>
+    {% elif subsession.round_number == 5 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 5</strong>
+        </p>
+    {% elif subsession.round_number == 6 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 6</strong>
+        </p>
+    {% elif subsession.round_number == 7 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 7</strong>
+        </p>
+    {% elif subsession.round_number == 8 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 8</strong>
+        </p>
+    {% elif subsession.round_number == 9 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 9</strong>
+        </p>
+    {% elif subsession.round_number == 10 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 10</strong>
+        </p>
+    {% elif subsession.round_number == 11 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 11</strong>
+        </p>
+    {% elif subsession.round_number == 12 %}
+        <p>
+            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 12</strong>
+        </p>
+    {% endif %}
+
+    {% if subsession.round_number == 1 %}
+        {% include Constants.instructions_template %}
+    {% endif %}
+
+
+
+{% next_button %}
+{% endblock %}
