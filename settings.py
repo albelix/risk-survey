@@ -57,15 +57,15 @@ AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 
-# e.g. EUR, CAD, GBP, CHF, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+# e.g. EUR, CAD, GBP, CHF, CNY, JPY, USD
+REAL_WORLD_CURRENCY_CODE = 'RUB'
 USE_POINTS = True
 
 
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
@@ -131,6 +131,13 @@ ROOMS = [
         'participant_label_file': 'PlayerList35.txt',
         'use_secure_urls': False,
     },
+    {
+        'name': 'lab25',
+        'display_name': 'CUSB_0318_25',
+        'participant_label_file': 'PlayerList25.txt',
+        'use_secure_urls': False,
+    },
+
 ]
 
 
@@ -171,6 +178,12 @@ SESSION_CONFIGS = [
         'display_name': "BRET",
         'num_demo_participants': 1,
         'app_sequence': ['bret'],
+    },
+    {
+        'name': 'PG_standard',
+        'display_name': "Базовая игра КУСБ",
+        'num_demo_participants': 5,
+        'app_sequence': ['PG_standard', 'PG_threshold', 'my_survey'],         #'use_browser_bots': False
     },
     {
         'name': 'Russian_games',

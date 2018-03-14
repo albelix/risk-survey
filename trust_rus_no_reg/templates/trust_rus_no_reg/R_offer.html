@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 
 {% block title %}
     Выбор Участника 2
@@ -44,7 +44,7 @@
     {% endif %}
 
         <p>
-        {% formfield group.R_transfer with label='Сколько токенов из полученной суммы Вы вернете Участнику 1?' %}
+        {% formfield group.R_transfer label='Сколько токенов из полученной суммы Вы вернете Участнику 1?' %}
         </p>
 
 

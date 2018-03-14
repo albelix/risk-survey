@@ -14,7 +14,7 @@ class NormWaitPage(WaitPage):
 
 class S_offer(Page):
 
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['S_transfer', 'S_prediction_1', 'S_prediction_2', 'S_prediction_3', 'S_prediction_4', 'S_prediction_5', 'S_prediction_6', 'S_prediction_7', 'S_prediction_8']
 
     endowments_list_views = [100, 50, 100]
@@ -64,7 +64,7 @@ class S_offer(Page):
 
 class R_prediction(Page):
 
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['R_prediction']
 
     endowments_list_views = [100, 50, 100]
@@ -93,7 +93,7 @@ class ResultsWaitPage1(WaitPage):
 
 class R_offer(Page):
 
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['R_transfer']
 
     def R_transfer_max(self):

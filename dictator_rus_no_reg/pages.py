@@ -12,7 +12,7 @@ class NormWaitPage(WaitPage):
 
 class S_offer(Page):
 
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['transfer', 'prediction_S']
 
     endowments_list_views = [75, 40, 40, 60, 60, 40, 100, 75, 50, 100, 50, 60]
@@ -38,7 +38,7 @@ class S_offer(Page):
 
 class R_prediction(Page):
 
-    form_model = models.Group
+    form_model = 'group'
     form_fields = ['prediction_R', 'R_sat_1', 'R_sat_2', 'R_sat_3', 'R_sat_4', 'R_sat_5', 'R_sat_6', 'R_sat_7', 'R_sat_8']
 
     endowments_list_views = [75, 40, 40, 60, 60, 40, 100, 75, 50, 100, 50, 60]

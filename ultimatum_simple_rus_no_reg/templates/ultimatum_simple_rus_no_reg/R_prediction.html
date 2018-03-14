@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load otree_tags %}
+{% load otree %}
 
 {% block title %}Решение Участника 2{% endblock %}
 
@@ -32,11 +32,11 @@
 
     <p>
         {% if subsession.round_number == 1 %}
-            {% formfield group.R_min_acceptance with label='Укажите минимальное количество токенов, которое Вы согласитесь принять от Участника 1 (от 0 до 60)' %}
+            {% formfield group.R_min_acceptance label='Укажите минимальное количество токенов, которое Вы согласитесь принять от Участника 1 (от 0 до 60)' %}
         {% elif subsession.round_number == 2 %}
-            {% formfield group.R_min_acceptance with label='Укажите минимальное количество токенов, которое Вы согласитесь принять от Участника 1 (от 0 до 100)' %}
+            {% formfield group.R_min_acceptance label='Укажите минимальное количество токенов, которое Вы согласитесь принять от Участника 1 (от 0 до 100)' %}
         {% elif subsession.round_number == 3 %}
-            {% formfield group.R_min_acceptance with label='Укажите минимальное количество токенов, которое Вы согласитесь принять от Участника 1 (от 0 до 120)' %}
+            {% formfield group.R_min_acceptance label='Укажите минимальное количество токенов, которое Вы согласитесь принять от Участника 1 (от 0 до 120)' %}
         {% endif %}
     </p>
 
@@ -47,11 +47,11 @@
 
     <p>
     {% if subsession.round_number == 1 %}
-        {% formfield group.R_prediction with label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 60)?' %}
+        {% formfield group.R_prediction label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 60)?' %}
     {% elif subsession.round_number == 2 %}
-        {% formfield group.R_prediction with label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 100)?' %}
+        {% formfield group.R_prediction label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 100)?' %}
     {% elif subsession.round_number == 3 %}
-        {% formfield group.R_prediction with label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 120)?' %}
+        {% formfield group.R_prediction label='Как Вы думаете, сколько токенов из этой суммы Участник 1 передаст Вам (от 0 до 120)?' %}
     {% endif %}
     </p>
 
