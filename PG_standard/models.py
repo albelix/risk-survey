@@ -38,6 +38,7 @@ class Group(BaseGroup):
     individual_share = models.CurrencyField()
     round_num=models.IntegerField()
 
+
     def set_payoffs(self):
         self.total_contribution = sum([p.contribution for p in self.get_players()])
         self.individual_share = self.total_contribution * Constants.efficiency_factor / Constants.players_per_group
