@@ -3,7 +3,11 @@
 
 
 {% block title %}
-    Начало раунда
+    {% if subsession.round_number == 1 %}
+        Начало раунда
+    {% else %}
+        Начало нового раунда
+    {% endif%}
 {% endblock %}
 
 {% block content %}

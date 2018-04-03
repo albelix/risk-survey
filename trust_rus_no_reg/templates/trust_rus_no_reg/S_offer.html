@@ -1,10 +1,17 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree %}
 
-{% block title %}Решение Участника 1{% endblock %}
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        Решение Участника 1 в Раунде 1.
+    {% elif subsession.round_number == 2 %}
+        Решение Участника 1 в Раунде 2.
+    {% elif subsession.round_number == 3 %}
+        Решение Участника 1 в Раунде 3.
+    {% endif %}
+{% endblock %}
 
 {% block content %}
-
 
     <p>
         Вы являетесь <strong>Участником 1</strong>
@@ -12,224 +19,24 @@
 
     <p>
     {% if subsession.round_number == 1 %}
-        Вы получили сумму в размере {{ endowment_iter_1 }} токенов,
-        в данном раунде 1 токен = 1 экю для Вас и для Участника 2.
+        В текущем раунде Вы получили <strong>{{ endowment_iter_1 }} экю</strong>.
         Все, что Вы передадите Участнику 2, увеличится в {{ factor_iter_1 }} раза.
     {% elif subsession.round_number == 2 %}
-        Вы получили сумму в размере {{ endowment_iter_2 }} токенов,
-        в данном раунде 1 токен = 1 экю для Вас и для Участника 2.
+        В текущем раунде Вы получили <strong>{{ endowment_iter_2 }} экю</strong>.
         Все, что Вы передадите Участнику 2, увеличится в {{ factor_iter_2 }} раза.
     {% elif subsession.round_number == 3 %}
-        Вы получили сумму в размере {{ endowment_iter_3 }} токенов,
-        в данном раунде 1 токен = 1 экю для Вас и для Участника 2.
+        В текущем раунде Вы получили <strong>{{ endowment_iter_3 }} экю</strong>.
         Все, что Вы передадите Участнику 2, увеличится в {{ factor_iter_3 }} раза.
     {% endif %}
     </p>
 
-    <p>
-        <strong>Вопрос 1.</strong>
-    </p>
 
-    {% if subsession.round_number == 1 %}
-        <p>
-        Как вы думаете, сколько вернет Вам Участник 2, если вы передадите ему
-        (15 токенов, 25 токенов, 35 токенов, 50 токенов, 65 токенов, 75 токенов, 85 токенов, 95 токенов),
-        то есть он получит (45 токенов, 75 токенов, 105 токенов, 150 токенов, 195 токенов, 225 токенов, 255 токенов, 285 токенов)
-        </p>
-        <style type="text/css">
-        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
-        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
-        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
-        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
-        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
-        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
-        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
-        </style>
-        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
-        <colgroup>
-        <col style="width: 323px">
-        <col style="width: 296px">
-        </colgroup>
-          <tr>
-            <th class="tg-fox7">Ваше предложение/ Сумма, полученная Участником 2 </th>
-            <th class="tg-n107">Сколько вернет Участник 2</th>
-          </tr>
-          <tr>
-            <td class="tg-kixb"> Ваше предложение: 15 токенов/  <br> Сумма, полученная Участником 2: 45 токенов </td>
-            <td class="tg-kixb">{% formfield group.S_prediction_1 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng"> Ваше предложение: 25 токенов/ <br>Сумма, полученная Участником 2: 75 токенов </td>
-            <td class="tg-pxng">{% formfield group.S_prediction_2 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb"> Ваше предложение: 35 токенов/ <br>Сумма, полученная Участником 2: 105 токенов </td>
-            <td class="tg-kixb">{% formfield group.S_prediction_3 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng"> Ваше предложение: 50 токенов/ <br>Сумма, полученная Участником 2: 150 токенов </td>
-            <td class="tg-pxng">{% formfield group.S_prediction_4 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb"> Ваше предложение: 65 токенов/ <br>Сумма, полученная Участником 2: 195 токенов </td>
-            <td class="tg-kixb">{% formfield group.S_prediction_5 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng"> Ваше предложение: 75 токенов/ <br>Сумма, полученная Участником 2: 225 токенов </td>
-            <td class="tg-pxng">{% formfield group.S_prediction_6 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb"> Ваше предложение: 85 токенов/ <br>Сумма, полученная Участником 2: 255 токенов </td>
-            <td class="tg-kixb">{% formfield group.S_prediction_7 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng"> Ваше предложение: 95 токенов/ <br>Сумма, полученная Участником 2: 285 токенов</td>
-            <td class="tg-pxng">{% formfield group.S_prediction_8 label=""%}</td>
-          </tr>
-        </table>
-    {% elif subsession.round_number == 2 %}
-        <p>
-        Как вы думаете, сколько вернет Вам Участник 2, если вы передадите ему
-        (5 токенов, 10 токенов, 15 токенов, 21 токен, 29 токенов, 35 токенов, 40 токенов, 45 токенов),
-        то есть он получит (15 токенов, 30 токенов, 45 токенов, 63 токена, 87 токенов, 105 токенов, 120 токенов, 135 токенов)
-        </p>
-     <style type="text/css">
-        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
-        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
-        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
-        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
-        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
-        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
-        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
-        </style>
-        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
-        <colgroup>
-        <col style="width: 323px">
-        <col style="width: 296px">
-        </colgroup>
-          <tr>
-                <th class="tg-fox7">Ваше предложение/ <br>Сумма, полученная Участником 2 </th>
-                <th class="tg-n107">Сколько вернет Участник 2</th>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 5 токенов/ <br>Сумма, полученная Участником 2: 15 токенов</td>
-            <td class="tg-kixb">{% formfield group.S_prediction_1 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 10 токенов/ <br>Сумма, полученная Участником 2: 30 токенов</td>
-            <td class="tg-pxng">{% formfield group.S_prediction_2 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 15 токенов/ <br>Сумма, полученная Участником 2: 45 токенов</td>
-            <td class="tg-kixb">{% formfield group.S_prediction_3 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 21 токен/ <br>Сумма, полученная Участником 2: 63 токена</td>
-            <td class="tg-pxng">{% formfield group.S_prediction_4 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 29 токенов/ <br>Сумма, полученная Участником 2: 87 токенов</td>
-            <td class="tg-kixb">{% formfield group.S_prediction_5 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 35 токенов/ <br>Сумма, полученная Участником 2: 105 токенов </td>
-            <td class="tg-pxng">{% formfield group.S_prediction_6 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 40 токенов/ <br>Сумма, полученная Участником 2: 120 токенов</td>
-            <td class="tg-kixb">{% formfield group.S_prediction_7 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 45 токенов/ <br>Сумма, полученная Участником 2: 135 токенов</td>
-            <td class="tg-pxng">{% formfield group.S_prediction_8 label=""%}</td>
-          </tr>
-        </table>
-    {% elif subsession.round_number == 3 %}
-        <p>
-        Как вы думаете, сколько вернет Вам Участник 2, если вы передадите ему
-        (10 токенов, 20 токенов, 30 токенов, 44 токена, 56 токенов, 70 токенов, 80 токенов, 90 токенов),
-        то есть он получит (15 токенов, 30 токенов, 45 токенов, 66 токенов, 84 токена, 105 токенов, 120 токенов, 135 токенов)
-        </p>
-    <style type="text/css">
-        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
-        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
-        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
-        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
-        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
-        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
-        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
-        </style>
-        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
-        <colgroup>
-        <col style="width: 323px">
-        <col style="width: 296px">
-        </colgroup>
-          <tr>
-              <th class="tg-fox7">Ваше предложение/ Сумма, полученная Участником 2 </th>
-              <th class="tg-n107">Сколько вернет Участник 2</th>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 10 токенов/ <br>Сумма, полученная Участником 2: 15 токенов</td>
-            <td class="tg-kixb">{% formfield group.S_prediction_1 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 20 токенов/ <br>Сумма, полученная Участником 2: 30 токенов</td>
-            <td class="tg-pxng">{% formfield group.S_prediction_2 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 30 токенов/ <br>Сумма, полученная Участником 2: 45 токенов</td>
-            <td class="tg-kixb">{% formfield group.S_prediction_3 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 44 токена/ <br>Сумма, полученная Участником 2: 66 токенов</td>
-            <td class="tg-pxng">{% formfield group.S_prediction_4 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 56 токенов/ <br>Сумма, полученная Участником 2: 84 токена</td>
-            <td class="tg-kixb">{% formfield group.S_prediction_5 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 70 токенов/ <br>Сумма, полученная Участником 2: 105 токенов </td>
-            <td class="tg-pxng">{% formfield group.S_prediction_6 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-kixb">Ваше предложение: 80 токенов/ <br>Сумма, полученная Участником 2: 120 токенов </td>
-            <td class="tg-kixb">{% formfield group.S_prediction_7 label=""%}</td>
-          </tr>
-          <tr>
-            <td class="tg-pxng">Ваше предложение: 90 токенов/ <br>Сумма, полученная Участником 2: 135 токенов</td>
-            <td class="tg-pxng">{% formfield group.S_prediction_8 label=""%}</td>
-          </tr>
-        </table>
-    {% endif %}
+   {% formfield group.S_transfer label="Пожалуйста, укажите, сколько экю из суммы, которую Вы получили в текущем раунде, Вы хотите передать Участнику 2:" %}
 
 
     <p>
-        <strong>Вопрос 2.</strong>
+        Пожалуйста, нажмите кнопку <strong>Далее</strong>.
     </p>
-
-
-    <p>
-    {% if subsession.round_number == 1 %}
-        <p>
-        Сейчас у Вас есть <strong> {{endowment_iter_1}} токенов </strong>.
-        </p>
-        {% formfield group.S_transfer label="Сколько Вы хотите передать Участнику 2?" %}
-
-    {% elif subsession.round_number == 2 %}
-        <p>
-        Сейчас у Вас есть <strong> {{endowment_iter_2}} токенов </strong>.
-        </p>
-        {% formfield group.S_transfer label="Сколько Вы хотите передать Участнику 2?" %}
-    {% elif subsession.round_number == 3 %}
-        <p>
-        Сейчас у Вас есть <strong> {{endowment_iter_3}} токенов </strong>.
-        </p>
-        {% formfield group.S_transfer label="Сколько Вы хотите передать Участнику 2?" %}
-    {% endif %}
-    </p>
-
-
 
 
     <p>

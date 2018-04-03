@@ -2,52 +2,56 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Выбор Участника 2
+    {% if subsession.round_number == 1 %}
+        Решение Участника 2 в Раунде 1.
+    {% elif subsession.round_number == 2 %}
+        Решение Участника 2 в Раунде 2.
+    {% elif subsession.round_number == 3 %}
+        Решение Участника 2 в Раунде 3.
+    {% endif %}
 {% endblock %}
 
 {% block content %}
-    <p>
-        Вы являетесь Участником 2.
-    </p>
 
 
     {% if subsession.round_number == 1 %}
         <p>
-            Участник 1 получил сумму в размере <strong>{{ endowment_iter_1 }} токенов</strong>,
-        в данном раунде 1 токен = 1 экю для Вас и для Участника 1.
+            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_1 }} экю</strong>.
         </p>
         <p>
-            Участник 1 передал Вам <strong> {{ group.S_transfer }} токенов </strong>,
+            Участник 1 передал Вам <strong> {{ group.S_transfer }} экю </strong>,
             это увеличилось в {{ factor_iter_1 }} раза,
-            поэтому Вы получили <strong>{{ group.mult_transfer }} токенов </strong>.
+            поэтому Вы получили <strong>{{ group.mult_transfer }} экю </strong>.
         </p>
+
     {% elif subsession.round_number == 2 %}
         <p>
-        Участник 1 получил сумму в размере <strong>{{ endowment_iter_2 }} токенов</strong>,
-        в данном раунде 1 токен = 1 экю для Вас и для Участника 1.
+            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_2 }} экю</strong>.
         </p>
         <p>
-        Участник 1 передал Вам <strong>{{ group.S_transfer }} токенов</strong>,
-        это увеличилось в {{ factor_iter_2 }} раза,
-        поэтому Вы получили <strong>{{ group.mult_transfer }} токенов</strong>.
+            Участник 1 передал Вам <strong> {{ group.S_transfer }} экю </strong>,
+            это увеличилось в {{ factor_iter_2 }} раза,
+            поэтому Вы получили <strong>{{ group.mult_transfer }} экю </strong>.
         </p>
     {% elif subsession.round_number == 3 %}
         <p>
-        Участник 1 получил сумму в размере <strong>{{ endowment_iter_3 }} токенов</strong>,
-        в данном раунде 1 токен = 1 экю для Вас и для Участника 1.
+            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_3 }} экю</strong>.
         </p>
         <p>
-        Участник 1 передал Вам <strong>{{ group.S_transfer }} токенов</strong>,
-        это увеличилось в {{ factor_iter_3 }} раза,
-        поэтому Вы получили <strong>{{ group.mult_transfer }} токенов</strong>.
+            Участник 1 передал Вам <strong> {{ group.S_transfer }} экю </strong>,
+            это увеличилось в {{ factor_iter_3 }} раза,
+            поэтому Вы получили <strong>{{ group.mult_transfer }} экю </strong>.
         </p>
     {% endif %}
 
-        <p>
-        {% formfield group.R_transfer label='Сколько токенов из полученной суммы Вы вернете Участнику 1?' %}
-        </p>
 
 
+    {% formfield group.R_transfer label='Пожалуйста, укажите, сколько экю из суммы, которую Вы получили, Вы хотите вернуть Участнику 1:' %}
+
+
+    <p>
+        Пожалуйста, нажмите кнопку <strong>Далее</strong>.
+    </p>
 
     <p>{% next_button %}</p>
     {% include Constants.instructions_template %}

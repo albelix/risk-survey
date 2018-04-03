@@ -1,10 +1,23 @@
 {% extends "global/Page.html" %}
 {% load otree %}
 
-{% block title %}Решение Участника 1{% endblock %}
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        Решение Участника 1 в Раунде 1.
+    {% elif subsession.round_number == 2 %}
+        Решение Участника 1 в Раунде 2.
+    {% elif subsession.round_number == 3 %}
+        Решение Участника 1 в Раунде 3.
+    {% elif subsession.round_number == 4 %}
+        Решение Участника 1 в Раунде 4.
+    {% elif subsession.round_number == 5 %}
+        Решение Участника 1 в Раунде 5.
+    {% elif subsession.round_number == 6 %}
+        Решение Участника 1 в Раунде 6.
+    {% endif %}
+{% endblock %}
 
 {% block content %}
-
 
     <p>
         Вы являетесь <strong>Участником 1</strong>
@@ -12,93 +25,87 @@
 
     <p>
     {% if subsession.round_number == 1 %}
-        Вы получили сумму в размере {{ endowment_iter_1 }} токенов,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_1 }} токенов</strong>,
         1 токен = {{ unit_values_for_S_iter_1 }} экю для Вас,
         1 токен = {{ unit_values_for_R_iter_1 }} экю для Участника 2.
     {% elif subsession.round_number == 2 %}
-        Вы получили сумму в размере {{ endowment_iter_2 }} токенов,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_2 }} токенов</strong>,
         1 токен = {{ unit_values_for_S_iter_2 }} экю для Вас,
         1 токен = {{ unit_values_for_R_iter_2 }} экю для Участника 2.
     {% elif subsession.round_number == 3 %}
-        Вы получили сумму в размере {{ endowment_iter_3 }} токенов,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_3 }} токенов</strong>,
         1 токен = {{ unit_values_for_S_iter_3 }} экю для Вас,
         1 токен = {{ unit_values_for_R_iter_3 }} экю для Участника 2.
     {% elif subsession.round_number == 4 %}
-        Вы получили сумму в размере {{ endowment_iter_4 }} токенов,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_4 }} токенов</strong>,
         1 токен = {{ unit_values_for_S_iter_4 }} экю для Вас,
         1 токен = {{ unit_values_for_R_iter_4 }} экю для Участника 2.
     {% elif subsession.round_number == 5 %}
-        Вы получили сумму в размере {{ endowment_iter_5 }} токенов,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_5 }} токенов</strong>,
         1 токен = {{ unit_values_for_S_iter_5 }} экю для Вас,
         1 токен = {{ unit_values_for_R_iter_5 }} экю для Участника 2.
     {% elif subsession.round_number == 6 %}
-        Вы получили сумму в размере {{ endowment_iter_6 }} токенов,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_6 }} токенов</strong>,
         1 токен = {{ unit_values_for_S_iter_6 }} экю для Вас,
         1 токен = {{ unit_values_for_R_iter_6 }} экю для Участника 2.
-    {% elif subsession.round_number == 7 %}
-        Вы получили сумму в размере {{ endowment_iter_7 }} токенов,
-        1 токен = {{ unit_values_for_S_iter_7 }} экю для Вас,
-        1 токен = {{ unit_values_for_R_iter_7 }} экю для Участника 2.
-    {% elif subsession.round_number == 8 %}
-        Вы получили сумму в размере {{ endowment_iter_8 }} токенов,
-        1 токен = {{ unit_values_for_S_iter_8 }} экю для Вас,
-        1 токен = {{ unit_values_for_R_iter_8 }} экю для Участника 2.
-    {% elif subsession.round_number == 9 %}
-        Вы получили сумму в размере {{ endowment_iter_9 }} токенов,
-        1 токен = {{ unit_values_for_S_iter_9 }} экю для Вас,
-        1 токен = {{ unit_values_for_R_iter_9 }} экю для Участника 2.
-    {% elif subsession.round_number == 10 %}
-        Вы получили сумму в размере {{ endowment_iter_10 }} токенов,
-        1 токен = {{ unit_values_for_S_iter_10 }} экю для Вас,
-        1 токен = {{ unit_values_for_R_iter_10 }} экю для Участника 2.
-    {% elif subsession.round_number == 11 %}
-        1 токен = {{ unit_values_for_S_iter_11 }} экю для Вас,
-        1 токен = {{ unit_values_for_R_iter_11 }} экю для Участника 2.
-    {% elif subsession.round_number == 12 %}
-        Вы получили сумму в размере {{ endowment_iter_12 }} токенов,
-        1 токен = {{ unit_values_for_S_iter_12 }} экю для Вас,
-        1 токен = {{ unit_values_for_R_iter_12 }} экю для Участника 2.
     {% endif %}
     </p>
 
-    <p>
-        <strong>Вопрос 1.</strong>
-    </p>
+
 
     {% if subsession.round_number == 1 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 75)?'%}
+
+        <p>
+        Пожалуйста, укажите, сколько токенов из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_1 }}).
+        </p>
+        {% formfield group.S_transfer label='Укажите, сколько токенов Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько токенов Вы хотите оставить себе:'%}
+
     {% elif subsession.round_number == 2 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 40)?'%}
+
+        <p>
+        Пожалуйста, укажите, сколько токенов из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_2 }}).
+        </p>
+        {% formfield group.S_transfer label='Укажите, сколько токенов Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько токенов Вы хотите оставить себе:'%}
+
     {% elif subsession.round_number == 3 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 40)?'%}
+
+        <p>
+        Пожалуйста, укажите, сколько токенов из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_3 }}).
+        </p>
+        {% formfield group.S_transfer label='Укажите, сколько токенов Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько токенов Вы хотите оставить себе:'%}
+
     {% elif subsession.round_number == 4 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 60)?'%}
+
+        <p>
+        Пожалуйста, укажите, сколько токенов из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_4 }}).
+        </p>
+        {% formfield group.S_transfer label='Укажите, сколько токенов Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько токенов Вы хотите оставить себе:'%}
+
     {% elif subsession.round_number == 5 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 60)?'%}
+
+        <p>
+        Пожалуйста, укажите, сколько токенов из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_5 }}).
+        </p>
+        {% formfield group.S_transfer label='Укажите, сколько токенов Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько токенов Вы хотите оставить себе:'%}
+
     {% elif subsession.round_number == 6 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 40)?'%}
-    {% elif subsession.round_number == 7 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 100)?'%}
-    {% elif subsession.round_number == 8 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 75)?'%}
-    {% elif subsession.round_number == 9 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 50)?'%}
-    {% elif subsession.round_number == 10 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 100)?'%}
-    {% elif subsession.round_number == 11 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 50)?'%}
-    {% elif subsession.round_number == 12 %}
-        {% formfield group.transfer label='Сколько токенов из суммы, которую Вы получили, Вы хотите отдать Участнику 2 (от 0 до 60)?'%}
+
+        <p>
+        Пожалуйста, укажите, сколько токенов из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_6 }}).
+        </p>
+        {% formfield group.S_transfer label='Укажите, сколько токенов Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько токенов Вы хотите оставить себе:'%}
+
     {% endif %}
 
     <p>
-        <strong>Вопрос 2.</strong>
+        Пожалуйста, нажмите кнопку <strong>Далее</strong>.
     </p>
-
-    {% formfield group.prediction_S label='До какой степени Участнику 2 будет удовлетворен этим предложением? (Оцените по 5-балльной шкале, где 1 - совершенно не удовлетворен, а 5 - вполне удовлетворен)' %}
-
-
-
 
     {% next_button %}
     {% include Constants.instructions_template %}

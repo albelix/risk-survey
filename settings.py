@@ -241,7 +241,6 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['trust_rus_no_reg']
     }
-
 ]
 ### {
 ###     'name': 'ultimatum_non_strategy',

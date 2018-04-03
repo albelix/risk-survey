@@ -2,10 +2,15 @@
 {% load otree %}
 
 {% block title %}
-    Начало раунда
+    {% if subsession.round_number == 1 %}
+        Начало раунда
+    {% else %}
+        Начало нового раунда
+    {% endif%}
 {% endblock %}
 
 {% block content %}
+
     {% if subsession.round_number == 1 %}
         <p>
             После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 1</strong>
@@ -29,30 +34,6 @@
     {% elif subsession.round_number == 6 %}
         <p>
             После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 6</strong>
-        </p>
-    {% elif subsession.round_number == 7 %}
-        <p>
-            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 7</strong>
-        </p>
-    {% elif subsession.round_number == 8 %}
-        <p>
-            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 8</strong>
-        </p>
-    {% elif subsession.round_number == 9 %}
-        <p>
-            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 9</strong>
-        </p>
-    {% elif subsession.round_number == 10 %}
-        <p>
-            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 10</strong>
-        </p>
-    {% elif subsession.round_number == 11 %}
-        <p>
-            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 11</strong>
-        </p>
-    {% elif subsession.round_number == 12 %}
-        <p>
-            После того, как Вы нажмете кнопку <strong>Далее</strong>, начнется <strong>Раунд 12</strong>
         </p>
     {% endif %}
 

@@ -1,0 +1,256 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        Решение Участника 1 в Раунде 1.
+    {% elif subsession.round_number == 2 %}
+        Решение Участника 1 в Раунде 2.
+    {% elif subsession.round_number == 3 %}
+        Решение Участника 1 в Раунде 3.
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+
+   <p>
+    {% if subsession.round_number == 1 %}
+
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_1 }} экю</strong>.
+
+    {% elif subsession.round_number == 2 %}
+
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_2 }} экю</strong>.
+
+    {% elif subsession.round_number == 3 %}
+
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_3 }} экю</strong>.
+
+
+    {% endif %}
+    </p>
+
+    {% if subsession.round_number == 1 %}
+        <p>
+        Как Вы думаете, сколько вернул бы Вам Участник 2,
+        </p>
+        <p>
+        если бы Вы передали ему (10 экю, 20 экю, 30 экю, 40 экю, 50 экю, 60 экю, 70 экю, 80 экю, 90 экю, 100 экю),
+        </p>
+        <p>
+        то есть он получил (30 экю, 60 экю, 90 экю, 120 экю, 150 экю, 180 экю, 210 экю, 240 экю, 270 экю, 300 экю)
+        </p>
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Ваше предложение/ <br> Сумма, полученная Участником 2 </th>
+            <th class="tg-n107">Сколько вернет Участник 2</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 10 экю/  <br> Сумма, полученная Участником 2: 30 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_1 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 20 экю/ <br>Сумма, полученная Участником 2: 60 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_2 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 30 экю/ <br>Сумма, полученная Участником 2: 90 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_3 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 40 экю/ <br>Сумма, полученная Участником 2: 120 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_4 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 50 экю/ <br>Сумма, полученная Участником 2: 150 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_5 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 60 экю/ <br>Сумма, полученная Участником 2: 180 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_6 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 70 экю/ <br>Сумма, полученная Участником 2: 210 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_7 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 80 экю/ <br>Сумма, полученная Участником 2: 240 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_8 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 90 экю/ <br>Сумма, полученная Участником 2: 270 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_9 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 100 экю/ <br>Сумма, полученная Участником 2: 300 экю</td>
+            <td class="tg-pxng">{% formfield group.S_prediction_10 label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 2 %}
+        <p>
+        Как Вы думаете, сколько вернул бы Вам Участник 2,
+        </p>
+        <p>
+        если бы Вы передали ему (5 экю, 10 экю, 15 экю, 20 экю, 25 экю, 30 экю, 35 экю, 40 экю, 45 экю, 50 экю),
+        </p>
+        <p>
+        то есть он получил (15 экю, 30 экю, 45 экю, 60 экю, 75 экю, 90 экю, 105 экю, 120 экю, 135 экю, 150 экю)
+        </p>
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Ваше предложение/ <br> Сумма, полученная Участником 2 </th>
+            <th class="tg-n107">Сколько вернет Участник 2</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 5 экю/  <br> Сумма, полученная Участником 2: 15 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_1 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 10 экю/ <br>Сумма, полученная Участником 2: 30 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_2 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 15 экю/ <br>Сумма, полученная Участником 2: 45 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_3 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 20 экю/ <br>Сумма, полученная Участником 2: 60 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_4 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 25 экю/ <br>Сумма, полученная Участником 2: 75 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_5 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 30 экю/ <br>Сумма, полученная Участником 2: 90 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_6 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 35 экю/ <br>Сумма, полученная Участником 2: 105 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_7 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 40 экю/ <br>Сумма, полученная Участником 2: 120 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_8 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 45 экю/ <br>Сумма, полученная Участником 2: 135 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_9 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 50 экю/ <br>Сумма, полученная Участником 2: 150 экю</td>
+            <td class="tg-pxng">{% formfield group.S_prediction_10 label=""%}</td>
+          </tr>
+        </table>
+    {% elif subsession.round_number == 3 %}
+        <p>
+        Как Вы думаете, сколько вернул бы Вам Участник 2,
+        </p>
+        <p>
+        если бы Вы передали ему (10 экю, 20 экю, 30 экю, 40 экю, 50 экю, 60 экю, 70 экю, 80 экю, 90 экю, 100 экю),
+        </p>
+        <p>
+        то есть он получил (15 экю, 30 экю, 45 экю, 60 экю, 75 экю, 90 экю, 105 экю, 120 экю, 135 экю, 150 экю)
+        </p>
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+        .tg .tg-n107{background-color:#68cbd0;color:#000000;vertical-align:top}
+        .tg .tg-fox7{background-color:#68cbd0;color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kixb{background-color:#ffffff;color:#000000;vertical-align:top}
+        .tg .tg-pxng{background-color:#ffffff;color:#000000;vertical-align:top}
+        </style>
+        <table class="tg" style="undefined;table-layout: fixed; width: 619px">
+        <colgroup>
+        <col style="width: 323px">
+        <col style="width: 296px">
+        </colgroup>
+          <tr>
+            <th class="tg-fox7">Ваше предложение/ <br>Сумма, полученная Участником 2 </th>
+            <th class="tg-n107">Сколько вернет Участник 2</th>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 10 экю/  <br> Сумма, полученная Участником 2: 15 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_1 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 20 экю/ <br>Сумма, полученная Участником 2: 30 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_2 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 30 экю/ <br>Сумма, полученная Участником 2: 45 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_3 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 40 экю/ <br>Сумма, полученная Участником 2: 60 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_4 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 50 экю/ <br>Сумма, полученная Участником 2: 75 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_5 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 60 экю/ <br>Сумма, полученная Участником 2: 90 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_6 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 70 экю/ <br>Сумма, полученная Участником 2: 105 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_7 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 80 экю/ <br>Сумма, полученная Участником 2: 120 экю </td>
+            <td class="tg-pxng">{% formfield group.S_prediction_8 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-kixb"> Ваше предложение: 90 экю/ <br>Сумма, полученная Участником 2: 135 экю </td>
+            <td class="tg-kixb">{% formfield group.S_prediction_9 label=""%}</td>
+          </tr>
+          <tr>
+            <td class="tg-pxng"> Ваше предложение: 100 экю/ <br>Сумма, полученная Участником 2: 150 экю</td>
+            <td class="tg-pxng">{% formfield group.S_prediction_10 label=""%}</td>
+          </tr>
+        </table>
+    {% endif %}
+
+
+    <p>
+        Пожалуйста, нажмите кнопку <strong>Далее</strong>.
+    </p>
+
+
+    <p>
+    {% next_button %}
+    </p>
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

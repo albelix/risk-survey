@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        Решение Участника 1 в Раунде 1.
+    {% elif subsession.round_number == 2 %}
+        Решение Участника 1 в Раунде 2.
+    {% elif subsession.round_number == 3 %}
+        Решение Участника 1 в Раунде 3.
+    {% elif subsession.round_number == 4 %}
+        Решение Участника 1 в Раунде 4.
+    {% elif subsession.round_number == 5 %}
+        Решение Участника 1 в Раунде 5.
+    {% elif subsession.round_number == 6 %}
+        Решение Участника 1 в Раунде 6.
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_1 }} токенов</strong>,
+        1 токен = {{ unit_values_for_S_iter_1 }} экю для Вас,
+        1 токен = {{ unit_values_for_R_iter_1 }} экю для Участника 2.
+    {% elif subsession.round_number == 2 %}
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_2 }} токенов</strong>,
+        1 токен = {{ unit_values_for_S_iter_2 }} экю для Вас,
+        1 токен = {{ unit_values_for_R_iter_2 }} экю для Участника 2.
+    {% elif subsession.round_number == 3 %}
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_3 }} токенов</strong>,
+        1 токен = {{ unit_values_for_S_iter_3 }} экю для Вас,
+        1 токен = {{ unit_values_for_R_iter_3 }} экю для Участника 2.
+    {% elif subsession.round_number == 4 %}
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_4 }} токенов</strong>,
+        1 токен = {{ unit_values_for_S_iter_4 }} экю для Вас,
+        1 токен = {{ unit_values_for_R_iter_4 }} экю для Участника 2.
+    {% elif subsession.round_number == 5 %}
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_5 }} токенов</strong>,
+        1 токен = {{ unit_values_for_S_iter_5 }} экю для Вас,
+        1 токен = {{ unit_values_for_R_iter_5 }} экю для Участника 2.
+    {% elif subsession.round_number == 6 %}
+        <strong>Напоминание:</strong> в текущем раунде Вы получили <strong>{{ endowment_iter_6 }} токенов</strong>,
+        1 токен = {{ unit_values_for_S_iter_6 }} экю для Вас,
+        1 токен = {{ unit_values_for_R_iter_6 }} экю для Участника 2.
+    {% endif %}
+    </p>
+
+
+
+    {% formfield group.S_prediction label='Как Вы думаете, какой МИНИМАЛЬНОЙ суммой, которую Вы можете передать Участнику 2 в текущем раунде, этот участник будет удовлетворен?' %}
+
+
+    <p>
+        Пожалуйста, нажмите кнопку <strong>Далее</strong>.
+    </p>
+
+    {% next_button %}
+    {% include Constants.instructions_template %}
+
+{% endblock %}
