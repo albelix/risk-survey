@@ -12,7 +12,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'roshambo_single'
+    name_in_url = 'rocscipap'
     players_per_group = None
     num_rounds = 15
     beta = 0.5
