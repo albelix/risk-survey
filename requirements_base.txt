@@ -20,7 +20,6 @@ daphne==0.14.3
 decorator==4.2.1
 defer==1.0.6
 dj-database-url==0.4.1
-Django==1.11.2
 django-countries==4.0
 django-floppyforms==1.7.0
 django-idmap==1.0.3
@@ -59,7 +58,7 @@ onboard==1.2.0
 oneconf==0.3.9
 otree==2.0.22
 otree-boto2-shim==0.3.2
-otree-core==0.0.0b1
+otree
 otree-save-the-change==1.1.3
 ovmm==0.2.2
 padme==1.1.1

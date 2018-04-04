@@ -367,6 +367,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus']
     },
     {
+    'name': 'roshambo_single',
+    'display_name': "roshambo_single",
+    'num_demo_participants': 12,
+    'app_sequence': ['roshambo_single']
+    },
+    {
         'name': 'dictator_rus_no_reg',
         'display_name': "Dictator Game no Regions",
         'num_demo_participants': 2,
