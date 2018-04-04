@@ -116,8 +116,8 @@ class Group(BaseGroup):
         treatment_num = self.session.vars[treatment_key]
 
         # define the prediction payoffs (tokens)
-        self.S_prediction_payoff_tokens = round(Constants.endowments_list[treatment_num]*(1-((self.S_prediction - self.R_min_offer)/Constants.endowments_list[treatment_num])**2), 2)
-        self.R_prediction_payoff_tokens = round(Constants.endowments_list[treatment_num]*(1-((self.R_prediction - self.S_transfer)/Constants.endowments_list[treatment_num])**2),2)
+        self.S_prediction_payoff_tokens = round((Constants.endowments_list[treatment_num]/2)*(1-abs((self.S_prediction - self.R_min_offer)/Constants.endowments_list[treatment_num])), 2)
+        self.R_prediction_payoff_tokens = round((Constants.endowments_list[treatment_num]/2)*(1-abs((self.R_prediction - self.S_transfer)/Constants.endowments_list[treatment_num])),2)
 
 
         # define the prediction payoffs (ecu)

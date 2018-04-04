@@ -116,10 +116,10 @@ class Group(BaseGroup):
         self.S_prediction = list_with_S_predictions[closest_offer_counter]
 
 
-        self.S_prediction_payoff = round(Constants.endowments_list[self.round_number - 1] * (1 - ((self.S_prediction - self.R_transfer)/Constants.endowments_list[self.round_number - 1]) ** 2), 2)
+        self.S_prediction_payoff = round((Constants.endowments_list[self.round_number - 1]/2) * (1 - abs((self.S_prediction - self.R_transfer)/self.mult_transfer)), 2)
 
         # closeness for R predictions about how much S will transfer
-        self.R_prediction_payoff = round(Constants.endowments_list[self.round_number - 1] * (1 - ((self.R_prediction - self.S_transfer)/Constants.endowments_list[self.round_number - 1]) ** 2), 2)
+        self.R_prediction_payoff = round((Constants.endowments_list[self.round_number - 1]/2) * (1 - abs((self.R_prediction - self.S_transfer)/Constants.endowments_list[self.round_number - 1])), 2)
 
 
 

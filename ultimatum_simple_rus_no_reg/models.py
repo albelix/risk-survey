@@ -71,8 +71,8 @@ class Group(BaseGroup):
     R_prediction_payoff = models.FloatField()
 
     def prediction_payoffs(self):
-        self.S_prediction_payoff = round(Constants.endowments_list[self.round_number - 1] * (1 - ((self.S_prediction - self.R_min_acceptance)/Constants.endowments_list[self.round_number - 1]) ** 2),2)
-        self.R_prediction_payoff = round(Constants.endowments_list[self.round_number - 1] * (1 - ((self.R_prediction - self.S_transfer)/Constants.endowments_list[self.round_number - 1]) ** 2),2)
+        self.S_prediction_payoff = round((Constants.endowments_list[self.round_number - 1]/2) * (1 - abs((self.S_prediction - self.R_min_acceptance)/Constants.endowments_list[self.round_number - 1])),2)
+        self.R_prediction_payoff = round((Constants.endowments_list[self.round_number - 1]/2) * (1 - abs((self.R_prediction - self.S_transfer)/Constants.endowments_list[self.round_number - 1])),2)
 
 
     # set paying round attributes

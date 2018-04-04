@@ -127,18 +127,161 @@ ROOM_DEFAULTS = {}
 
 ROOMS = [
     {
-        'name': 'lab35',
-        'display_name': 'Эксперимент',
-        'participant_label_file': 'PlayerList35.txt',
+        'name': 'lab2',
+        'display_name': 'p2',
+        'participant_label_file': 'PlayerList2.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab3',
+        'display_name': 'p3',
+        'participant_label_file': 'PlayerList3.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab4',
+        'display_name': 'p4',
+        'participant_label_file': 'PlayerList4.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab5',
+        'display_name': 'p5',
+        'participant_label_file': 'PlayerList5.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab6',
+        'display_name': 'p6',
+        'participant_label_file': 'PlayerList6.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab8',
+        'display_name': 'p8',
+        'participant_label_file': 'PlayerList8.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab9',
+        'display_name': 'p9',
+        'participant_label_file': 'PlayerList9.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab10',
+        'display_name': 'p10',
+        'participant_label_file': 'PlayerList10.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab12',
+        'display_name': 'p12',
+        'participant_label_file': 'PlayerList12.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab15',
+        'display_name': 'p15',
+        'participant_label_file': 'PlayerList15.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab16',
+        'display_name': 'p16',
+        'participant_label_file': 'PlayerList16.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab18',
+        'display_name': 'p18',
+        'participant_label_file': 'PlayerList18.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab20',
+        'display_name': 'p20',
+        'participant_label_file': 'PlayerList20.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab24',
+        'display_name': 'p24',
+        'participant_label_file': 'PlayerList24.txt',
         'use_secure_urls': False,
     },
     {
         'name': 'lab25',
-        'display_name': 'CUSB_0318_25',
+        'display_name': 'p25',
         'participant_label_file': 'PlayerList25.txt',
         'use_secure_urls': False,
     },
-
+    {
+        'name': 'lab28',
+        'display_name': 'p28',
+        'participant_label_file': 'PlayerList28.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab30',
+        'display_name': 'p30',
+        'participant_label_file': 'PlayerList30.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab32',
+        'display_name': 'p32',
+        'participant_label_file': 'PlayerList32.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab35',
+        'display_name': 'p35',
+        'participant_label_file': 'PlayerList35.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab36',
+        'display_name': 'p36',
+        'participant_label_file': 'PlayerList36.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab40',
+        'display_name': 'p40',
+        'participant_label_file': 'PlayerList40.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab42',
+        'display_name': 'p42',
+        'participant_label_file': 'PlayerList42.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab45',
+        'display_name': 'p48',
+        'participant_label_file': 'PlayerList45.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab48',
+        'display_name': 'p48',
+        'participant_label_file': 'PlayerList48.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab50',
+        'display_name': 'p50',
+        'participant_label_file': 'PlayerList50.txt',
+        'use_secure_urls': False,
+    },
+    {
+        'name': 'lab52',
+        'display_name': 'p52',
+        'participant_label_file': 'PlayerList52.txt',
+        'use_secure_urls': False,
+    },
 ]
 
 
