@@ -46,7 +46,7 @@ class Player(BasePlayer):
     cum_payoff_comp_second = models.FloatField()
 
     def randome_move_solver(self):
-        self.randome_move = random.uniform(0, 1)
+        self.randome_move = random.uniform(0,1)
 
         # for result 0 = tie 2 = win 1 = loose
 
@@ -104,10 +104,10 @@ class Player(BasePlayer):
     def comp_move_solver(self):
         if self.round_number > 1:
             if self.randome_move >= Constants.beta:
-                self.comp_move = (self.in_round(self.round_number - 1).comp_move + self.in_round(self.round_number - 1).result) % 3
+                self.comp_move = (self.in_round(self.round_number - 1).comp_move + self.in_round(self.round_number - 1).result)%3
             else:
-                self.comp_move = random.randint(0, 2)
+                self.comp_move = random.randint(0,2)
         else:
-            self.comp_move = random.randint(0, 2)
+            self.comp_move = random.randint(0,2)
 
 
