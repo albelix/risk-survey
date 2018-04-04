@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+   Результаты раунда
+{% endblock %}
+
+{% block content %}
+<p>
+        Компьютер выбрал <strong>{{ player.comp_move_text }}</strong>,
+        В этом раунде Вы  <strong>{{ player.result_text }}</strong>,
+        </p>
+<p>
+        Ваш счет за все раунды  {{ cumulative_hum_payoff }}
+        Счет компьютера за все раунды {{ player.cum_payoff_comp_second }}
+        текущий номер раунда {{a}}
+        </p>
+    {% next_button %}
+{% endblock %}
+
+
