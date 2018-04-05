@@ -71,8 +71,6 @@ class Player(BasePlayer):
             self.cum_payoff_comp = 1
             self.cum_payoff_hum = 0
 
-
-
     def set_cum_payoff(self):
         cum_payoff = 0
         for i in range(self.round_number):
@@ -87,7 +85,7 @@ class Player(BasePlayer):
 
     def result_text_solver(self):
         if self.result == 0:
-            self.result_text = 'сыграли в ничью'
+            self.result_text = 'сыграли вничью'
         elif self.result == 2:
             self.result_text = 'выиграли'
         else:
@@ -102,7 +100,7 @@ class Player(BasePlayer):
             self.comp_move_text = 'ножницы'
 
     def comp_move_solver(self):
-        if self.round_number > 1:
+        if self.round_number >= 2:
             if self.randome_move >= Constants.beta:
                 self.comp_move = (self.in_round(self.round_number - 1).comp_move + self.in_round(self.round_number - 1).result)%3
             else:
