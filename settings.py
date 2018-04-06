@@ -368,10 +368,10 @@ SESSION_CONFIGS = [
         'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus']
     },
     {
-        'name': 'rocscipap',
+        'name': 'roshambo_single',
         'display_name': "RSP",
-        'num_demo_participants': 12,
-        'app_sequence': ['rocscipap']
+        'num_demo_participants': 1,
+        'app_sequence': ['roshambo_single', 'survey_rps']
     },
     {
         'name': 'dictator_rus_no_reg',
