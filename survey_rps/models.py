@@ -44,7 +44,7 @@ class Player(BasePlayer):
                                          min=100, max=240,
                                          initial=None)
 
-    guess = models.PositiveIntegerField(verbose_name='загатайте целое число от 1 до 10',
+    guess = models.PositiveIntegerField(verbose_name='загадайте целое число от 1 до 10',
                                       min=0, max=10,
                                       initial=None)
 
