@@ -48,11 +48,11 @@ class Player(BasePlayer):
                                       min=0, max=10,
                                       initial=None)
 
-    city = models.PositiveIntegerField(
-        verbose_name='''
-    Сколько человек (приблизительно) проживало в том населенном пункте, где Вы жили в возрасте 16 лет.''',
-        min=1, max=30000000,
-        initial=None)
+    # city = models.PositiveIntegerField(
+    #     verbose_name='''
+    # Сколько человек (приблизительно) проживало в том населенном пункте, где Вы жили в возрасте 16 лет.''',
+    #     min=1, max=30000000,
+    #     initial=None)
 
     math = models.PositiveIntegerField(
         verbose_name='''как вы оцениваете свои знания в математике»)''',
@@ -79,10 +79,9 @@ class Player(BasePlayer):
         verbose_name='''Как вы считаете, пользовался ли компьютер конкретным алгоритмом (да\нет\не знаю)? Если вы заметили какую-либо закономерность в работе программы, пожалуйста опишите её.'''
     )
 
-    univ = models.StringField(
-        verbose_name='''Укажите ВУЗ, в котором Вы получили Ваше наивысшее образование.'''
-    )
-
+    # univ = models.StringField(
+    #     verbose_name='''Укажите ВУЗ, в котором Вы получили Ваше наивысшее образование.'''
+    # )
 
 
     satis = models.PositiveIntegerField(
