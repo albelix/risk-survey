@@ -15,7 +15,7 @@ class Constants(BaseConstants):
     name_in_url = 'roshambo_single'
     players_per_group = None
     num_rounds = 100
-    beta = 0.4
+    beta = 0.6
 
 class Subsession(BaseSubsession):
     pass
