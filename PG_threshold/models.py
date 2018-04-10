@@ -16,7 +16,7 @@ class Constants(BaseConstants):
     num_rounds = 8
     endowment = c(100)
     lumpsum = c(160)
-    threshold = c(2400)
+    threshold = c(3600) #c(2400)
     efficiency_factor = 2
     contribution_limits = currency_range(0, endowment, 1) #define range of contribs
 
