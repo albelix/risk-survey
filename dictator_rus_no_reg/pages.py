@@ -3,7 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class Introduction(Page):
+class Intro(Page):
     pass
 
 
@@ -12,6 +12,38 @@ class Introduction(Page):
 class NormWaitPage(WaitPage):
     pass
 
+
+
+
+class S_quiz(Page):
+
+    form_model = 'group'
+    form_fields = ['S_quiz_1', 'S_quiz_2']
+
+    def error_message(self, values):
+
+        if (values["S_quiz_1"] != 120 or values["S_quiz_2"] != 60)  :
+            return 'К сожалению, Вы дали неверный ответ. Пожалуйста, прочитайте инструкции еще раз.'
+
+    def is_displayed(self):
+        return (self.player.id_in_group == 1 and self.round_number == 1)
+
+
+
+
+
+
+class R_quiz(Page):
+
+    form_model = 'group'
+    form_fields = ['R_quiz_1', 'R_quiz_2', 'R_quiz_3', 'R_quiz_4']
+
+    def error_message(self, values):
+        if (values["R_quiz_1"] != 120 or values["R_quiz_2"] != 60 or values["R_quiz_3"] != 45 or values["R_quiz_4"] != 95):
+            return 'К сожалению, Вы дали неверный ответ. Пожалуйста, прочитайте инструкции еще раз.'
+
+    def is_displayed(self):
+        return (self.player.id_in_group == 2 and self.round_number == 1)
 
 
 
@@ -220,7 +252,10 @@ class R_final_results(Page):
 
 
 page_sequence = [
-    Introduction,
+    Intro,
+    NormWaitPage,
+    S_quiz,
+    R_quiz,
     NormWaitPage,
     S_offer,
     S_prediction,

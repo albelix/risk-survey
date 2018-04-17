@@ -331,6 +331,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['PG_standard', 'PG_threshold', 'my_survey'],         #'use_browser_bots': False
     },
     {
+        'name': 'PG_threshold',
+        'display_name': "Threshold game - admin",
+        'num_demo_participants': 5,
+        'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
+    },
+    {
         'name': 'Russian_games',
         'display_name': "Dict-Ultim-Trust Games in Russian",
         'num_demo_participants': 4,

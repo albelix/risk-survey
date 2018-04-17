@@ -39,6 +39,26 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
 
+    # quiz
+
+    S_quiz_1 = models.IntegerField()
+    S_quiz_2 = models.IntegerField()
+    S_quiz_3 = models.IntegerField()
+    S_quiz_4 = models.IntegerField()
+    S_quiz_5 = models.IntegerField()
+    S_quiz_6 = models.IntegerField()
+    S_quiz_7 = models.IntegerField()
+    S_quiz_8 = models.IntegerField()
+
+    R_quiz_1 = models.IntegerField()
+    R_quiz_2 = models.IntegerField()
+    R_quiz_3 = models.IntegerField()
+    R_quiz_4 = models.IntegerField()
+    R_quiz_5 = models.IntegerField()
+    R_quiz_6 = models.IntegerField()
+    R_quiz_7 = models.IntegerField()
+    R_quiz_8 = models.IntegerField()
+
     # S answers
 
     S_transfer = models.IntegerField(min=0)

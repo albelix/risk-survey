@@ -16,7 +16,7 @@ class Constants(BaseConstants):
     num_rounds = 8
     endowment = c(100)
     lumpsum = c(160)
-    threshold = c(3600) #c(2400)
+    threshold = c(3000) #c(2400)
     efficiency_factor = 2
     contribution_limits = currency_range(0, endowment, 1) #define range of contribs
 
@@ -27,6 +27,9 @@ class Subsession(BaseSubsession):
         for p in self.get_players():
             Group.flood = randint(1, Constants.threshold)/Constants.threshold
 
+    def vars_for_admin_report(self):
+        rollingshares = sorted([p.current_share for p in self.group.set_payoffs()])
+        return {'rollingshares': rollingshares}
 
 class Group(BaseGroup):
     total_contribution = models.CurrencyField()

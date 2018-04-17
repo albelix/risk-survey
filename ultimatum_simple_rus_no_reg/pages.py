@@ -12,6 +12,41 @@ class NormWaitPage(WaitPage):
     pass
 
 
+class S_quiz(Page):
+
+    form_model = 'group'
+    form_fields = ['S_quiz_1', 'S_quiz_2', 'S_quiz_3', 'S_quiz_4', 'S_quiz_5', 'S_quiz_6', 'S_quiz_7', 'S_quiz_8', ]
+
+    def error_message(self, values):
+
+        if (values["S_quiz_1"] != 0 or values["S_quiz_2"] != 0 or
+            values["S_quiz_3"] != 25 or values["S_quiz_4"] != 25 or
+            values["S_quiz_5"] != 50 or values["S_quiz_6"] != 50 or
+            values["S_quiz_7"] != 40 or values["S_quiz_8"] != 90)  :
+            return 'К сожалению, Вы дали неверный ответ. Пожалуйста, прочитайте инструкции еще раз.'
+
+    def is_displayed(self):
+        return (self.player.id_in_group == 1 and self.round_number == 1)
+
+
+
+class R_quiz(Page):
+
+    form_model = 'group'
+    form_fields = ['R_quiz_1', 'R_quiz_2', 'R_quiz_3', 'R_quiz_4', 'R_quiz_5', 'R_quiz_6', 'R_quiz_7', 'R_quiz_8', ]
+
+    def error_message(self, values):
+
+        if (values["R_quiz_1"] != 0 or values["R_quiz_2"] != 0 or
+            values["R_quiz_3"] != 25 or values["R_quiz_4"] != 25 or
+            values["R_quiz_5"] != 50 or values["R_quiz_6"] != 50 or
+            values["R_quiz_7"] != 40 or values["R_quiz_8"] != 90)  :
+            return 'К сожалению, Вы дали неверный ответ. Пожалуйста, прочитайте инструкции еще раз.'
+
+    def is_displayed(self):
+        return (self.player.id_in_group == 2 and self.round_number == 1)
+
+
 
 class S_offer(Page):
 
@@ -142,6 +177,9 @@ class R_final_results(Page):
 
 page_sequence = [
     Intro,
+    NormWaitPage,
+    S_quiz,
+    R_quiz,
     NormWaitPage,
     S_offer,
     S_prediction,
