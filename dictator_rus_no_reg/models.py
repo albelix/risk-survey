@@ -51,6 +51,59 @@ class Subsession(BaseSubsession):
             self.session.vars['treatment_6'] = random_order_list[5]
 
 
+
+            #regroup players: those (a half) who enter first are 1st players(S), others -- 2nd(R)
+            matrix_to_get = self.get_group_matrix()
+            matrix_to_set = []
+            senders_list = []
+            receivers_list =[]
+
+            if len(matrix_to_get) % 2 == 0:
+                for i in range(int(len(matrix_to_get)/2)):
+                    for p in range(2):
+                        senders_list.append(matrix_to_get[i][p])
+                for i in range(int(len(matrix_to_get)/2), len(matrix_to_get)):
+                    for p in range(2):
+                        receivers_list.append(matrix_to_get[i][p])
+
+                shuffle(senders_list)
+                shuffle(receivers_list)
+
+                for i in range(len(matrix_to_get)):
+                    group = [senders_list[i], receivers_list[i]]
+                    matrix_to_set.append(group)
+
+
+                self.set_group_matrix(matrix_to_set)
+
+            if len(matrix_to_get) % 2 != 0:
+                for i in range(int((len(matrix_to_get) - 1) / 2)):
+                    for p in range(2):
+                        senders_list.append(matrix_to_get[i][p])
+
+                i = int((len(matrix_to_get) - 1) / 2)
+                senders_list.append(matrix_to_get[i][0])
+                receivers_list.append(matrix_to_get[i][1])
+
+                for i in range(int((len(matrix_to_get) + 1) / 2), len(matrix_to_get)):
+                    for p in range(2):
+                        receivers_list.append(matrix_to_get[i][p])
+
+                shuffle(senders_list)
+                shuffle(receivers_list)
+
+                for i in range(len(matrix_to_get)):
+                    group = [senders_list[i], receivers_list[i]]
+                    matrix_to_set.append(group)
+
+                self.set_group_matrix(matrix_to_set)
+
+        else:
+            self.group_like_round(1)
+
+
+
+
 class Group(BaseGroup):
 
     #quiz

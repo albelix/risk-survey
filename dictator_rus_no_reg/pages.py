@@ -1,4 +1,3 @@
-from dictator_rus.pages import Introduction
 from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
@@ -253,7 +252,7 @@ class R_final_results(Page):
 
 
 page_sequence = [
-    Introduction,
+    Intro,
     NormWaitPage,
     S_quiz,
     R_quiz,
