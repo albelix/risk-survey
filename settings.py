@@ -307,10 +307,10 @@ SESSION_CONFIGS = [
         'app_sequence': ['guess_two_thirds', 'payment_info'],
     },
     {
-        'name': 'survey',
-        'display_name': "Survey",
+        'name': 'my_survey',
+        'display_name': "Survey large",
         'num_demo_participants': 1,
-        'app_sequence': ['survey', 'payment_info'],
+        'app_sequence': ['my_survey', 'payment_info'],
     },
     {
         'name': 'quiz',
@@ -383,19 +383,19 @@ SESSION_CONFIGS = [
         'name': 'dictator_rus_no_reg',
         'display_name': "Dictator Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['dictator_rus_no_reg']
+        'app_sequence': ['dictator_rus_no_reg', 'my_survey']
     },
     {
         'name': 'ultimatum_simple_rus_no_reg',
         'display_name': "Ultimatum Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg']
+        'app_sequence': ['ultimatum_simple_rus_no_reg','my_survey']
     },
     {
         'name': 'trust_rus_no_reg',
         'display_name': "Trust Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['trust_rus_no_reg']
+        'app_sequence': ['trust_rus_no_reg','my_survey']
     }
 ]
 ### {

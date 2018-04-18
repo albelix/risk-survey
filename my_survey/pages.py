@@ -10,9 +10,17 @@ class MyPage(Page):
                    'gender',
                    'height',
                    'city',
+                   'yearsinmsc',
                    'univ',
+                   'study',
+                   'riskat',
+                   'income',
                    'satis',
-                   'trust']
+                   'trust',
+                   'freedom',
+                   'leftright',
+                   'owner',
+                   'democracy']
 
 
 # class City(Page):
