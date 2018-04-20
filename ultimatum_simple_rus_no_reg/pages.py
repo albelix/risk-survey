@@ -159,10 +159,15 @@ class ResultsWaitPage(WaitPage):
         self.group.prediction_payoffs()
         self.group.set_paying_round_attributes()
         self.group.set_final_payoffs()
+        self.group.set_payoffs_in_rub()
 
 
 
 class S_final_results(Page):
+
+    # def vars_for_template(self):
+    #     p1 = self.get_players()[0]
+    #     return { "final_payoff" : self.p1.payoff}
 
     def is_displayed(self):
         return (self.player.id_in_group == 1 and self.round_number == 3)

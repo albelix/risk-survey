@@ -143,6 +143,20 @@ class Group(BaseGroup):
             self.S_final_prediction_payoff = self.in_round(self.paying_round_num).S_prediction_payoff
             self.R_final_prediction_payoff = self.in_round(self.paying_round_num).R_prediction_payoff
 
+    # set final payoffs in rub
+
+    def set_payoffs_in_rub(self):
+        if self.round_number < self.paying_round_num:
+            for p in self.get_players():
+                p.payoff = c(0)
+
+        if self.round_number >= self.paying_round_num:
+            p1, p2 = self.get_players()[0], self.get_players()[1]
+            p1.payoff = c((self.S_final_payoff + self.S_final_prediction_payoff)*5) + c(150)
+            p2.payoff = c((self.R_final_payoff + self.R_final_prediction_payoff) * 5) + c(150)
+
+
+
 
 
 

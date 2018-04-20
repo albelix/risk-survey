@@ -15,7 +15,7 @@
 
     <p>
         В качестве оплачиваемого раунда случайным образом был выбран <strong> Раунд {{ group.paying_round_num }}</strong>,
-        в начале которого Вы получили <strong>{{ group.pie_size_final }} экю</strong>.
+        в начале которого Вы получили <strong>{{ group.pie_size_final }} ECU</strong>.
 
     </p>
 
@@ -23,34 +23,38 @@
     {% if group.S_transfer_final >= group.R_min_acceptance_final %}
 
         <p>
-            Вы передали <strong>{{ group.S_transfer_final}} экю</strong> Участнику 2.
+            Вы передали <strong>{{ group.S_transfer_final}} ECU</strong> Участнику 2.
             Участник 2 принял Ваше предложение,
-            поэтому Вы получили <strong>{{ group.S_final_payoff }} экю</strong>,
-            Участник 2 получил <strong>{{ group.R_final_payoff}} экю</strong>.
+            поэтому Вы получили <strong>{{ group.S_final_payoff }} ECU</strong>,
+            Участник 2 получил <strong>{{ group.R_final_payoff}} ECU</strong>.
         </p>
 
         <p>
-            Также Вы ожидали, что Участник 2 примет минимальную сумму в размере {{ group.S_prediction_final  }} экю,
-            Участник 2 указал, что он примет минимальную сумму в размере {{ group.R_min_acceptance_final }} экю;
-            поэтому по итогам Вашего прогноза Вы получаете  <strong>{{ group.S_final_prediction_payoff}} экю</strong>.
+            Также Вы ожидали, что Участник 2 примет минимальную сумму в размере {{ group.S_prediction_final  }} ECU,
+            Участник 2 указал, что он примет минимальную сумму в размере {{ group.R_min_acceptance_final }} ECU;
+            поэтому по итогам Вашего прогноза Вы получаете  <strong>{{ group.S_final_prediction_payoff}} ECU</strong>.
         </p>
 
     {% else %}
 
         <p>
-            Вы передали <strong>{{ group.S_transfer_final}} экю</strong> Участнику 2.
+            Вы передали <strong>{{ group.S_transfer_final}} ECU</strong> Участнику 2.
             Участник 2 не принял Ваше предложение,
-            поэтому Вы получили <strong>0 экю</strong>,
-            Участник 1 тоже получил <strong>0 экю</strong>.
+            поэтому Вы получили <strong>0 ECU</strong>,
+            Участник 1 тоже получил <strong>0 ECU</strong>.
         </p>
 
         <p>
-            Однако Вы ожидали, что Участник 2 примет минимальную сумму в размере {{ group.S_prediction_final  }} экю,
-            Участник 2 указал, что он примет минимальную сумму в размере {{ group.R_min_acceptance_final }} экю;
-            по итогам Вашего прогноза Вы получаете  <strong>{{ group.S_final_prediction_payoff}} экю</strong>.
+            Однако Вы ожидали, что Участник 2 примет минимальную сумму в размере {{ group.S_prediction_final  }} ECU,
+            Участник 2 указал, что он примет минимальную сумму в размере {{ group.R_min_acceptance_final }} ECU;
+            по итогам Вашего прогноза Вы получаете  <strong>{{ group.S_final_prediction_payoff}} ECU</strong>.
         </p>
 
     {% endif %}
+
+    <p>
+        По итогам всей экспериментальной сессии Вы получаете <strong>{{ player.payoff }}</strong>.
+    </p>
 
     <p>
         Пожалуйста, нажмите кнопку <strong>Далее</strong>.

@@ -20,37 +20,37 @@
 
     <p>
     {% if subsession.round_number == 1 %}
-        В текущем раунде Вы получили <strong>{{ endowment_iter_1 }} экю</strong>,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_1 }} ECU</strong>,
     {% elif subsession.round_number == 2 %}
-        В текущем раунде Вы получили <strong>{{ endowment_iter_2 }} экю</strong>,
+        В текущем раунде Вы получили <strong>{{ endowment_iter_2 }} ECU</strong>,
     {% elif subsession.round_number == 3 %}
-        В текущем раунде Вы получили <strong>{{ endowment_iter_3 }} экю</strong>.
+        В текущем раунде Вы получили <strong>{{ endowment_iter_3 }} ECU</strong>.
     {% endif %}
     </p>
 
     {% if subsession.round_number == 1 %}
 
         <p>
-        Пожалуйста, укажите, сколько экю из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_1 }}).
+        Пожалуйста, укажите, сколько ECU из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_1 }}).
         </p>
-        {% formfield group.S_transfer label='Укажите, сколько экю Вы хотите отдать Участнику 2:'%}
-        {% formfield group.S_self_part label='Укажите, сколько экю Вы хотите оставить себе:'%}
+        {% formfield group.S_transfer label='Укажите, сколько ECU Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько ECU Вы хотите оставить себе:'%}
 
     {% elif subsession.round_number == 2 %}
 
         <p>
-        Пожалуйста, укажите, сколько экю из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_2 }}).
+        Пожалуйста, укажите, сколько ECU из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_2 }}).
         </p>
-        {% formfield group.S_transfer label='Укажите, сколько экю Вы хотите отдать Участнику 2:'%}
-        {% formfield group.S_self_part label='Укажите, сколько экю Вы хотите оставить себе:'%}
+        {% formfield group.S_transfer label='Укажите, сколько ECU Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько ECU Вы хотите оставить себе:'%}
 
     {% elif subsession.round_number == 3 %}
 
         <p>
-        Пожалуйста, укажите, сколько экю из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_3 }}).
+        Пожалуйста, укажите, сколько ECU из суммы, которую Вы получили в текущем раунде, Вы хотите отдать Участнику 2 (от 0 до {{ endowment_iter_3 }}).
         </p>
-        {% formfield group.S_transfer label='Укажите, сколько экю Вы хотите отдать Участнику 2:'%}
-        {% formfield group.S_self_part label='Укажите, сколько экю Вы хотите оставить себе:'%}
+        {% formfield group.S_transfer label='Укажите, сколько ECU Вы хотите отдать Участнику 2:'%}
+        {% formfield group.S_self_part label='Укажите, сколько ECU Вы хотите оставить себе:'%}
 
     {% endif %}
 
