@@ -15,6 +15,7 @@ DEBUG = False
 # else:
 # DEBUG = True
 
+
 # don't share this with anybody.
 SECRET_KEY = '+2ie+=9*vj3zo@c)n5w75ap3ouyw#rcw@r-dt3uf&rvr&j4hbg'
 
@@ -117,6 +118,23 @@ mturk_hit_settings = {
     'qualification_requirements': []
 }
 
+
+## THIS IS NEEDED FOR TZHUR EXPERIMENT
+
+# CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
+# CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
+# CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+#CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_base_IT.routing.channel_routing'
+CHANNEL_ROUTING = 'bribery_effort_base_RU.routing.channel_routing'
+CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_info_IT.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
@@ -286,6 +304,10 @@ ROOMS = [
 
 ALLOWED_HOSTS=['*']
 
+# CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
+# CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
+
+
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 1.00,
     'participation_fee': 0.00,
@@ -294,6 +316,18 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
+    {
+        'name': 'bribery_effort_base_RU',
+        'display_name': "bribery_effort_base_RU",
+        'num_demo_participants': 3,
+        'app_sequence': ['bribery_effort_base_RU', 'payment_info'],
+    },
+    {
+        'name': 'bribery_effort_info_RU',
+        'display_name': "bribery_effort_info_RU",
+        'num_demo_participants': 3,
+        'app_sequence': ['bribery_effort_info_RU', 'payment_info'],
+    },
     {
         'name': 'public_goods',
         'display_name': "Public Goods",
