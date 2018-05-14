@@ -8,19 +8,16 @@ class MyPage(Page):
     form_model = 'player'
     form_fields = ['age',
                    'gender',
+                   'field',
                    'height',
                    'city',
                    'yearsinmsc',
-                   'univ',
-                   'study',
                    'riskat',
                    'income',
                    'satis',
                    'trust',
                    'freedom',
-                   'leftright',
-                   'owner',
-                   'democracy']
+                   ]
 
 
 # class City(Page):

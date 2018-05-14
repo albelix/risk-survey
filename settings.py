@@ -309,8 +309,8 @@ ALLOWED_HOSTS=['*']
 
 
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': 1.00,
-    'participation_fee': 0.00,
+    'real_world_currency_per_point': 50.00,
+    'participation_fee': 150.00,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
 }
@@ -320,13 +320,13 @@ SESSION_CONFIGS = [
         'name': 'bribery_effort_base_RU',
         'display_name': "bribery_effort_base_RU",
         'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_base_RU', 'payment_info'],
+        'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
     },
     {
         'name': 'bribery_effort_info_RU',
         'display_name': "bribery_effort_info_RU",
         'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_info_RU', 'payment_info'],
+        'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
     },
     {
         'name': 'public_goods',

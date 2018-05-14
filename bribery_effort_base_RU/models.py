@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     endowment = c(10)
     prize = c(10)
-    num_rounds = 2
+    num_rounds = 10
 # c() necessary?
     task_time = 300
     max_task_amount = 10000000
