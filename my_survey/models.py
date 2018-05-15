@@ -58,7 +58,7 @@ class Player(BasePlayer):
                                         initial=None)
 
 
-    field = models.CharField(verbose_name='Ваша специализация',
+    field = models.PositiveIntegerField(verbose_name='Ваша специализация',
         choices=[[1, 'Экономика, финансы, менеджмент'], [2, 'Социальные науки, психология, политология'], [3, 'Право'],  [4, 'Международные отношения'],
                  [5, 'Математика, компьютерные, точные науки'], [6, 'Гуманитарные науки'], [7, 'Медиа, журналистика, дизайн'], [8, 'Другое']],
         widget=widgets.RadioSelect())

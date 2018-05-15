@@ -129,8 +129,8 @@ mturk_hit_settings = {
 
 #CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_base_IT.routing.channel_routing'
-CHANNEL_ROUTING = 'bribery_effort_base_RU.routing.channel_routing'
-# CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
+# CHANNEL_ROUTING = 'bribery_effort_base_RU.routing.channel_routing'
+CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_info_IT.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'

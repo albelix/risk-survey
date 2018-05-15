@@ -22,8 +22,8 @@ class Constants(BaseConstants):
 
     # number of rows and columns
     # i.e. the total number of boxes is determined by <num_rows> times <num_cols>
-    num_rows = 8
-    num_cols = 8
+    num_rows = 1
+    num_cols = 30
 
     # box height and box width in pixels
     # make sure that the size of the boxes fits the screen of the device
@@ -64,7 +64,7 @@ class Constants(BaseConstants):
     # in case of <dynamic = True>, game play is affected by the variables <time_interval> and <random> below
     # if <dynamic = False>, subjects collect as many boxes as they want by clicking or entering the respective number
     # in case of <dynamic = False>, game play is affected by the variables <random>, <devils_game> and <undoable>
-    dynamic = True
+    dynamic = False
 
     # time interval between single boxes being collected (in seconds)
     # note that this only affects game play if <dynamic = True>
@@ -74,13 +74,13 @@ class Constants(BaseConstants):
     # if <random = False>, boxes are collected row-wise one-by-one, starting in the top-left corner
     # if <random = True>, boxes are collected randomly (Fisher-Yates Algorithm)
     # note that this affects game play in both cases, <dynamic = True> and <dynamic = False>
-    random = True
+    random = False
 
     # determines whether static game play allows for selecting boxes by clicking or by entering a number
     # if <devils_game = True>, game play is similar to Slovic (1965), i.e. boxes are collected by subjects
     # if <devils_game = False>, subjects enter the number of boxes they want to collect
     # note that this only affects game play if <dynamic = False>
-    devils_game = False
+    devils_game = True
 
     # determine whether boxes can be toggled only once or as often as clicked
     # if <undoable = True> boxes can be selected and de-selected indefinitely often
