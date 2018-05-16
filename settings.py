@@ -423,7 +423,7 @@ SESSION_CONFIGS = [
         'name': 'ultimatum_simple_rus_no_reg',
         'display_name': "Ultimatum Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey']
+        'app_sequence': ['ultimatum_simple_rus_no_reg','payment_info', 'my_survey']
     },
     {
         'name': 'trust_rus_no_reg',
