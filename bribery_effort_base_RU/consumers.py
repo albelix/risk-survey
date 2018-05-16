@@ -41,51 +41,51 @@ def tut_work_disconnect(message, worker_code, player_pk):
     print('worker disconnected')
 
 
-# def tut_work_message(message, worker_code, player_pk):
-#     # print('TASK: ', get_task())
-#     jsonmessage = json.loads(message.content['text'])
-#     answer = jsonmessage.get('answer')
-#     player = Player.objects.get(participant__code__exact=worker_code, pk=player_pk)
-#     player.tasks_attempted += 1
-#     if int(answer) == int(player.last_correct_answer):
-#         player.tasks_correct += 1
-#         feedback = "Предыдущий ответ был верен."
-#     else:
-#         feedback = "Предыдущий ответ " + str(answer) + " был не верен, верный ответ " + str(player.last_correct_answer) + "."
-#     new_task = get_task()
-#     new_task['tasks_correct'] = player.tasks_correct
-#     new_task['tasks_attempted'] = player.tasks_attempted
-#     new_task['feedback'] = feedback
-#     player.last_correct_answer = new_task['correct_answer']
-#     player.save()
-#     # time.sleep(0.01)
-#     if int(new_task['tasks_attempted']) < Constants.max_task_amount:
-#         message.reply_channel.send({'text': json.dumps(new_task)})
-#     if int(new_task['tasks_attempted']) >= Constants.max_task_amount:
-#         new_task['task_over'] = True
-#         message.reply_channel.send({'text': json.dumps(new_task)})
-
-from django.db import transaction
 def tut_work_message(message, worker_code, player_pk):
+    # print('TASK: ', get_task())
     jsonmessage = json.loads(message.content['text'])
     answer = jsonmessage.get('answer')
     player = Player.objects.get(participant__code__exact=worker_code, pk=player_pk)
-    with transaction.atomic():
-        player.tasks_attempted += 1
-        if int(answer) == int(player.last_correct_answer):
-            player.tasks_correct += 1
-            feedback = "Предыдущий ответ был верен."
-        else:
-            feedback = "Предыдущий ответ " + str(answer) + " был не верен, верный ответ " + str(player.last_correct_answer) + "."
-        new_task = get_task()
-        new_task['tasks_correct'] = player.tasks_correct
-        new_task['tasks_attempted'] = player.tasks_attempted
-        new_task['feedback'] = feedback
-        player.last_correct_answer = new_task['correct_answer']
-        player.save()
-    #time.sleep(0.01)
+    player.tasks_attempted += 1
+    if int(answer) == int(player.last_correct_answer):
+        player.tasks_correct += 1
+        feedback = "Предыдущий ответ был верен."
+    else:
+        feedback = "Предыдущий ответ " + str(answer) + " был не верен, верный ответ " + str(player.last_correct_answer) + "."
+    new_task = get_task()
+    new_task['tasks_correct'] = player.tasks_correct
+    new_task['tasks_attempted'] = player.tasks_attempted
+    new_task['feedback'] = feedback
+    player.last_correct_answer = new_task['correct_answer']
+    player.save()
+    # time.sleep(0.01)
     if int(new_task['tasks_attempted']) < Constants.max_task_amount:
         message.reply_channel.send({'text': json.dumps(new_task)})
     if int(new_task['tasks_attempted']) >= Constants.max_task_amount:
         new_task['task_over'] = True
         message.reply_channel.send({'text': json.dumps(new_task)})
+
+# from django.db import transaction
+# def tut_work_message(message, worker_code, player_pk):
+#     jsonmessage = json.loads(message.content['text'])
+#     answer = jsonmessage.get('answer')
+#     player = Player.objects.get(participant__code__exact=worker_code, pk=player_pk)
+#     with transaction.atomic():
+#         player.tasks_attempted += 1
+#         if int(answer) == int(player.last_correct_answer):
+#             player.tasks_correct += 1
+#             feedback = "Предыдущий ответ был верен."
+#         else:
+#             feedback = "Предыдущий ответ " + str(answer) + " был не верен, верный ответ " + str(player.last_correct_answer) + "."
+#         new_task = get_task()
+#         new_task['tasks_correct'] = player.tasks_correct
+#         new_task['tasks_attempted'] = player.tasks_attempted
+#         new_task['feedback'] = feedback
+#         player.last_correct_answer = new_task['correct_answer']
+#         player.save()
+#     #time.sleep(0.01)
+#     if int(new_task['tasks_attempted']) < Constants.max_task_amount:
+#         message.reply_channel.send({'text': json.dumps(new_task)})
+#     if int(new_task['tasks_attempted']) >= Constants.max_task_amount:
+#         new_task['task_over'] = True
+#         message.reply_channel.send({'text': json.dumps(new_task)})
