@@ -37,8 +37,8 @@ def tut_work_connect(message, worker_code, player_pk):
     message.reply_channel.send({'text': json.dumps(new_task)})
 
 
-#def tut_work_disconnect(message, worker_code, player_pk):
-    # print('worker disconnected')
+def tut_work_disconnect(message, worker_code, player_pk):
+    print('worker disconnected')
 
 
 # def tut_work_message(message, worker_code, player_pk):
