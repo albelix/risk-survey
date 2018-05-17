@@ -21,9 +21,9 @@ class S_quiz(Page):
     def error_message(self, values):
 
         if (values["S_quiz_1"] != 75 or values["S_quiz_2"] != 60 or
-            values["S_quiz_3"] != 96 or values["S_quiz_4"] != 44 or
+            values["S_quiz_3"] != 95 or values["S_quiz_4"] != 25 or
             values["S_quiz_5"] != 90 or values["S_quiz_6"] != 45 or
-            values["S_quiz_7"] != 115 or values["S_quiz_8"] != 20)  :
+            values["S_quiz_7"] != 65 or values["S_quiz_8"] != 20)  :
             return 'К сожалению, Вы дали неверный ответ. Пожалуйста, прочитайте инструкции еще раз.'
 
     def is_displayed(self):
@@ -41,7 +41,7 @@ class R_quiz(Page):
         if (values["R_quiz_1"] != 75 or values["R_quiz_2"] != 60 or
             values["R_quiz_3"] != 96 or values["R_quiz_4"] != 44 or
             values["R_quiz_5"] != 90 or values["R_quiz_6"] != 45 or
-            values["R_quiz_7"] != 115 or values["R_quiz_8"] != 20)  :
+            values["R_quiz_7"] != 65 or values["R_quiz_8"] != 20)  :
             return 'К сожалению, Вы дали неверный ответ. Пожалуйста, прочитайте инструкции еще раз.'
 
     def is_displayed(self):
@@ -195,6 +195,7 @@ class ResultsWaitPage2(WaitPage):
         self.group.prediction_payoffs()
         self.group.set_paying_round_attributes()
         self.group.set_final_payoffs()
+        self.group.set_payoffs_in_rub()
 
 
 class S_final_results(Page):

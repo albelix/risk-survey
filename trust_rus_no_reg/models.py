@@ -17,7 +17,8 @@ class Constants(BaseConstants):
 
     endowments_list = [100, 50, 100]
     factors_list = [3, 3, 1.5]
-    ecu_to_rur = 2
+    ecu_to_rur = 5 #should be changed if an another region !!!!!!
+    participation_payoff = c(150) #should be changed if an another region !!!!!!
 
     predictions_offer_r1 = [10,20,30,40,50,60,70,80,90,100]
     predictions_return_r1 = [30,60,90,120,150,180,210,240,270,300]
@@ -32,12 +33,62 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
 
     def creating_session(self):
+
         if self.round_number == 1:
 
             #define payment round
             paying_round = random.randint(1, Constants.num_rounds)
             self.session.vars['paying_round'] = paying_round
 
+
+
+            # regroup players: those (a half) who enter first are 1st players(S), others -- 2nd(R)
+            matrix_to_get = self.get_group_matrix()
+            matrix_to_set = []
+            senders_list = []
+            receivers_list = []
+
+            if len(matrix_to_get) % 2 == 0:
+                for i in range(int(len(matrix_to_get) / 2)):
+                    for p in range(2):
+                        senders_list.append(matrix_to_get[i][p])
+                for i in range(int(len(matrix_to_get) / 2), len(matrix_to_get)):
+                    for p in range(2):
+                        receivers_list.append(matrix_to_get[i][p])
+
+                shuffle(senders_list)
+                shuffle(receivers_list)
+
+                for i in range(len(matrix_to_get)):
+                    group = [senders_list[i], receivers_list[i]]
+                    matrix_to_set.append(group)
+
+                self.set_group_matrix(matrix_to_set)
+
+            if len(matrix_to_get) % 2 != 0:
+                for i in range(int((len(matrix_to_get) - 1) / 2)):
+                    for p in range(2):
+                        senders_list.append(matrix_to_get[i][p])
+
+                i = int((len(matrix_to_get) - 1) / 2)
+                senders_list.append(matrix_to_get[i][0])
+                receivers_list.append(matrix_to_get[i][1])
+
+                for i in range(int((len(matrix_to_get) + 1) / 2), len(matrix_to_get)):
+                    for p in range(2):
+                        receivers_list.append(matrix_to_get[i][p])
+
+                shuffle(senders_list)
+                shuffle(receivers_list)
+
+                for i in range(len(matrix_to_get)):
+                    group = [senders_list[i], receivers_list[i]]
+                    matrix_to_set.append(group)
+
+                self.set_group_matrix(matrix_to_set)
+
+        else:
+            self.group_like_round(1)
 
 
 class Group(BaseGroup):
@@ -185,19 +236,38 @@ class Group(BaseGroup):
     S_final_prediction_payoff = models.FloatField()
     R_final_prediction_payoff = models.FloatField()
 
+    S_final_total_payoff = models.FloatField()
+    R_final_total_payoff = models.FloatField()
+
     def set_final_payoffs(self):
         if self.round_number < self.paying_round_num:
             self.S_final_payoff = 0
             self.R_final_payoff = 0
             self.S_final_prediction_payoff = 0
             self.R_final_prediction_payoff = 0
+            self.S_final_total_payoff = 0
+            self.R_final_total_payoff = 0
+
         else:
             self.S_final_payoff = self.in_round(self.paying_round_num).S_payoff
             self.R_final_payoff = self.in_round(self.paying_round_num).R_payoff
             self.S_final_prediction_payoff = self.in_round(self.paying_round_num).S_prediction_payoff
             self.R_final_prediction_payoff = self.in_round(self.paying_round_num).R_prediction_payoff
+            self.S_final_total_payoff = self.in_round(self.paying_round_num).S_payoff + self.in_round(self.paying_round_num).S_prediction_payoff
+            self.R_final_total_payoff = self.in_round(self.paying_round_num).R_payoff + self.in_round(self.paying_round_num).R_prediction_payoff
 
 
+    # set final payoffs in rub
+
+    def set_payoffs_in_rub(self):
+        if self.round_number < self.paying_round_num:
+            for p in self.get_players():
+                p.payoff = c(0)
+
+        if self.round_number >= self.paying_round_num:
+            p1, p2 = self.get_players()[0], self.get_players()[1]
+            p1.payoff = c((self.S_final_total_payoff) * Constants.ecu_to_rur) + Constants.participation_payoff
+            p2.payoff = c((self.R_final_total_payoff) * Constants.ecu_to_rur) + Constants.participation_payoff
 
 
 

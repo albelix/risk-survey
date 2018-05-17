@@ -7,8 +7,8 @@
 
 {% block content %}
 <p> Вы игрок А в этой игре. </p>
-<p> Ваша оценка  {{ group.task_corrects_A }} очков. </p>
-<p> Оценка игрока В {{ group.task_corrects_B }} очков. </p>
+<p> Ваша оценка  {{ group.task_corrects_A }}. </p>
+<p> Оценка игрока В {{ group.task_corrects_B }}. </p>
 <p> Вы перевели судье {{ group.contribution_A }} очков. </p>
 <p> Игрок B перевел судье {{ group.contribution_B }}. </p>
 <p> Судья присудил приз {{ group.get_winner_name.dative }}.  </p>
