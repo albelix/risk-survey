@@ -21,7 +21,7 @@ class S_quiz(Page):
     def error_message(self, values):
 
         if (values["S_quiz_1"] != 75 or values["S_quiz_2"] != 60 or
-            values["S_quiz_3"] != 95 or values["S_quiz_4"] != 25 or
+            values["S_quiz_3"] != 96 or values["S_quiz_4"] != 44 or
             values["S_quiz_5"] != 90 or values["S_quiz_6"] != 45 or
             values["S_quiz_7"] != 65 or values["S_quiz_8"] != 20)  :
             return 'К сожалению, Вы дали неверный ответ. Пожалуйста, прочитайте инструкции еще раз.'

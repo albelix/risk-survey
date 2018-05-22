@@ -19,19 +19,19 @@
 
     <p>
     {% if subsession.round_number == 1 %}
-        В текущем раунде Вы получили <strong>{{ endowment_iter_1 }} ECU</strong>.
+        В текущем раунде Вы получили <strong>{{ endowment_iter_1 }} экю</strong>.
         Все, что Вы передадите Участнику 2, увеличится в {{ factor_iter_1 }} раза.
     {% elif subsession.round_number == 2 %}
-        В текущем раунде Вы получили <strong>{{ endowment_iter_2 }} ECU</strong>.
+        В текущем раунде Вы получили <strong>{{ endowment_iter_2 }} экю</strong>.
         Все, что Вы передадите Участнику 2, увеличится в {{ factor_iter_2 }} раза.
     {% elif subsession.round_number == 3 %}
-        В текущем раунде Вы получили <strong>{{ endowment_iter_3 }} ECU</strong>.
+        В текущем раунде Вы получили <strong>{{ endowment_iter_3 }} экю</strong>.
         Все, что Вы передадите Участнику 2, увеличится в {{ factor_iter_3 }} раза.
     {% endif %}
     </p>
 
 
-   {% formfield group.S_transfer label="Пожалуйста, укажите, сколько ECU из суммы, которую Вы получили в текущем раунде, Вы хотите передать Участнику 2:" %}
+   {% formfield group.S_transfer label="Пожалуйста, укажите, сколько экю из суммы, которую Вы получили в текущем раунде, Вы хотите передать Участнику 2:" %}
 
 
     <p>

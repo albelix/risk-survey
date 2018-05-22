@@ -151,43 +151,64 @@ class Group(BaseGroup):
         self.S_payoff = Constants.endowments_list[self.round_number - 1] - self.S_transfer + self.R_transfer
         self.R_payoff = self.mult_transfer - self.R_transfer
 
-
-    S_prediction = models.IntegerField(min=0)
+    S_prediction = models.FloatField()
     S_prediction_payoff = models.FloatField()
     R_prediction_payoff = models.FloatField()
 
     def prediction_payoffs(self):
 
 
-        # closeness for S predictions about how much R will return
-        closest_offer_counter = 0
-        min_distance = 100000000
 
-        if self.round_number == 1:
-            for i in range(10):
-                if (self.S_transfer - Constants.predictions_offer_r1[i])**2 < min_distance:
-                    min_distance = (self.S_transfer - Constants.predictions_offer_r1[i])**2
-                    closest_offer_counter = i
-        if self.round_number == 2:
-            for i in range(10):
-                if (self.S_transfer - Constants.predictions_offer_r2[i])**2 < min_distance:
-                    min_distance = (self.S_transfer - Constants.predictions_offer_r1[i])**2
-                    closest_offer_counter = i
-        if self.round_number == 3:
-            for i in range(10):
-                if (self.S_transfer - Constants.predictions_offer_r3[i])**2 < min_distance:
-                    min_distance = (self.S_transfer - Constants.predictions_offer_r1[i])**2
-                    closest_offer_counter = i
+        upper_mult_transfer = 0
+        self.S_prediction = 0
 
-
-        list_with_S_predictions = [self.S_prediction_1,self.S_prediction_2,self.S_prediction_3, self.S_prediction_4,
-                                  self.S_prediction_5,self.S_prediction_6,self.S_prediction_7,self.S_prediction_8,
+        list_with_S_predictions = [self.S_prediction_1, self.S_prediction_2, self.S_prediction_3, self.S_prediction_4,
+                                   self.S_prediction_5, self.S_prediction_6, self.S_prediction_7, self.S_prediction_8,
                                    self.S_prediction_9, self.S_prediction_10]
 
-        self.S_prediction = list_with_S_predictions[closest_offer_counter]
+        if self.round_number == 1:
+
+            if self.S_transfer <= Constants.predictions_offer_r1[0]:
+                upper_mult_transfer = Constants.predictions_return_r1[0]
+                self.S_prediction = list_with_S_predictions[0]
+
+            else:
+                for i in range(9):
+                    if self.S_transfer > Constants.predictions_offer_r1[i] and self.S_transfer <= Constants.predictions_offer_r1[i+1]:
+                        upper_mult_transfer = Constants.predictions_return_r1[i+1]
+                        self.S_prediction = list_with_S_predictions[i+1]
 
 
-        self.S_prediction_payoff = round((Constants.endowments_list[self.round_number - 1]/2) * (1 - abs((self.S_prediction - self.R_transfer)/self.mult_transfer)), 2)
+
+        if self.round_number == 2:
+
+            if self.S_transfer <= Constants.predictions_offer_r2[0]:
+                upper_mult_transfer = Constants.predictions_return_r2[0]
+                self.S_prediction = list_with_S_predictions[0]
+
+            else:
+                for i in range(9):
+                    if self.S_transfer > Constants.predictions_offer_r2[i] and self.S_transfer <= Constants.predictions_offer_r2[i + 1]:
+                        upper_mult_transfer = Constants.predictions_return_r2[i + 1]
+                        self.S_prediction = list_with_S_predictions[i+1]
+
+
+        if self.round_number == 3:
+
+            if self.S_transfer <= Constants.predictions_offer_r3[0]:
+                upper_mult_transfer = Constants.predictions_return_r3[0]
+                self.S_prediction = list_with_S_predictions[0]
+
+            else:
+                for i in range(9):
+                    if self.S_transfer > Constants.predictions_offer_r3[i] and self.S_transfer <= Constants.predictions_offer_r3[i + 1]:
+                        upper_mult_transfer = Constants.predictions_return_r3[i + 1]
+                        self.S_prediction = list_with_S_predictions[i+1]
+
+
+
+
+        self.S_prediction_payoff = round((upper_mult_transfer/2) * (1 - abs((self.S_prediction - self.R_transfer)/upper_mult_transfer)), 2)
 
         # closeness for R predictions about how much S will transfer
         self.R_prediction_payoff = round((Constants.endowments_list[self.round_number - 1]/2) * (1 - abs((self.R_prediction - self.S_transfer)/Constants.endowments_list[self.round_number - 1])), 2)
