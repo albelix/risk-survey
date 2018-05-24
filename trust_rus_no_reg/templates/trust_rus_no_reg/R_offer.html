@@ -16,37 +16,37 @@
 
     {% if subsession.round_number == 1 %}
         <p>
-            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_1 }} экю</strong>.
+            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_1 }} ECU</strong>.
         </p>
         <p>
-            Участник 1 передал Вам <strong> {{ group.S_transfer }} экю </strong>,
+            Участник 1 передал Вам <strong> {{ group.S_transfer }} ECU </strong>,
             это увеличилось в {{ factor_iter_1 }} раза,
-            поэтому Вы получили <strong>{{ group.mult_transfer }} экю </strong>.
+            поэтому Вы получили <strong>{{ group.mult_transfer }} ECU </strong>.
         </p>
 
     {% elif subsession.round_number == 2 %}
         <p>
-            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_2 }} экю</strong>.
+            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_2 }} ECU</strong>.
         </p>
         <p>
-            Участник 1 передал Вам <strong> {{ group.S_transfer }} экю </strong>,
+            Участник 1 передал Вам <strong> {{ group.S_transfer }} ECU </strong>,
             это увеличилось в {{ factor_iter_2 }} раза,
-            поэтому Вы получили <strong>{{ group.mult_transfer }} экю </strong>.
+            поэтому Вы получили <strong>{{ group.mult_transfer }} ECU </strong>.
         </p>
     {% elif subsession.round_number == 3 %}
         <p>
-            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_3 }} экю</strong>.
+            <strong>Напоминание:</strong> в текущем раунде Участник 1 получил <strong>{{ endowment_iter_3 }} ECU</strong>.
         </p>
         <p>
-            Участник 1 передал Вам <strong> {{ group.S_transfer }} экю </strong>,
+            Участник 1 передал Вам <strong> {{ group.S_transfer }} ECU </strong>,
             это увеличилось в {{ factor_iter_3 }} раза,
-            поэтому Вы получили <strong>{{ group.mult_transfer }} экю </strong>.
+            поэтому Вы получили <strong>{{ group.mult_transfer }} ECU </strong>.
         </p>
     {% endif %}
 
 
 
-    {% formfield group.R_transfer label='Пожалуйста, укажите, сколько экю из суммы, которую Вы получили, Вы хотите вернуть Участнику 1:' %}
+    {% formfield group.R_transfer label='Пожалуйста, укажите, сколько ECU из суммы, которую Вы получили, Вы хотите вернуть Участнику 1:' %}
 
 
     <p>
