@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block title %}
+    Gioco: tipo e round
+{% endblock %}
+
+{% block content %}
+<p> Questo è il round {{group.round_number}}. <p>
+<p> Sei il giocatore di tipo A. Ora devi svolgere il compito. Premi Successivo per continuare. <p>
+
+
+
+    {% next_button %}
+
+{% endblock %}

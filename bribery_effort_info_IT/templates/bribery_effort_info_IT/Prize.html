@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Gioco: assegnare il premio
+{% endblock %}
+
+{% block content %}
+
+<p> Il punteggio del giocatore A è {{ group.task_corrects_A }} . </p>
+<p> Il punteggio del giocatore B è  {{ group.task_corrects_B }} . </p>
+<p> Il giocatore A ti ha trasferito {{ group.contribution_A }} gettoni. </p>
+<p> Il giocatore B ti ha trasferito {{ group.contribution_B }} gettoni. </p>
+
+   {% formfield group.prize with label="A chi vuoi assegnare il premio?" %}
+
+
+
+    {% next_button %}
+
+{% endblock %}

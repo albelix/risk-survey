@@ -1,0 +1,25 @@
+
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block title %}
+    Sondaggio
+{% endblock %}
+
+{% block content %}
+<p>
+<p>
+
+{% formfield player.gender  %}
+{% formfield player.age  %}
+{% formfield player.height  %}
+{% formfield player.field  %}
+{% formfield player.riskat  %}
+{% formfield player.income  %}
+{% formfield player.satis  %}
+{% formfield player.trust  %}
+{% formfield player.freedom  %}
+
+{% next_button %}
+{% endblock %}

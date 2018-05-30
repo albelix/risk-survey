@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block title %}
+    Gioco: guadagni finali
+{% endblock %}
+
+{% block content %}
+<p> Sarai pagato per il round {{paying_round}} <p>
+
+<table class="table">
+    <tr>
+        <th>Round</th>
+        <th>Guadagno</th>
+    </tr>
+    {% for p in player_in_all_rounds %}
+        <tr>
+            <td>{{ p.round_number }}</td>
+            <td>
+                {{ p.pay|json }} gettoni
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<p> Ricorda che il cambio è 1 gettone = 1 euro. Il tuo guadagno finale incluso il gettone di presenza è {{final_payoff}}.
+Sarai pagato in contanti.
+<p>
+<p> GRAZIE PER LA TUA PARTECIPAZIONE. <p>
+
+{% endblock %}

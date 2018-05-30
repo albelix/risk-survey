@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Risultati
+{% endblock %}
+
+{% block content %}
+<p> Sei giocatore B in questo gioco. </p>
+<p> Il punteggio del giocatore A è  {{ group.task_corrects_A }} . </p>
+<p> Il tuo punteggio è  {{ group.task_corrects_B }}. </p>
+<p> Il giocatore A ha trasferito al giudice {{ group.contribution_A }} gettoni. </p>
+<p> Hai trasferito al giudice {{ group.contribution_B }} gettoni. </p>
+<p> Il giudice ha assegnato il premio al {{ group.prize }}.  </p>
+<p> Il tuo guadagno in questo round è {{ player.pay| json }} gettoni.</p>
+<!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/dev/topics/templates/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+-->
+
+
+    {% next_button %}
+{% endblock %}
+
+

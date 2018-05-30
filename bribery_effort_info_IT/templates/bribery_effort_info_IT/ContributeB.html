@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block title %}
+    Gioco: il tuo trasferimento
+{% endblock %}
+
+{% block content %}
+
+        <p> Il tuo punteggio è {{ player.tasks_correct }}. Hai {{Constants.endowment|json}} gettoni.  </p>
+          {% formfield group.contribution_B with label="Quanti gettoni vuoi trasferire al giudice?" %}
+
+
+    {% next_button %}
+
+{% endblock %}

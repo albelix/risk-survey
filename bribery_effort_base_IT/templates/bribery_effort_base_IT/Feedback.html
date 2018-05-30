@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}Verifica della comprensione{% endblock %}
+
+{% block content %}
+
+
+{% if player.training_answer_A == Constants.training_answer_A_correct %}
+    <p class="text-success">
+    La tua risposta {{player.training_answer_A}} gettoni riguardo al giocatore A era corretta
+    </p>
+{% else %}
+    <p class="text-danger">
+    La tua risposta {{player.training_answer_A}} gettoni riguardo al giocatore A non era corretta
+
+    </p>
+{% endif %}
+
+{% if player.training_answer_B == Constants.training_answer_B_correct %}
+    <p class="text-success">
+    La tua risposta {{player.training_answer_B}} gettoni riguardo al giocatore B era corretta.
+    </p>
+{% else %}
+    <p class="text-danger">
+    La tua risposta {{player.training_answer_B}} gettoni riguardo al giocatore B non era corretta.
+
+    </p>
+{% endif %}
+
+{% if player.training_answer_C == Constants.training_answer_C_correct %}
+    <p class="text-success">
+    La tua risposta {{player.training_answer_C}} gettoni riguardo il giudice era corretta.
+    </p>
+{% else %}
+    <p class="text-danger">
+    Your answer {{player.training_answer_C}} gettoni for participant C was incorrect.
+        The correct answer is 17.
+        Participant C has initially 10 points, participant A sent him 3 tokens,
+        participant B sent him 4 tockens. His payoff will be 17 tokens.
+    </p>
+{% endif %}
+
+{% next_button %}
+{% endblock %}

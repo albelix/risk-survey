@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}Verifica della comprensione{% endblock %}
+
+{% block content %}
+
+<p>
+Supponiamo che il giocatore A decida di trasferire al giudice 3 gettoni.
+Il giocatore B trasferisce al giudice 4 gettoni.
+Il giudice C decide di assegnare il premio al giocatore A.
+Alla fine quanti gettoni avranno tutti i partecipanti ?
+
+</p>
+
+{% formfield player.training_answer_A with label="Quanti gettoni avra il giocatore A?" %}
+{% formfield player.training_answer_B with label="Quanti gettoni avra il giocatore B?" %}
+{% formfield player.training_answer_C with label="Quanti gettoni avra il giudice?" %}
+
+
+{% next_button %}
+{% endblock %}

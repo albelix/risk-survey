@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}Introduzione{% endblock %}
+
+{% block content %}
+<p>
+Questo è un esperimento sui processi decisionali in cui puoi guadagnare dei soldi.
+    La quantità di denaro che guadagnerai dipende dalle decisioni che prendi tu
+    e dalle decisioni che prendono gli altri partecipanti. Sarai pagato privatamente
+    alla fine dell'esperimento, non devi dire agli altri partecipanti
+    quanto hai guadagnato. Le tue risposte saranno anonime. L'esperimento durerà circa un'ora e mezza.
+</p>
+{% include "bribery_effort_base_IT/Instructions.html" %}
+<p>
+
+</p>
+
+{% next_button %}
+{% endblock %}

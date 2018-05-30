@@ -60,14 +60,14 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY, USD
-REAL_WORLD_CURRENCY_CODE = 'RUB'
+REAL_WORLD_CURRENCY_CODE = 'EUR' #'RUB'
 USE_POINTS = True
 
 
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'it' #ru
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
@@ -128,9 +128,9 @@ mturk_hit_settings = {
 
 
 #CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
-#CHANNEL_ROUTING = 'bribery_effort_base_IT.routing.channel_routing'
+CHANNEL_ROUTING = 'bribery_effort_base_IT.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_base_RU.routing.channel_routing'
-CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_info_IT.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
@@ -375,6 +375,18 @@ SESSION_CONFIGS = [
         'display_name': "Dict-Ultim-Trust Games in Russian",
         'num_demo_participants': 4,
         'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
+    },
+    {
+        'name': 'Bribery_base_IT',
+        'display_name': "bribery_effort_base_IT",
+        'num_demo_participants': 3,
+        'app_sequence': ['bribery_effort_base_IT', 'survey_it'],
+    },
+    {
+        'name': 'Bribery_info_IT',
+        'display_name': "bribery_effort_info_IT",
+        'num_demo_participants': 3,
+        'app_sequence': ['bribery_effort_info_IT', 'survey_it'],
     },
 ### {
 ###     'name': 'trust',

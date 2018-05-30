@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block title %}
+    Informazioni sul round precedente
+{% endblock %}
+
+{% block content %}
+<p> In questo round in quatro gruppi scelti a caso i giocatori hanno trasferito al giudice {{contribs}} gettoni. <p>
+
+
+
+    {% next_button %}
+
+{% endblock %}
