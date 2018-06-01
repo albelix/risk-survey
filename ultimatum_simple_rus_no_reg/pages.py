@@ -3,6 +3,9 @@ from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class Welcome(Page):
+    def is_displayed(self):
+        return self.subsession.round_number == 1
 
 
 class Intro(Page):
@@ -181,6 +184,7 @@ class R_final_results(Page):
 
 
 page_sequence = [
+    Welcome,
     Intro,
     NormWaitPage,
     S_quiz,

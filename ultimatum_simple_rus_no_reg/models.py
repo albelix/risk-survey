@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     instructions_template = 'ultimatum_simple_rus_no_reg/Instructions.html'
 
     endowments_list = [60, 100, 120]
-    ecu_to_rur = 2
+    ecu_to_rur = 5
 
     payoff_if_rejected = 0
 
@@ -203,10 +203,6 @@ class Group(BaseGroup):
             p1, p2 = self.get_players()[0], self.get_players()[1]
             p1.payoff = c((self.S_final_payoff + self.S_final_prediction_payoff)*5) + c(150)
             p2.payoff = c((self.R_final_payoff + self.R_final_prediction_payoff) * 5) + c(150)
-
-
-
-
 
 
 class Player(BasePlayer):

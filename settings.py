@@ -60,14 +60,14 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY, USD
-REAL_WORLD_CURRENCY_CODE = 'EUR' #'RUB'
+REAL_WORLD_CURRENCY_CODE = 'RUB' #'EUR'
 USE_POINTS = True
 
 
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
-LANGUAGE_CODE = 'it' #ru
+LANGUAGE_CODE = 'ru'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
@@ -128,7 +128,7 @@ mturk_hit_settings = {
 
 
 #CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
-CHANNEL_ROUTING = 'bribery_effort_base_IT.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_base_IT.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_base_RU.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_info_IT.routing.channel_routing'
@@ -309,25 +309,25 @@ ALLOWED_HOSTS=['*']
 
 
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': 50.00,
+    'real_world_currency_per_point': 5.00,
     'participation_fee': 150.00,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
 }
 
 SESSION_CONFIGS = [
-    {
-        'name': 'bribery_effort_base_RU',
-        'display_name': "bribery_effort_base_RU",
-        'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
-    },
-    {
-        'name': 'bribery_effort_info_RU',
-        'display_name': "bribery_effort_info_RU",
-        'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
-    },
+    # {
+    #     'name': 'bribery_effort_base_RU',
+    #     'display_name': "bribery_effort_base_RU",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
+    # },
+    # {
+    #     'name': 'bribery_effort_info_RU',
+    #     'display_name': "bribery_effort_info_RU",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
+    # },
     {
         'name': 'public_goods',
         'display_name': "Public Goods",
@@ -376,18 +376,18 @@ SESSION_CONFIGS = [
         'num_demo_participants': 4,
         'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
     },
-    {
-        'name': 'Bribery_base_IT',
-        'display_name': "bribery_effort_base_IT",
-        'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_base_IT', 'survey_it'],
-    },
-    {
-        'name': 'Bribery_info_IT',
-        'display_name': "bribery_effort_info_IT",
-        'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_info_IT', 'survey_it'],
-    },
+    # {
+    #     'name': 'Bribery_base_IT',
+    #     'display_name': "bribery_effort_base_IT",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['bribery_effort_base_IT', 'survey_it'],
+    # },
+    # {
+    #     'name': 'Bribery_info_IT',
+    #     'display_name': "bribery_effort_info_IT",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['bribery_effort_info_IT', 'survey_it'],
+    # },
 ### {
 ###     'name': 'trust',
 ###     'display_name': "Trust Game",
