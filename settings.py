@@ -130,7 +130,7 @@ mturk_hit_settings = {
 #CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_base_IT.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_base_RU.routing.channel_routing'
-#CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
+CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_info_IT.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
@@ -316,18 +316,18 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
-    # {
-    #     'name': 'bribery_effort_base_RU',
-    #     'display_name': "bribery_effort_base_RU",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
-    # },
-    # {
-    #     'name': 'bribery_effort_info_RU',
-    #     'display_name': "bribery_effort_info_RU",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
-    # },
+    {
+        'name': 'bribery_effort_base_RU',
+        'display_name': "bribery_effort_base_RU",
+        'num_demo_participants': 3,
+        'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
+    },
+    {
+        'name': 'bribery_effort_info_RU',
+        'display_name': "bribery_effort_info_RU",
+        'num_demo_participants': 3,
+        'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
+    },
     {
         'name': 'public_goods',
         'display_name': "Public Goods",
