@@ -334,12 +334,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 10,
     #     'app_sequence': ['auc'],
     # },
-    {
-        'name': 'my_game',
-        'display_name': "TMay_game",
-        'num_demo_participants': 4,
-        'app_sequence': ['my_game'],
-    },
+    # {
+    #     'name': 'my_game',
+    #     'display_name': "TMay_game",
+    #     'num_demo_participants': 4,
+    #     'app_sequence': ['my_game'],
+    # },
     {
         'name': 'public_goods',
         'display_name': "Public Goods",
