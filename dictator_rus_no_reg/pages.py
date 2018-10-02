@@ -235,21 +235,30 @@ class ResultsWaitPage(WaitPage):
         self.group.set_payoffs()
         self.group.prediction_payoffs()
         self.group.set_paying_round_attributes()
-        self.group.set_final_payoffs()
+        if self.round_number == Constants.num_rounds:
+            self.group.set_final_payoffs()
         self.group.set_linguistic_forms()
 
 
 class S_final_results(Page):
 
     def is_displayed(self):
-        return (self.player.id_in_group == 1 and self.round_number == 6)
+        return (self.player.id_in_group == 1 and self.round_number == Constants.num_rounds)
 
 class R_final_results(Page):
 
    def is_displayed(self):
+        return (self.player.id_in_group == 2 and self.round_number == Constants.num_rounds)
+
+class Results_Final_S(Page):
+
+    def is_displayed(self):
+        return (self.player.id_in_group == 1 and self.round_number == 6)
+
+class Results_Final_R(Page):
+
+   def is_displayed(self):
         return (self.player.id_in_group == 2 and self.round_number == 6)
-
-
 
 
 page_sequence = [
@@ -265,5 +274,8 @@ page_sequence = [
     R_action,
     ResultsWaitPage,
     S_final_results,
-    R_final_results
+    R_final_results,
+    ResultsWaitPage,
+    Results_Final_R,
+    Results_Final_S
     ]

@@ -329,6 +329,18 @@ SESSION_CONFIGS = [
         'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
     },
     {
+        'name': 'auc',
+        'display_name': "Double Auction",
+        'num_demo_participants': 10,
+        'app_sequence': ['auc'],
+    },
+    {
+        'name': 'my_game',
+        'display_name': "TMay_game",
+        'num_demo_participants': 4,
+        'app_sequence': ['my_game'],
+    },
+    {
         'name': 'public_goods',
         'display_name': "Public Goods",
         'num_demo_participants': 3,

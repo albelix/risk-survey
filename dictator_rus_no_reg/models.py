@@ -263,6 +263,9 @@ class Group(BaseGroup):
             self.S_final_prediction_payoff_ecu = self.in_round(self.paying_round_num).S_prediction_payoff_ecu
             self.R_final_prediction_payoff_ecu = self.in_round(self.paying_round_num).R_prediction_payoff_ecu
 
+            self.R_final_payoff = self.R_final_payoff_ecu + self.R_final_prediction_payoff_ecu
+            self.S_final_payoff = self.S_final_payoff_ecu + self.S_final_prediction_payoff_ecu
+
     # set word forms
 
     S_payoff_form = models.StringField()
@@ -271,6 +274,8 @@ class Group(BaseGroup):
     R_min_offer_form = models.StringField()
     R_prediction_form = models.StringField()
     S_transfer_form = models.StringField()
+    S_final_payoff = models.IntegerField()
+    R_final_payoff = models.IntegerField()
 
     def set_linguistic_forms(self):
 
@@ -311,7 +316,6 @@ class Group(BaseGroup):
         self.R_min_offer_form = linguistic(self.R_min_offer_final)
         self.R_prediction_form = linguistic(self.R_prediction_final)
         self.S_transfer_form = linguistic(self.S_transfer_final)
-
 
 
 class Player(BasePlayer):
