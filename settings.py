@@ -316,18 +316,18 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
-    {
-        'name': 'bribery_effort_base_RU',
-        'display_name': "bribery_effort_base_RU",
-        'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
-    },
-    {
-        'name': 'bribery_effort_info_RU',
-        'display_name': "bribery_effort_info_RU",
-        'num_demo_participants': 3,
-        'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
-    },
+    # {
+    #     'name': 'bribery_effort_base_RU',
+    #     'display_name': "bribery_effort_base_RU",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
+    # },
+    # {
+    #     'name': 'bribery_effort_info_RU',
+    #     'display_name': "bribery_effort_info_RU",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
+    # },
     # {
     #     'name': 'auc',
     #     'display_name': "Double Auction",
@@ -358,12 +358,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['my_survey', 'payment_info'],
     },
-    {
-        'name': 'quiz',
-        'display_name': "Quiz",
-        'num_demo_participants': 1,
-        'app_sequence': ['quiz'],
-    },
+    # {
+    #     'name': 'quiz',
+    #     'display_name': "Quiz",
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['quiz'],
+    # },
     {
         'name': 'BRET',
         'display_name': "BRET",
@@ -447,7 +447,7 @@ SESSION_CONFIGS = [
         'name': 'ultimatum_simple_rus_no_reg',
         'display_name': "Ultimatum Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'payment_info', 'my_survey']
+        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey']
     },
     {
         'name': 'trust_rus_no_reg',

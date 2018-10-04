@@ -40,12 +40,16 @@
             поэтому Вы получили <strong>0 ECU</strong>,
             Участник 1 тоже получил <strong>0 ECU</strong>.
         </p>
-
         <p>
             Вы ожидали, что Участник 1 передаст Вам {{ group.R_prediction_final }} ECU,
             Участник 1 передал Вам {{ group.S_transfer_final }} ECU;
             поэтому по итогам Вашего прогноза Вы получаете  <strong>{{ group.R_final_prediction_payoff }} ECU</strong>.
         </p>
+        <p>
+            Итого за игру Вы получили <strong>{{group.R_total_payoff }} ECU</strong>.
+        </p>
+
+
 
     {% endif %}
 

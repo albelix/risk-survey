@@ -17,6 +17,7 @@ class Constants(BaseConstants):
     name_in_url = 'U'
     players_per_group = 2
     num_rounds = 3
+    unitcost = 3.5
 
 
     instructions_template = 'ultimatum_simple_rus_no_reg/Instructions.html'
@@ -179,6 +180,8 @@ class Group(BaseGroup):
     R_final_payoff = models.IntegerField()
     S_final_prediction_payoff = models.FloatField()
     R_final_prediction_payoff = models.FloatField()
+    S_total_payoff = models.FloatField()
+    R_total_payoff = models.FloatField()
 
     def set_final_payoffs(self):
         if self.round_number < self.paying_round_num:
@@ -191,6 +194,8 @@ class Group(BaseGroup):
             self.R_final_payoff = self.in_round(self.paying_round_num).R_payoff
             self.S_final_prediction_payoff = self.in_round(self.paying_round_num).S_prediction_payoff
             self.R_final_prediction_payoff = self.in_round(self.paying_round_num).R_prediction_payoff
+            self.S_total_payoff = self.S_final_payoff + self.S_final_prediction_payoff
+            self.R_total_payoff = self.R_final_payoff + self.R_final_prediction_payoff
 
     # set final payoffs in rub
 
@@ -201,8 +206,8 @@ class Group(BaseGroup):
 
         if self.round_number >= self.paying_round_num:
             p1, p2 = self.get_players()[0], self.get_players()[1]
-            p1.payoff = c((self.S_final_payoff + self.S_final_prediction_payoff)*5) + c(150)
-            p2.payoff = c((self.R_final_payoff + self.R_final_prediction_payoff) * 5) + c(150)
+            p1.payoff = c((self.S_final_payoff + self.S_final_prediction_payoff)*Constants.unitcost) + c(150)
+            p2.payoff = c((self.R_final_payoff + self.R_final_prediction_payoff)*Constants.unitcost) + c(150)
 
 
 class Player(BasePlayer):
