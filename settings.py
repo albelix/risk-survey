@@ -10,10 +10,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
-#if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-DEBUG = False
-# else:
-# DEBUG = True
+if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
+    DEBUG = False
+else:
+    DEBUG = True
+
+#DEBUG = False
 
 
 # don't share this with anybody.
@@ -383,10 +385,22 @@ SESSION_CONFIGS = [
         'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
     },
     {
+        'name': 'PG_punishment',
+        'display_name': "Punishment game - trial",
+        'num_demo_participants': 5,
+        'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
+    },
+    {
         'name': 'Russian_games',
         'display_name': "Dict-Ultim-Trust Games in Russian",
         'num_demo_participants': 4,
         'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
+    },
+    {
+        'name': 'GameOct18',
+        'display_name': "GameOct18",
+        'num_demo_participants': 2,
+        'app_sequence': ['GameOct18'],
     },
     # {
     #     'name': 'Bribery_base_IT',

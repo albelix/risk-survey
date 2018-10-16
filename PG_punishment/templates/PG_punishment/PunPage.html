@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+Принятие решений III - вы участник {{ player.id_in_group }}, идет раунд {{ player.round_number }}.
+{% endblock %}
+
+{% block content %}
+
+
+<div class="card">
+
+    <div class="card-body">
+        Вы видите взносы и доходы каждого участника, и можете принять решения о вычетах из доходов каждого из Ваших
+        партнеров в {{ player.round_number }} раунде в размере от 0 (нет вычета) до {{Constants.pun_endowment}}
+        (максимальный вычет).
+        Вы потратите 0.2 за каждую единицу вычета у каждого другого участника. Если вы ни к кому не хотите применять
+        вычет, просто нажмите "Далее"
+    </div>
+</div>
+
+
+<table class="table table-sripped" style="width:500px; margin-top:20px;">
+    <thead>
+
+    <td></td>
+    <td> Накопленный доход:</td>
+    <td> Сумма взносов:</td>
+    <td>Вычет:</td>
+
+    </thead>
+    <tbody>
+    {% for field, i in data %}
+    <tr>
+        <td> Участник {{forloop.counter}}</td>
+        <td> {{ i.pgg_payoff}}</td>
+        <td> {{ i.contribution}}</td>
+        <td> {% formfield field label='' %}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p>
+
+
+    {% next_button %}
+
+    {% endblock %}
