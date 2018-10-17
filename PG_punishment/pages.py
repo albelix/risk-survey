@@ -32,9 +32,9 @@ class PunPage(Page):
             'data': zip(frm, others)
         }
 
+
     def get_form_fields(self):
         return ['pun_{}'.format(i.id_in_group) for i in self.player.get_others_in_group()]
-
 
 class ResultsWaitPage1(WaitPage):
     def after_all_players_arrive(self):

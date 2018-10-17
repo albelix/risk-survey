@@ -23,7 +23,7 @@ PG game with punishment
 class Constants(BaseConstants):
     name_in_url = 'PG_punishment'
     players_per_group = 5
-    num_rounds = 1
+    num_rounds = 8
     endowment = c(100)
     lumpsum = c(160)
     efficiency_factor = 2
