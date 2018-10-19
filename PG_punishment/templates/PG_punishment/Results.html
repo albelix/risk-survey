@@ -34,16 +34,16 @@
 
     <tr>
         <td>Ваш (участника {{ player.id_in_group }}) накопленный доход составляет</td>
-        <td> {{ player.payoff }}</td>
+        <td> {{ player.my_payoff }}</td>
     </tr>
     <tr>
         <td>Сумма ваших (участника {{ player.id_in_group }}) взносов на общий счет равна</td>
-        <td>{{ player.contribution}}</td>
+        <td>{{ player.my_contribution}}</td>
     </tr>
 </table>
 
 
-<h3>Результаты всех участников</h3>
+<h3>Результаты остальных участников</h3>
 
 <br>
 
@@ -53,11 +53,11 @@
         <th> Накопленный доход</th>
         <th> Сумма взносов</th>
     </thead>
-    {% for p in group.get_players %}
+    {% for p, oth_payoff, oth_contribution in other_players_data %} <!-- for p in group.get_players %} -->
     <tr>
         <td> Участник {{p.id_in_group}}</td>
-        <td> {{ p.payoff}}</td>
-        <td> {{ p.contribution}}</td>
+        <td> {{ oth_payoff}}</td>
+        <td> {{ oth_contribution}}</td>
     </tr>
     {% endfor %}
 

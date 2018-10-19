@@ -48,7 +48,14 @@ class Results1(Page):
 
 
 class Results(Page):
-    ...
+#    form_model = models.Player
+
+    def vars_for_template(self):
+        self.player.my_method()
+        others = self.player.get_others_in_group()
+        oth_payoffs = [sum([p.payoff for p in i.in_all_rounds()]) for i in others]
+        oth_contributions = [sum([p.contribution for p in i.in_all_rounds()]) for i in others]
+        return {'other_players_data': zip(others, oth_payoffs, oth_contributions)}
 
 class ResultsSummary(Page):
     def is_displayed(self):

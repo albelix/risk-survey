@@ -29,7 +29,7 @@ class Constants(BaseConstants):
     efficiency_factor = 2
     contribution_limits = currency_range(0, endowment, 1)  # define range of contribs
     num_decisions_per_round = 2
-    pun_endowment = 4  # max amount spent on punishment
+    pun_endowment = 40  # max amount spent on punishment
     pun_factor = 2  # efficiency of punishment
 
 
@@ -68,6 +68,11 @@ class Player(BasePlayer):
 
     def set_final_payoff(self):
         self.payoff = self.pgg_payoff + Constants.pun_endowment - (self.punishment_sent + self.punishment_received)
+
+    def my_method(self):
+        self.my_contribution = sum([p.contribution for p in self.in_all_rounds()])
+        self.my_payoff = sum([p.payoff for p in self.in_all_rounds()])
+
 
 
 for i in range(1, Constants.players_per_group + 1):

@@ -7,7 +7,7 @@ import otree.settings
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
+EXTENSION_APPS = ['realefforttask']
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 # if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
@@ -64,8 +64,6 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY, USD
 REAL_WORLD_CURRENCY_CODE = 'RUB' #'EUR'
 USE_POINTS = True
-
-
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
@@ -386,19 +384,25 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'PG_punishment',
-        'display_name': "Punishment game for CUSB",
+        'display_name': "Общественное благо с наказанием КУСБ",
         'num_demo_participants': 5,
         'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
     },
+    # {
+    #     'name': 'Russian_games',
+    #     'display_name': "Dict-Ultim-Trust Games in Russian",
+    #     'num_demo_participants': 4,
+    #     'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
+    # },
     {
-        'name': 'Russian_games',
-        'display_name': "Dict-Ultim-Trust Games in Russian",
-        'num_demo_participants': 4,
-        'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
+        'name': 'realefforttask',
+        'display_name': 'Real Effort Task',
+        'num_demo_participants': 1,
+        'app_sequence': ['realefforttask', 'my_survey'],
     },
     {
         'name': 'GameOct18',
-        'display_name': "GameOct18",
+        'display_name': "TanyaMay-GameOct18",
         'num_demo_participants': 2,
         'app_sequence': ['GameOct18'],
     },
@@ -439,36 +443,36 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['ultimatum', 'payment_info'],
     #     'use_strategy_method': True,
     # },
-    {
-        'name': 'simple_games_rus',
-        'display_name': "Simple Games Russia",
-        'num_demo_participants': 4,
-        'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus']
-    },
+    # {
+    #     'name': 'simple_games_rus',
+    #     'display_name': "Simple Games Russia",
+    #     'num_demo_participants': 4,
+    #     'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus']
+    # },
     {
         'name': 'roshambo_single',
         'display_name': "RSP",
         'num_demo_participants': 1,
         'app_sequence': ['roshambo_single', 'survey_rps']
     },
-    {
-        'name': 'dictator_rus_no_reg',
-        'display_name': "Dictator Game no Regions",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictator_rus_no_reg', 'my_survey']
-    },
-    {
-        'name': 'ultimatum_simple_rus_no_reg',
-        'display_name': "Ultimatum Game no Regions",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey']
-    },
-    {
-        'name': 'trust_rus_no_reg',
-        'display_name': "Trust Game no Regions",
-        'num_demo_participants': 2,
-        'app_sequence': ['trust_rus_no_reg','my_survey']
-    }
+    # {
+    #     'name': 'dictator_rus_no_reg',
+    #     'display_name': "Dictator Game no Regions",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['dictator_rus_no_reg', 'my_survey']
+    # },
+    # {
+    #     'name': 'ultimatum_simple_rus_no_reg',
+    #     'display_name': "Ultimatum Game no Regions",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey']
+    # },
+    # {
+    #     'name': 'trust_rus_no_reg',
+    #     'display_name': "Trust Game no Regions",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['trust_rus_no_reg','my_survey']
+    # }
 ]
 ### {
 ###     'name': 'ultimatum_non_strategy',
