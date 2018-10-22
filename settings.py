@@ -455,24 +455,24 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['roshambo_single', 'survey_rps']
     },
-    # {
-    #     'name': 'dictator_rus_no_reg',
-    #     'display_name': "Dictator Game no Regions",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['dictator_rus_no_reg', 'my_survey']
-    # },
-    # {
-    #     'name': 'ultimatum_simple_rus_no_reg',
-    #     'display_name': "Ultimatum Game no Regions",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey']
-    # },
-    # {
-    #     'name': 'trust_rus_no_reg',
-    #     'display_name': "Trust Game no Regions",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['trust_rus_no_reg','my_survey']
-    # }
+    {
+        'name': 'dictator_rus_no_reg',
+        'display_name': "Dictator Game no Regions",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictator_rus_no_reg', 'my_survey']
+    },
+    {
+        'name': 'ultimatum_simple_rus_no_reg',
+        'display_name': "Ultimatum Game no Regions",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey']
+    },
+    {
+        'name': 'trust_rus_no_reg',
+        'display_name': "Trust Game no Regions",
+        'num_demo_participants': 2,
+        'app_sequence': ['trust_rus_no_reg','my_survey']
+    }
 ]
 ### {
 ###     'name': 'ultimatum_non_strategy',
