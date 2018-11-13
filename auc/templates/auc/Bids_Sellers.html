@@ -15,8 +15,8 @@
         Your subrole is {{ player.subrole }}.
     </p>
 
-    {% formfield player.sellerchoice label="Decide which auction you would like to participate. Auction label is the highest price you can bid:" %}
-    {% formfield player.sellerbid label="Make the bid for chosen auction. You will not see bidding decisions of the other players when you place your bid." %}
+    {% formfield player.sellerchoice label="Decide which auction you would like to participate:" %}
+    {% formfield player.sellerbid label="Make the bid for chosen auction" %}
     {% next_button %}
 
 {% endblock %}

@@ -80,8 +80,12 @@ class ResultsWaitPage3(WaitPage):
     def after_all_players_arrive(self):
         self.group.SPSB()
 
-class Results(Page):
-    pass
+class Results(Page): #added, was: pass
+    def vars_for_template(self):
+        self.player.my_method()
+        return {
+            'my_payoff': sum([p.payoff for p in self.player.in_all_rounds()]),
+        }
 
 
 page_sequence = [

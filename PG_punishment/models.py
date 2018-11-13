@@ -53,6 +53,8 @@ class Player(BasePlayer):
     pgg_payoff = models.CurrencyField(doc='to store intermediary profit from pgg before punishment stage', initial=0)
     punishment_sent = models.CurrencyField(doc='amount of deduction tokens sent', min=0, max=Constants.pun_endowment)
     punishment_received = models.CurrencyField(doc='amount of pun received multiplied by factor', min=0)
+    retained_income = models.CurrencyField(doc='retained part of endowment', min=0)
+    cumulative_intermediate_profit = models.CurrencyField(doc='profit accumulated before punishment', min=0)
 
     def set_punishment_received(self):
         all_puns_received = [getattr(i, 'pun_{}'.format(self.id_in_group)) for i in self.get_others_in_group()]
@@ -67,11 +69,21 @@ class Player(BasePlayer):
         self.set_punishment_received()
 
     def set_final_payoff(self):
-        self.payoff = self.pgg_payoff + Constants.pun_endowment - (self.punishment_sent + self.punishment_received)
+        self.payoff = Constants.endowment - self.contribution + self.pgg_payoff - (self.punishment_sent + self.punishment_received)
+
+    def retain_income(self):
+#        self.retained_income = Constants.endowment - self.contribution
+        return{
+            'retained_income': Constants.endowment - self.contribution
+        }
 
     def my_method(self):
         self.my_contribution = sum([p.contribution for p in self.in_all_rounds()])
-        self.my_payoff = sum([p.payoff for p in self.in_all_rounds()])
+        return{
+            'cumulative_intermediate_income': sum([p.payoff for p in self.in_all_rounds()]) + self.retained_income
+        }
+#        self.my_payoff = sum([p.payoff for p in self.in_all_rounds()]) + self.retained_income
+
 
 
 

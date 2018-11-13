@@ -1,4 +1,1 @@
-otree==2.0.37
-otree-boto2-shim==0.3.2
-otree-save-the-change==1.1.3
-numpy
+otree>=2.0.27

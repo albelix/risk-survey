@@ -6,6 +6,7 @@ from otree.api import (
 import numpy
 import random
 
+
 author = 'Ansty'
 
 doc = """
@@ -16,10 +17,10 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'auc'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 10
 
-    num_ss = 5
-    num_bs = 5
+    num_ss = 2
+    num_bs = 2
     list_of_ss_id = [i for i in range(1, num_ss + 1)]
 
 
@@ -29,7 +30,6 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-
 
 
 
@@ -228,9 +228,10 @@ class Group(BaseGroup):
             if pl.role() == "Buyer" and pl.subrole == "participant":
 
                 if pl.id_in_group in buyers_winners:
-
-                    pl.payoff = pl.valuation - self.get_player_by_id(pl.buyerchoice).payoff -\
-                                self.get_player_by_id(pl.buyerchoice).valuation
+                    pl.payoff = pl.valuation - self.get_player_by_id(pl.buyerchoice).second_bid # -\
+                                # self.get_player_by_id(pl.buyerchoice).valuation
+                    # pl.payoff = pl.valuation - self.get_player_by_id(pl.buyerchoice).payoff -\
+                    #             self.get_player_by_id(pl.buyerchoice).valuation
                     pl.part_is_winner = True
 
                 else:
@@ -241,8 +242,10 @@ class Group(BaseGroup):
             if pl.role() == "Seller" and pl.subrole == "participant":
 
                 if pl.id_in_group in sellers_winners:
-                    pl.payoff = self.get_player_by_id(pl.sellerchoice).payoff +\
-                                self.get_player_by_id(pl.sellerchoice).valuation - pl.valuation
+                    pl.payoff = self.get_player_by_id(pl.sellerchoice).second_bid  - pl.valuation
+                                # +\ self.get_player_by_id(pl.sellerchoice).valuation
+                    # pl.payoff = self.get_player_by_id(pl.sellerchoice).payoff +\
+                    #             self.get_player_by_id(pl.sellerchoice).valuation - pl.valuation
                     pl.part_is_winner = True
 
                 else:
@@ -264,12 +267,12 @@ class Player(BasePlayer):
 
     subrole = models.StringField(choices=['auctioneer', 'participant'])
 
-    sellerchoice = models.IntegerField()
-    sellerbid = models.FloatField(min=0.0)
+    sellerchoice = models.IntegerField(min=0.00)
+    sellerbid = models.FloatField()
 
 
-    buyerchoice = models.IntegerField()
-    buyerbid = models.FloatField(min=0.0)
+    buyerchoice = models.IntegerField(min=0.00)
+    buyerbid = models.FloatField()
 
     first_bid = models.FloatField()
     second_bid = models.FloatField()
@@ -279,4 +282,6 @@ class Player(BasePlayer):
     part_is_winner = models.BooleanField()
     auc_realised = models.BooleanField()
 
-
+# added
+    def my_method(self):
+        self.my_payoff = sum([p.payoff for p in self.in_all_rounds()])

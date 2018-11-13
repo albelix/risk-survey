@@ -300,6 +300,18 @@ ROOMS = [
         'participant_label_file': 'PlayerList52.txt',
         'use_secure_urls': False,
     },
+    # {
+    #     'name': 'city_5',
+    #     'display_name': 'city_5',
+    #     'participant_label_file': 'city_5.txt',
+    #     'use_secure_urls': False,
+    # },
+    # {
+    #     'name': 'city_6',
+    #     'display_name': 'city_6',
+    #     'participant_label_file': 'city_6.txt',
+    #     'use_secure_urls': False,
+    # },
 ]
 
 ALLOWED_HOSTS=['*']
@@ -309,8 +321,8 @@ ALLOWED_HOSTS=['*']
 
 
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': 5.00,
-    'participation_fee': 150.00,
+    'real_world_currency_per_point': 1.00, # !! THIS WAS 5.00
+    'participation_fee': 0.00, # !! THIS WAS 150
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
 }
@@ -382,13 +394,13 @@ SESSION_CONFIGS = [
         'num_demo_participants': 5,
         'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
     },
-    {
-        'name': 'PG_punishment',
-        'display_name': "Общественное благо с наказанием КУСБ",
-        'num_demo_participants': 5,
-        'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
-    },
     # {
+    #     'name': 'PG_punishment',
+    #     'display_name': "Общественное благо с наказанием КУСБ",
+    #     'num_demo_participants': 5,
+    #     'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
+    # },
+    # # {
     #     'name': 'Russian_games',
     #     'display_name': "Dict-Ultim-Trust Games in Russian",
     #     'num_demo_participants': 4,
@@ -470,9 +482,45 @@ SESSION_CONFIGS = [
     {
         'name': 'trust_rus_no_reg',
         'display_name': "Trust Game no Regions",
-        'num_demo_participants': 2,
+        'num_demo_participants': 4,
         'app_sequence': ['trust_rus_no_reg','my_survey']
-    }
+    },
+    {
+        'name': 'auc',
+        'display_name': "Endogenous auction",
+        'num_demo_participants': 4,
+        'app_sequence': ['auc'],
+    },
+    {
+        'name': 'sorter_test',
+        'display_name': "Test of sorting app - RANDOM",
+        'num_demo_participants': 4,
+        'app_sequence': ['sorter', 'testing_matching','trust_rus_no_reg', 'my_survey'],
+        'city_1': '01',
+        'city_2': '02',
+        'homo': False,
+        'hetero': False,
+    },
+    {
+        'name': 'sorter_test2',
+        'display_name': "Test of sorting app - HETERO",
+        'num_demo_participants': 4,
+        'app_sequence': ['sorter', 'testing_matching', 'trust_rus_no_reg', 'my_survey'],
+        'city_5': '05',
+        'city_6': '06',
+        'homo': False,
+        'hetero': True,
+    },
+    {
+        'name': 'sorter_test3',
+        'display_name': "Test of sorting app - HOMO",
+        'num_demo_participants': 4,
+        'app_sequence': ['sorter', 'testing_matching', 'trust_rus_no_reg', 'my_survey'],
+        'city_1': '01',
+        'city_2': '02',
+        'homo': True,
+        'hetero': False,
+    },
 ]
 ### {
 ###     'name': 'ultimatum_non_strategy',
