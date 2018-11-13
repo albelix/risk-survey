@@ -215,12 +215,12 @@ class R_final_results(Page):
         return (self.player.id_in_group == 2 and self.round_number == 3)
 
 
-from sorter.pages import SorterWP
+# from sorter.pages import SorterWP
 
 # ALL OTHER PAGES OF YOUR APP GO HERE AS USUAL
 
 page_sequence = [
-    SorterWP,
+#    SorterWP,
     Welcome,
     Introduction,
     NormWaitPage,
