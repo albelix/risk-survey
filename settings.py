@@ -278,7 +278,7 @@ ROOMS = [
     },
     {
         'name': 'lab45',
-        'display_name': 'p48',
+        'display_name': 'p45',
         'participant_label_file': 'PlayerList45.txt',
         'use_secure_urls': False,
     },
@@ -406,12 +406,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 4,
     #     'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
     # },
-    {
-        'name': 'realefforttask',
-        'display_name': 'Real Effort Task',
-        'num_demo_participants': 1,
-        'app_sequence': ['realefforttask', 'my_survey'],
-    },
+    # {
+    #     'name': 'realefforttask',
+    #     'display_name': 'Real Effort Task',
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['realefforttask', 'my_survey'],
+    # },
     # {
     #     'name': 'GameOct18',
     #     'display_name': "TanyaMay-GameOct18",
