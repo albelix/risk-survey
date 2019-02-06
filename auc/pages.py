@@ -43,6 +43,7 @@ class Bids_Sellers(Page):
             list_of_choices.append(choice)
         return list_of_choices
 
+
 class No_Bids_Sellers(Page):
 
     def is_displayed(self):

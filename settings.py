@@ -10,12 +10,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 EXTENSION_APPS = ['realefforttask']
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
-# if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-#     DEBUG = False
-# else:
-#     DEBUG = True
+if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
+    DEBUG = False
+else:
+    DEBUG = True
 
-DEBUG = False
+# DEBUG = False
 
 
 # don't share this with anybody.
@@ -135,11 +135,15 @@ CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+POINTS_DECIMAL_PLACES = 2
+REAL_WORLD_CURRENCY_DECIMAL_PLACES = 2
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
 # the session config can be accessed from methods in your apps as self.session.config,
 # e.g. self.session.config['participation_fee']
+
+#BOTS_CHECK_HTML = False
 
 ROOM_DEFAULTS = {}
 
@@ -363,6 +367,7 @@ SESSION_CONFIGS = [
         'display_name': "Guess 2/3 of the Average",
         'num_demo_participants': 3,
         'app_sequence': ['guess_two_thirds', 'payment_info'],
+        'use_browser_bots': True
     },
     {
         'name': 'my_survey',
@@ -386,7 +391,22 @@ SESSION_CONFIGS = [
         'name': 'PG_standard',
         'display_name': "Базовая игра КУСБ",
         'num_demo_participants': 5,
-        'app_sequence': ['PG_standard', 'PG_threshold', 'my_survey'],         #'use_browser_bots': False
+        'app_sequence': ['PG_standard',
+                         'PG_threshold',
+                         'my_survey'
+                         ],
+        # 'use_browser_bots': True
+    },
+
+    {
+        'name': 'PG_standard_bots',
+        'display_name': "Базовая игра КУСБ - bots",
+        'num_demo_participants': 5,
+        'app_sequence': ['PG_standard',
+                         # 'PG_threshold',
+                         # 'my_survey'
+                         ],
+        'use_browser_bots': True
     },
     {
         'name': 'PG_threshold',
@@ -485,12 +505,13 @@ SESSION_CONFIGS = [
         'num_demo_participants': 4,
         'app_sequence': ['trust_rus_no_reg','my_survey']
     },
-    # {
-    #     'name': 'auc',
-    #     'display_name': "Endogenous auction",
-    #     'num_demo_participants': 4,
-    #     'app_sequence': ['auc'],
-    # },
+    {
+        'name': 'auc',
+        'display_name': "Endogenous auction",
+        'num_demo_participants': 4,
+        'app_sequence': ['auc'],
+        'use_browser_bots': False
+    },
     # {
     #     'name': 'sorter_test',
     #     'display_name': "Test of sorting app - RANDOM",
@@ -529,12 +550,13 @@ SESSION_CONFIGS = [
 ###     'app_sequence': ['ultimatum', 'payment_info'],
 ###     'use_strategy_method': False,
 ### },
-### {
-###     'name': 'vickrey_auction',
-###     'display_name': "Vickrey Auction",
-###     'num_demo_participants': 3,
-###     'app_sequence': ['vickrey_auction', 'payment_info'],
-### },
+{
+    'name': 'vickrey_auction',
+    'display_name': "Vickrey Auction",
+    'num_demo_participants': 3,
+    'app_sequence': ['vickrey_auction', 'payment_info'],
+    'use_browser_bots': True
+},
 ### {
 ###     'name': 'volunteer_dilemma',
 ###     'display_name': "Volunteer's Dilemma",
