@@ -10,12 +10,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 EXTENSION_APPS = ['realefforttask']
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
-if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-    DEBUG = False
-else:
-    DEBUG = True
+# if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
+#     DEBUG = False
+# else:
+#     DEBUG = True
 
-# DEBUG = False
+DEBUG = False
 
 
 # don't share this with anybody.
@@ -426,12 +426,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 4,
     #     'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
     # },
-    # {
-    #     'name': 'realefforttask',
-    #     'display_name': 'Real Effort Task',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['realefforttask', 'my_survey'],
-    # },
+    {
+        'name': 'realefforttask',
+        'display_name': 'Real Effort Task',
+        'num_demo_participants': 1,
+        'app_sequence': ['realefforttask', 'my_survey'],
+    },
     # {
     #     'name': 'GameOct18',
     #     'display_name': "TanyaMay-GameOct18",

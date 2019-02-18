@@ -12,6 +12,8 @@ class MyPage(Page):
                    'height',
                    'city',
                    'yearsinmsc',
+                   'expect',
+                   'othercit',
                    'riskat',
                    'income',
                    'satis',

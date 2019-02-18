@@ -16,6 +16,8 @@ class Contribution(Page):
 class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.group.set_payoffs()
+        # for p in self.group.get_players():
+        #     p.my_method()
 #    wait_for_all_groups=True
 
 class Results0(Page):
