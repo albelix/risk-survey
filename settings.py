@@ -93,30 +93,30 @@ DEMO_PAGE_INTRO_HTML = """
 </p>
 """
 
-ROOMS = [
-    {
-        'name': 'econ101',
-        'display_name': 'Econ 101 class',
-        'participant_label_file': '_rooms/econ101.txt',
-    },
-    {
-        'name': 'live_demo',
-        'display_name': 'Room for live demo (no participant labels)',
-    },
-]
+# ROOMS = [
+#     {
+#         'name': 'econ101',
+#         'display_name': 'Econ 101 class',
+#         'participant_label_file': '_rooms/econ101.txt',
+#     },
+#     {
+#         'name': 'live_demo',
+#         'display_name': 'Room for live demo (no participant labels)',
+#     },
+# ]
 
 
-mturk_hit_settings = {
-    'keywords': ['bonus', 'study'],
-    'title': 'Title for your experiment',
-    'description': 'Description for your experiment',
-    'frame_height': 500,
-    'preview_template': 'global/MTurkPreview.html',
-    'minutes_allotted_per_assignment': 60,
-    'expiration_hours': 7*24, # 7 days
-    #'grant_qualification_id': 'YOUR_QUALIFICATION_ID_HERE',# to prevent retakes
-    'qualification_requirements': []
-}
+# mturk_hit_settings = {
+#     'keywords': ['bonus', 'study'],
+#     'title': 'Title for your experiment',
+#     'description': 'Description for your experiment',
+#     'frame_height': 500,
+#     'preview_template': 'global/MTurkPreview.html',
+#     'minutes_allotted_per_assignment': 60,
+#     'expiration_hours': 7*24, # 7 days
+#     #'grant_qualification_id': 'YOUR_QUALIFICATION_ID_HERE',# to prevent retakes
+#     'qualification_requirements': []
+# }
 
 
 ## THIS IS NEEDED FOR TZHUR EXPERIMENT
@@ -135,7 +135,7 @@ CHANNEL_ROUTING = 'bribery_effort_info_RU.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-POINTS_DECIMAL_PLACES = 2
+POINTS_DECIMAL_PLACES = 0 #2
 REAL_WORLD_CURRENCY_DECIMAL_PLACES = 2
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -143,7 +143,7 @@ REAL_WORLD_CURRENCY_DECIMAL_PLACES = 2
 # the session config can be accessed from methods in your apps as self.session.config,
 # e.g. self.session.config['participation_fee']
 
-#BOTS_CHECK_HTML = False
+# BOTS_CHECK_HTML = False
 
 ROOM_DEFAULTS = {}
 
@@ -328,7 +328,7 @@ SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 1.00, # !! THIS WAS 5.00
     'participation_fee': 0.00, # !! THIS WAS 150
     'doc': "",
-    'mturk_hit_settings': mturk_hit_settings,
+#    'mturk_hit_settings': mturk_hit_settings,
 }
 
 SESSION_CONFIGS = [
@@ -390,36 +390,35 @@ SESSION_CONFIGS = [
     {
         'name': 'PG_standard',
         'display_name': "Базовая игра КУСБ",
-        'num_demo_participants': 5,
+        'num_demo_participants': 7,
         'app_sequence': ['PG_standard',
                          'PG_threshold',
                          'my_survey'
                          ],
         # 'use_browser_bots': True
     },
-
     {
         'name': 'PG_standard_bots',
         'display_name': "Базовая игра КУСБ - bots",
-        'num_demo_participants': 5,
+        'num_demo_participants': 7,
         'app_sequence': ['PG_standard',
-                         # 'PG_threshold',
-                         # 'my_survey'
+                         'PG_threshold',
+                         'my_survey'
                          ],
-        'use_browser_bots': True
+        # 'use_browser_bots': True
     },
     {
         'name': 'PG_threshold',
-        'display_name': "Threshold game - admin",
-        'num_demo_participants': 5,
+        'display_name': "Пороговая игра КУСБ",
+        'num_demo_participants': 7,
         'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
     },
-    # {
-    #     'name': 'PG_punishment',
-    #     'display_name': "Общественное благо с наказанием КУСБ",
-    #     'num_demo_participants': 5,
-    #     'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
-    # },
+    {
+        'name': 'PG_punishment',
+        'display_name': "Общественное благо с наказанием КУСБ",
+        'num_demo_participants': 7,
+        'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
+    },
     # # {
     #     'name': 'Russian_games',
     #     'display_name': "Dict-Ultim-Trust Games in Russian",
@@ -497,8 +496,18 @@ SESSION_CONFIGS = [
         'name': 'ultimatum_simple_rus_no_reg',
         'display_name': "Ultimatum Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey']
+        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey'],
     },
+    # {
+    #     'name': 'ultimatum_simple_rus_no_reg',
+    #     'display_name': "Ultimatum Game no Regions",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['sorter','ultimatum_simple_rus_no_reg', 'my_survey'],
+    #     'city_1': '01',
+    #     'city_2': '02',
+    #     'homo': False,
+    #     'hetero': True,
+    # },
     {
         'name': 'trust_rus_no_reg',
         'display_name': "Trust Game no Regions",
@@ -550,13 +559,13 @@ SESSION_CONFIGS = [
 ###     'app_sequence': ['ultimatum', 'payment_info'],
 ###     'use_strategy_method': False,
 ### },
-{
-    'name': 'vickrey_auction',
-    'display_name': "Vickrey Auction",
-    'num_demo_participants': 3,
-    'app_sequence': ['vickrey_auction', 'payment_info'],
-    'use_browser_bots': True
-},
+# {
+#     'name': 'vickrey_auction',
+#     'display_name': "Vickrey Auction",
+#     'num_demo_participants': 3,
+#     'app_sequence': ['vickrey_auction', 'payment_info'],
+#     'use_browser_bots': True
+# },
 ### {
 ###     'name': 'volunteer_dilemma',
 ###     'display_name': "Volunteer's Dilemma",

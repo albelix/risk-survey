@@ -31,9 +31,9 @@ class PunPage(Page):
         return {
             'data': zip(frm, others)
         }
-        return{
-            'player.retained_income'
-        }
+        # return{
+        #     'player.retained_income'
+        # }
 
 
     def get_form_fields(self):
@@ -70,7 +70,7 @@ class ResultsSummary(Page):
             'total_contribution': sum([p.contribution for p in self.player.in_all_rounds()]),
             'total_punishment_received': sum([p.punishment_received for p in self.player.in_all_rounds()]),
             'total_punishment_sent': sum([p.punishment_sent for p in self.player.in_all_rounds()]),
-
+            'participant.payoff': sum([p.payoff for p in self.in_all_rounds()]) #+ self.retained_income
         }
 
 

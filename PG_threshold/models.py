@@ -7,12 +7,12 @@ from random import random, randint
 author = 'Alexis Belianin'
 
 doc = """
-PG game for EDots
+Threshold PG game for EDots
 """
 
 class Constants(BaseConstants):
     name_in_url = 'PG_threshold'
-    players_per_group = 5
+    players_per_group = 7
     num_rounds = 8
     endowment = c(100)
     lumpsum = c(160)

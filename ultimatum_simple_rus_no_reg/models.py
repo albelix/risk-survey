@@ -36,6 +36,7 @@ class Subsession(BaseSubsession):
             paying_round = random.randint(1, Constants.num_rounds)
             self.session.vars['paying_round'] = paying_round
             #regroup players: those (a half) who enter first are 1st players(S), others -- 2nd(R)
+            # comment till self.set_group_matrix(matrix_to_set) to use external sorter
             matrix_to_get = self.get_group_matrix()
             matrix_to_set = []
             senders_list = []

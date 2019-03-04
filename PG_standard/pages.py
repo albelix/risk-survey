@@ -1,6 +1,5 @@
-from otree.api import Currency as c, currency_range
-from . import models
 from ._builtin import Page, WaitPage
+from otree.api import Currency as c, currency_range
 from .models import Constants
 
 
@@ -35,11 +34,15 @@ class Results(Page):
             'me_in_all_rounds_3': self.group.get_player_by_id(3).my_payoff,
             'me_in_all_rounds_4': self.group.get_player_by_id(4).my_payoff,
             'me_in_all_rounds_5': self.group.get_player_by_id(5).my_payoff,
+            'me_in_all_rounds_6': self.group.get_player_by_id(6).my_payoff,
+            'me_in_all_rounds_7': self.group.get_player_by_id(7).my_payoff,
             'p1_contr': self.group.get_player_by_id(1).my_contribution,
             'p2_contr': self.group.get_player_by_id(2).my_contribution,
             'p3_contr': self.group.get_player_by_id(3).my_contribution,
             'p4_contr': self.group.get_player_by_id(4).my_contribution,
             'p5_contr': self.group.get_player_by_id(5).my_contribution,
+            'p6_contr': self.group.get_player_by_id(6).my_contribution,
+            'p7_contr': self.group.get_player_by_id(7).my_contribution,
             'current_round': self.subsession.round_number
         }
 

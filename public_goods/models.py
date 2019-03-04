@@ -40,7 +40,6 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     total_contribution = models.CurrencyField()
-
     individual_share = models.CurrencyField()
 
     def set_payoffs(self):

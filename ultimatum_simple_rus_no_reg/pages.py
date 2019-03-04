@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
+#from sorter.pages import SorterWP
 
 class Welcome(Page):
     def is_displayed(self):
@@ -184,6 +185,7 @@ class R_final_results(Page):
 
 
 page_sequence = [
+#    SorterWP,
     Welcome,
     Intro,
     NormWaitPage,

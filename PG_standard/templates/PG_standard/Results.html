@@ -2,7 +2,7 @@
 {% load staticfiles otree %}
 
 {% block title %}
-        Принятие решений - результаты для участника {{ player.id_in_group }} после раунда {{ current_round }}
+        Результаты для группы {{ player.id_in_group }} по итогам раунда {{ current_round }}
 {% endblock %}
 
 {% block content %}
@@ -14,35 +14,37 @@
 <br> <br>
     Вы внесли на общий счет {{ player.contribution }}.
 <br> <br>
-    Всего ваша группа внесла на общий счет {{ group.total_contribution }}.
+    Все группы внесли на общий счет {{ group.total_contribution }}.
 <br> <br>
-    Ваша доля от доходов с общего счета составила {{ group.individual_share }}.
+    Доля вашей группы от доходов с общего счета составила {{ group.individual_share }}.
 <br> <br>
-    Ваш общий доход в текущем раунде равен {{ player.payoff }}.
+    Совокупный доход вашей группы в текущем раунде составил {{ player.payoff }}.
 </p>
          <br> <br>
 
      <table class="table-condensed" style="width:500px; margin-top:20px;">
 
-           <tr><td>Ваш (участника {{ player.id_in_group }}) накопленный доход составляет </td><td> {{ player.my_payoff }}</td></tr>
-        <tr><td>Сумма ваших (участника {{ player.id_in_group }}) взносов на общий счет равна </td><td>{{ player.my_contribution}}</td></tr>
+           <tr><td>Ваш (группы {{ player.id_in_group }}) накопленный доход составляет </td><td> {{ player.my_payoff }}</td></tr>
+        <tr><td>Сумма ваших (группы {{ player.id_in_group }}) взносов на общий счет равна </td><td>{{ player.my_contribution}}</td></tr>
 
     </table>
 
      <br><br>
 
-     <b>Результаты всех участников</b>
+     <b>Результаты всех групп</b>
 
      <br>
 
      <table class="table-condensed" style="width:500px; margin-top:20px;">
 
         <tr><td> </td><td> Накопленный доход </td><td> Сумма взносов </td></tr>
-        <tr><td> Участник 1 </td><td> {{ me_in_all_rounds_1}} </td><td> {{ p1_contr}} </td></tr>
-        <tr><td> Участник 2 </td><td> {{ me_in_all_rounds_2}} </td><td> {{ p2_contr}}  </td></tr>
-        <tr><td> Участник 3 </td><td> {{ me_in_all_rounds_3}} </td><td> {{ p3_contr}} </td></tr>
-        <tr><td> Участник 4 </td><td> {{ me_in_all_rounds_4}} </td><td> {{ p4_contr}} </td></tr>
-        <tr><td> Участник 5 </td><td> {{ me_in_all_rounds_5}} </td><td> {{ p5_contr}} </td></tr>
+        <tr><td> Группа 1 </td><td> {{ me_in_all_rounds_1}} </td><td> {{ p1_contr}} </td></tr>
+        <tr><td> Группа 2 </td><td> {{ me_in_all_rounds_2}} </td><td> {{ p2_contr}}  </td></tr>
+        <tr><td> Группа 3 </td><td> {{ me_in_all_rounds_3}} </td><td> {{ p3_contr}} </td></tr>
+        <tr><td> Группа 4 </td><td> {{ me_in_all_rounds_4}} </td><td> {{ p4_contr}} </td></tr>
+        <tr><td> Группа 5 </td><td> {{ me_in_all_rounds_5}} </td><td> {{ p5_contr}} </td></tr>
+        <tr><td> Группа 6 </td><td> {{ me_in_all_rounds_6}} </td><td> {{ p6_contr}} </td></tr>
+        <tr><td> Группа 7 </td><td> {{ me_in_all_rounds_7}} </td><td> {{ p7_contr}} </td></tr>
 
         <td><td></td></tr>
 

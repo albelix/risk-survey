@@ -1,31 +1,40 @@
 from otree.api import (
-    models, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
+    models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
 import random
+
 
 # from otree.constants import BaseConstants
 # from otree.models import BaseSubsession, BaseGroup, BasePlayer
 #
 # from otree.db import models
-# #from otree import widgets
+# from otree import widgets
+# from otree.common import Currency as c, currency_range, safe_json
+
+
+# from otree.constants import BaseConstants
+# from otree.models import BaseSubsession, BaseGroup, BasePlayer
+#
+# from otree.db import models
+#from otree import widgets
 # from otree.common import Currency as c, currency_range, safe_json
 
 author = 'Alexis Belianin'
 
 doc = """
-PG game for EDotsfrom otree.common import Currency as c, currency_range, safe_json
+PG game for EDotsfrom 
 
 """
 
 
 class Constants(BaseConstants):
     name_in_url = 'PG_standard'
-    players_per_group = 5
+    players_per_group = 7
     num_rounds = 8
     endowment = c(100)
     lumpsum = c(160)
-    efficiency_factor = 2
+    efficiency_factor = 3
     contribution_limits = currency_range(0, endowment, 1) #define range of contribs
 
 
@@ -37,7 +46,6 @@ class Group(BaseGroup):
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
     round_num=models.IntegerField()
-
 
     def set_payoffs(self):
         self.total_contribution = sum([p.contribution for p in self.get_players()])
@@ -54,7 +62,7 @@ class Group(BaseGroup):
             print('p.payoff_is', p.payoff)
 
 class Player(BasePlayer):
-    contribution = models.CurrencyField(doc="""The amount contributed by the player""", min=0,max=100) # choices=Constants.contribution_limits) #add this to see schedule of contribs
+    contribution = models.CurrencyField(doc="""The amount contributed by the player""", min=0, max=100) # choices=Constants.contribution_limits) #add this to see schedule of contribs
     payoff = models.CurrencyField()
     total_contribution = models.CurrencyField()
     my_contribution = models.CurrencyField(doc="""The amount contributed by the player""", )
@@ -63,26 +71,3 @@ class Player(BasePlayer):
     def my_method(self):
         self.my_contribution = sum([p.contribution for p in self.in_all_rounds()])
         self.my_payoff = sum([p.payoff for p in self.in_all_rounds()])
-
-                # def role(self):
-                #    if self.id_in_group == 1:
-                #        self.idind = 1
-                #        self.par1 = self.my_payoff(1)
-                #    if self.id_in_group == 2:
-                #        self.idind = 2
-                #        self.par2 = self.my_payoff(2)
-                #    if self.id_in_group == 3:
-                #        self.idind = 3
-                #        self.par3 = self.my_payoff(3)
-
-
-                #def role(self):
-    #    if self.id_in_group == 1:
-    #        self.idind = 1
-    #        self.par1 = self.my_payoff(1)
-    #    if self.id_in_group == 2:
-    #        self.idind = 2
-    #        self.par2 = self.my_payoff(2)
-    #    if self.id_in_group == 3:
-    #        self.idind = 3
-    #        self.par3 = self.my_payoff(3)
