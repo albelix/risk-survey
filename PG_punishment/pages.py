@@ -43,7 +43,7 @@ class ResultsWaitPage1(WaitPage):
     def after_all_players_arrive(self):
         for p in self.group.get_players():
             p.set_pun()
-            p.set_final_payoff()
+            p.final_payoff()
 
 
 class Results1(Page):

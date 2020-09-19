@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block content %}
+    {% if session.is_demo %}
+        <div class="alert alert-primary">
+            DEBUG: HERE GOES THE QUESTIONNAIRE
+        </div>
+    {% endif %}
+     Please enter the following information.
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

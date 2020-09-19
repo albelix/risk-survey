@@ -22,7 +22,7 @@ PG game with punishment
 
 class Constants(BaseConstants):
     name_in_url = 'PG_punishment'
-    players_per_group = 7
+    players_per_group = 5
     num_rounds = 8
     endowment = c(100)
     lumpsum = c(160)
@@ -51,7 +51,7 @@ class Group(BaseGroup):
     def set_payoffs(self):
         for p in self.get_players():
             p.final_payoff = Constants.endowment - p.contribution + self.individual_share - (p.punishment_sent + p.punishment_received)
-            print('p.payoff_is', p.payoff)
+            print('p.payoff_is', p.final_payoff)
 
 
 class Player(BasePlayer):
@@ -75,9 +75,11 @@ class Player(BasePlayer):
         self.set_punishment_sent()
         self.set_punishment_received()
 
+    def set_pgg(self):
+        self.pgg_payoff = Constants.endowment - self.contribution + self.individual_share
+
     def set_final_payoff(self):
-        for p in self.get_players():
-            p.final_payoff = p.pgg_payoff - (self.set_punishment_sent + self.set_punishment_received)
+        self.final_payoff = self.pgg_payoff - (self.set_punishment_sent + self.set_punishment_received)
 
     # def retain_income(self):
     #     self.retained_income = Constants.endowment - self.contribution

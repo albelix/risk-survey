@@ -7,7 +7,7 @@ import otree.settings
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-EXTENSION_APPS = ['realefforttask']
+# EXTENSION_APPS = ['realefforttask']
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 # if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
@@ -15,7 +15,7 @@ EXTENSION_APPS = ['realefforttask']
 # else:
 #     DEBUG = True
 
-DEBUG = False
+DEBUG = True
 
 
 # don't share this with anybody.
@@ -23,8 +23,8 @@ SECRET_KEY = '+2ie+=9*vj3zo@c)n5w75ap3ouyw#rcw@r-dt3uf&rvr&j4hbg'
 
 SENTRY_DSN = 'http://bb8e7c0737264a5dbb46a83d5ae4edff:0dcd498260c443bcaf70df542f969ae2@sentry.otree.org/285'
 
-DATABASES = {
-    'default': dj_database_url.config(
+# DATABASES = {
+#     'default': dj_database_url.config(
         # Rather than hardcoding the DB parameters here,
         # it's recommended to set the DATABASE_URL environment variable.
         # This will allow you to use SQLite locally, and postgres/mysql
@@ -34,9 +34,9 @@ DATABASES = {
         # export DATABASE_URL=mysql://USER:PASSWORD@HOST:PORT/NAME
 
         # fall back to SQLite if the DATABASE_URL env var is missing
-        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-    )
-}
+#         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+#     )
+# }
 
 # AUTH_LEVEL:
 # this setting controls which parts of your site are freely accessible,
@@ -49,7 +49,7 @@ DATABASES = {
 #   of the admin interface, set it to DEMO.
 
 # for flexibility, you can set it in the environment variable OTREE_AUTH_LEVEL
-AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
+AUTH_LEVEL = environ.get('DEMO')
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
@@ -336,13 +336,13 @@ SESSION_CONFIGS = [
     #     'name': 'bribery_effort_base_RU',
     #     'display_name': "bribery_effort_base_RU",
     #     'num_demo_participants': 3,
-    #     'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey'],
+    #     'app_sequence': ['bribery_effort_base_RU', 'payment_info', 'my_survey_eng'],
     # },
     # {
     #     'name': 'bribery_effort_info_RU',
     #     'display_name': "bribery_effort_info_RU",
     #     'num_demo_participants': 3,
-    #     'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey'],
+    #     'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey_eng'],
     # },
     # {
     #     'name': 'auc',
@@ -356,19 +356,19 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 4,
     #     'app_sequence': ['my_game'],
     # },
-    {
-        'name': 'public_goods',
-        'display_name': "Public Goods",
-        'num_demo_participants': 3,
-        'app_sequence': ['public_goods', 'payment_info'],
-    },
-    {
-        'name': 'guess_two_thirds',
-        'display_name': "Guess 2/3 of the Average",
-        'num_demo_participants': 3,
-        'app_sequence': ['guess_two_thirds', 'payment_info'],
-        'use_browser_bots': True
-    },
+    # {
+    #     'name': 'public_goods',
+    #     'display_name': "Public Goods",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['public_goods', 'payment_info'],
+    # },
+    # {
+    #     'name': 'guess_two_thirds',
+    #     'display_name': "Guess 2/3 of the Average",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['guess_two_thirds', 'payment_info'],
+    #     'use_browser_bots': True
+    # },
     {
         'name': 'my_survey',
         'display_name': "Survey large",
@@ -410,13 +410,13 @@ SESSION_CONFIGS = [
     {
         'name': 'PG_threshold',
         'display_name': "Пороговая игра КУСБ",
-        'num_demo_participants': 7,
+        'num_demo_participants': 5,
         'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
     },
     {
         'name': 'PG_punishment',
         'display_name': "Общественное благо с наказанием КУСБ",
-        'num_demo_participants': 7,
+        'num_demo_participants': 5,
         'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
     },
     # # {
@@ -425,13 +425,13 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 4,
     #     'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus'],
     # },
-    {
-        'name': 'realefforttask',
-        'display_name': 'Real Effort Task',
-        'num_demo_participants': 1,
-        'app_sequence': ['realefforttask', 'my_survey'],
-    },
     # {
+    #     'name': 'realefforttask',
+    #     'display_name': 'Real Effort Task',
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['realefforttask', 'my_survey_eng'],
+    # },
+    # # {
     #     'name': 'GameOct18',
     #     'display_name': "TanyaMay-GameOct18",
     #     'num_demo_participants': 2,
@@ -490,19 +490,19 @@ SESSION_CONFIGS = [
         'name': 'dictator_rus_no_reg',
         'display_name': "Dictator Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['dictator_rus_no_reg', 'my_survey']
+        'app_sequence': ['dictator_rus_no_reg', 'my_survey_eng']
     },
     {
         'name': 'ultimatum_simple_rus_no_reg',
         'display_name': "Ultimatum Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey'],
+        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey_eng'],
     },
     # {
     #     'name': 'ultimatum_simple_rus_no_reg',
     #     'display_name': "Ultimatum Game no Regions",
     #     'num_demo_participants': 2,
-    #     'app_sequence': ['sorter','ultimatum_simple_rus_no_reg', 'my_survey'],
+    #     'app_sequence': ['sorter','ultimatum_simple_rus_no_reg', 'my_survey_eng'],
     #     'city_1': '01',
     #     'city_2': '02',
     #     'homo': False,
@@ -512,7 +512,7 @@ SESSION_CONFIGS = [
         'name': 'trust_rus_no_reg',
         'display_name': "Trust Game no Regions",
         'num_demo_participants': 4,
-        'app_sequence': ['trust_rus_no_reg','my_survey']
+        'app_sequence': ['trust_rus_no_reg','my_survey_eng']
     },
     {
         'name': 'auc',
@@ -525,7 +525,7 @@ SESSION_CONFIGS = [
     #     'name': 'sorter_test',
     #     'display_name': "Test of sorting app - RANDOM",
     #     'num_demo_participants': 4,
-    #     'app_sequence': ['sorter', 'testing_matching','trust_rus_no_reg', 'my_survey'],
+    #     'app_sequence': ['sorter', 'testing_matching','trust_rus_no_reg', 'my_survey_eng'],
     #     'city_1': '01',
     #     'city_2': '02',
     #     'homo': False,
@@ -535,7 +535,7 @@ SESSION_CONFIGS = [
     #     'name': 'sorter_test2',
     #     'display_name': "Test of sorting app - HETERO",
     #     'num_demo_participants': 4,
-    #     'app_sequence': ['sorter', 'testing_matching', 'trust_rus_no_reg', 'my_survey'],
+    #     'app_sequence': ['sorter', 'testing_matching', 'trust_rus_no_reg', 'my_survey_eng'],
     #     'city_5': '05',
     #     'city_6': '06',
     #     'homo': False,
@@ -545,7 +545,7 @@ SESSION_CONFIGS = [
     #     'name': 'sorter_test3',
     #     'display_name': "Test of sorting app - HOMO",
     #     'num_demo_participants': 4,
-    #     'app_sequence': ['sorter', 'testing_matching', 'trust_rus_no_reg', 'my_survey'],
+    #     'app_sequence': ['sorter', 'testing_matching', 'trust_rus_no_reg', 'my_survey_eng'],
     #     'city_1': '01',
     #     'city_2': '02',
     #     'homo': True,

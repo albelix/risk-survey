@@ -12,8 +12,6 @@ class MyPage(Page):
                    'height',
                    'city',
                    'yearsinmsc',
-                   'expect',
-                   'othercit',
                    'riskat',
                    'income',
                    'satis',
@@ -32,7 +30,9 @@ class MyPage(Page):
 #     form_model = 'player'
 #     form_fields = ['univ',
 #                    'study',
-#                    'riskat',
+#                    'riskat'
+#                    'expect',
+#                    'othercit',
 #                    'riskHL1',
 #                    'riskHL2',
 #                    'riskHL3',
