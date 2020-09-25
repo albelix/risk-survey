@@ -11,7 +11,7 @@ from otree.models import BaseSubsession, BaseGroup, BasePlayer
 
 from otree.db import models
 # from otree import widgets
-from otree.common import Currency as c, currency_range, safe_json
+# from otree.common import Currency as c, currency_range, safe_json
 
 author = 'Alexis Belianin'
 
