@@ -373,7 +373,7 @@ SESSION_CONFIGS = [
         'name': 'my_survey',
         'display_name': "Survey large",
         'num_demo_participants': 1,
-        'app_sequence': ['my_survey', 'payment_info'],
+        'app_sequence': ['my_survey'],
     },
     # {
     #     'name': 'quiz',
