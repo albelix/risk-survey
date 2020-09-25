@@ -44,6 +44,27 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
+    feedback1_words= models.StringField(
+        verbose_name= '''Был ли Вам понятен интерфейс и инструкции в заданиях со словами? Что бы Вы предложили улучшить или изменить?'''
+        )
+
+    feedback2_ball = models.StringField(
+        verbose_name='''Был ли Вам понятен интерфейс и инструкции в заданиях с шариком? Что бы Вы предложили улучшить или изменить?'''
+        )
+
+    feedback3_gen= models.StringField(
+        verbose_name= '''Опишите в общих чертах Вашу стратегию в заданиях с шариком: как Вы выбирали сектор, 
+        изменяли ли свою стратегию в зависимости от результатов и т.д.'''
+        )
+
+    feedback4_succ = models.StringField(
+        verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после успехов?'''
+        )
+
+    feedback5_fail = models.StringField(
+        verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после неудач?'''
+        )
+
     age = models.PositiveIntegerField(verbose_name='Ваш возраст (полных лет)',
                                         min=13, max=95,
                                         initial=None)
@@ -57,8 +78,7 @@ class Player(BasePlayer):
                                         min=100, max=240,
                                         initial=None)
 
-
-    field = models.PositiveIntegerField(verbose_name='Ваша специализация',
+    field = models.PositiveIntegerField(verbose_name='Ваша специализация (выберите наиболее подходящую)',
         choices=[[1, 'Экономика, финансы, менеджмент'], [2, 'Социальные науки, психология, политология'], [3, 'Право'],  [4, 'Международные отношения'],
                  [5, 'Математика, компьютерные, точные науки'], [6, 'Гуманитарные науки'], [7, 'Медиа, журналистика, дизайн'], [8, 'Другое']],
         widget=widgets.RadioSelect())
