@@ -514,14 +514,14 @@ SESSION_CONFIGS = [
         'num_demo_participants': 4,
         'app_sequence': ['trust_rus_no_reg','my_survey_eng']
     },
-    {
-        'name': 'auc',
-        'display_name': "Endogenous auction",
-        'num_demo_participants': 4,
-        'app_sequence': ['auc'],
-        'use_browser_bots': False
-    },
     # {
+    #     'name': 'auc',
+    #     'display_name': "Endogenous auction",
+    #     'num_demo_participants': 4,
+    #     'app_sequence': ['auc'],
+    #     'use_browser_bots': False
+    # },
+    # # {
     #     'name': 'sorter_test',
     #     'display_name': "Test of sorting app - RANDOM",
     #     'num_demo_participants': 4,
