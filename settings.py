@@ -490,13 +490,13 @@ SESSION_CONFIGS = [
         'name': 'dictator_rus_no_reg',
         'display_name': "Dictator Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['dictator_rus_no_reg', 'my_survey_eng']
+        'app_sequence': ['dictator_rus_no_reg', 'my_survey']
     },
     {
         'name': 'ultimatum_simple_rus_no_reg',
         'display_name': "Ultimatum Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey_eng'],
+        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey'],
     },
     # {
     #     'name': 'ultimatum_simple_rus_no_reg',
@@ -512,7 +512,7 @@ SESSION_CONFIGS = [
         'name': 'trust_rus_no_reg',
         'display_name': "Trust Game no Regions",
         'num_demo_participants': 4,
-        'app_sequence': ['trust_rus_no_reg','my_survey_eng']
+        'app_sequence': ['trust_rus_no_reg','my_survey']
     },
     # {
     #     'name': 'auc',
