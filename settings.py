@@ -381,12 +381,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 1,
     #     'app_sequence': ['quiz'],
     # },
-    {
-        'name': 'BRET',
-        'display_name': "BRET",
-        'num_demo_participants': 1,
-        'app_sequence': ['bret'],
-    },
+    # {
+    #     'name': 'BRET',
+    #     'display_name': "BRET",
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['bret'],
+    # },
     {
         'name': 'PG_standard',
         'display_name': "Базовая игра КУСБ",
