@@ -413,13 +413,13 @@ SESSION_CONFIGS = [
         'num_demo_participants': 5,
         'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
     },
-    {
-        'name': 'PG_punishment',
-        'display_name': "Общественное благо с наказанием КУСБ",
-        'num_demo_participants': 5,
-        'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
-    },
-    # # {
+    # {
+    #     'name': 'PG_punishment',
+    #     'display_name': "Общественное благо с наказанием КУСБ",
+    #     'num_demo_participants': 5,
+    #     'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
+    # },
+    # # # {
     #     'name': 'Russian_games',
     #     'display_name': "Dict-Ultim-Trust Games in Russian",
     #     'num_demo_participants': 4,
