@@ -63,7 +63,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     contribution = models.CurrencyField(doc="""The amount contributed by the player""", min=0, max=100) # choices=Constants.contribution_limits) #add this to see schedule of contribs
-    payoff = models.CurrencyField()
+ #   payoff = models.CurrencyField()
     total_contribution = models.CurrencyField()
     my_contribution = models.CurrencyField(doc="""The amount contributed by the player""", )
     my_payoff = models.CurrencyField()
