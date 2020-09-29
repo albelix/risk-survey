@@ -1,9 +1,9 @@
 import os
 from os import environ
 
-import dj_database_url
-
-import otree.settings
+# import dj_database_url
+#
+# import otree.settings
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -20,7 +20,7 @@ DEBUG = True
 # don't share this with anybody.
 SECRET_KEY = '+2ie+=9*vj3zo@c)n5w75ap3ouyw#rcw@r-dt3uf&rvr&j4hbg'
 
-SENTRY_DSN = 'http://bb8e7c0737264a5dbb46a83d5ae4edff:0dcd498260c443bcaf70df542f969ae2@sentry.otree.org/285'
+# SENTRY_DSN = 'http://bb8e7c0737264a5dbb46a83d5ae4edff:0dcd498260c443bcaf70df542f969ae2@sentry.otree.org/285'
 
 # DATABASES = {
 #     'default': dj_database_url.config(
@@ -56,8 +56,8 @@ ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 
 # setting for integration with AWS Mturk
-AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
+# AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY, USD
@@ -664,4 +664,4 @@ SESSION_CONFIGS = [
 ###     'app_sequence': ['trust_simple'],
 ### },
 
-otree.settings.augment_settings(globals())
+# otree.settings.augment_settings(globals())
