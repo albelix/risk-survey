@@ -44,25 +44,30 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
-    feedback1_words= models.StringField(
+    feedback1_words= models.TextField(
         verbose_name= '''Был ли Вам понятен интерфейс и инструкции в заданиях со словами? Что бы Вы предложили улучшить или изменить?'''
         )
 
-    feedback2_ball = models.StringField(
+    feedback2_ball = models.TextField(
         verbose_name='''Был ли Вам понятен интерфейс и инструкции в заданиях с шариком? Что бы Вы предложили улучшить или изменить?'''
         )
 
-    feedback3_gen= models.StringField(
+    feedback3_gen= models.TextField(
         verbose_name= '''Опишите в общих чертах Вашу стратегию в заданиях с шариком: как Вы выбирали сектор, 
         изменяли ли свою стратегию в зависимости от результатов и т.д.'''
         )
 
-    feedback4_succ = models.StringField(
+    feedback4_succ = models.TextField(
         verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после успехов?'''
         )
 
-    feedback5_fail = models.StringField(
+    feedback5_fail = models.TextField(
         verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после неудач?'''
+        )
+
+    feedback6_money = models.TextField(
+        verbose_name='''Если бы Вам платили за каждое правильное решение с шариками по 1000 рублей, Вы бы изменили свою стратегию? 
+        Если да, то каким образом?'''
         )
 
     age = models.PositiveIntegerField(verbose_name='Ваш возраст (полных лет)',

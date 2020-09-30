@@ -6,18 +6,25 @@ from .models import Constants
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['age',
-                   'gender',
-                   'field',
-                   'height',
-                   'city',
-                   'yearsinmsc',
-                   'riskat',
-                   'income',
-                   'satis',
-                   'trust',
-                   'freedom',
-                   ]
+    form_fields = [
+        'feedback1_words',
+        'feedback2_ball',
+        'feedback3_gen',
+        'feedback4_succ',
+        'feedback5_fail',
+        'feedback6_money',
+        'age',
+        'gender',
+        'field',
+        'height',
+        'city',
+        'yearsinmsc',
+        'riskat',
+        'income',
+        'satis',
+        'trust',
+        'freedom',
+        ]
 
 
 # class City(Page):
