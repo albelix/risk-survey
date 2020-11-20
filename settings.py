@@ -10,12 +10,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # EXTENSION_APPS = ['realefforttask']
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
-# if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-#     DEBUG = False
-# else:
-#     DEBUG = True
+if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
+    DEBUG = False
+else:
+    DEBUG = True
 
-DEBUG = True
+#DEBUG = True
 
 # don't share this with anybody.
 SECRET_KEY = '+2ie+=9*vj3zo@c)n5w75ap3ouyw#rcw@r-dt3uf&rvr&j4hbg'
