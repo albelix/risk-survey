@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        First decision of Participant 2 in Round 1.
+    {% elif subsession.round_number == 2 %}
+        First decision of Participant 2 in Round 2.
+    {% elif subsession.round_number == 3 %}
+        First decision of Participant 2 in Round 3.
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        You are <strong>Participant 2</strong>
+    </p>
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        In this round Participant 1 received <strong>{{ endowment_iter_1 }} ECU</strong>,
+    {% elif subsession.round_number == 2 %}
+        In this round Participant 1 received <strong>{{ endowment_iter_2 }} ECU</strong>,
+    {% elif subsession.round_number == 3 %}
+        In this round Participant 1 received <strong>{{ endowment_iter_3 }} ECU</strong>.
+    {% endif %}
+    </p>
+
+    <p>
+        Please indicate the minimum amount in ECU that you are ready to accept from Participant 1.
+        If the offer made by Participant 1 will be at or above this minimum amount, it will be automatically accepted by you;
+        If it will be less, it will be automatically rejected.
+    </p>
+
+    <p>
+        {% formfield group.R_min_acceptance label='What is the minimum amount in ECU that you are ready to accept from Participant 1:' %}
+    </p>
+
+
+
+
+    <p>
+        Please press <strong>Next</strong>.
+    </p>
+
+    {% next_button %}
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

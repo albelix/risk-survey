@@ -66,7 +66,7 @@ USE_POINTS = True
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'ru' #'ru'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
@@ -343,11 +343,17 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 3,
     #     'app_sequence': ['bribery_effort_info_RU', 'payment_info', 'my_survey_eng'],
     # },
+    {
+        'name': 'honest_project',
+        'display_name': "honest_project",
+        'num_demo_participants': 100,
+        'app_sequence': ['honest_project'],
+    },
     # {
-    #     'name': 'auc',
-    #     'display_name': "Double Auction",
-    #     'num_demo_participants': 10,
-    #     'app_sequence': ['auc'],
+    #     'name': 'covid',
+    #     'display_name': "Covid online game",
+    #     'num_demo_participants': 50,
+    #     'app_sequence': ['covid'],
     # },
     # {
     #     'name': 'my_game',
@@ -369,8 +375,14 @@ SESSION_CONFIGS = [
     #     'use_browser_bots': True
     # },
     {
+        'name': 'covid_survey',
+        'display_name': "Survey for covid",
+        'num_demo_participants': 1,
+        'app_sequence': ['covid_survey'],
+    },
+    {
         'name': 'my_survey',
-        'display_name': "Survey large",
+        'display_name': "Survey for risky choice",
         'num_demo_participants': 1,
         'app_sequence': ['my_survey'],
     },
@@ -409,7 +421,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PG_threshold',
         'display_name': "Пороговая игра КУСБ",
-        'num_demo_participants': 5,
+        'num_demo_participants': 7,
         'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
     },
     # {
@@ -489,13 +501,19 @@ SESSION_CONFIGS = [
         'name': 'dictator_rus_no_reg',
         'display_name': "Dictator Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['dictator_rus_no_reg', 'my_survey']
+        'app_sequence': ['dictator_rus_no_reg', 'covid_survey']
     },
     {
         'name': 'ultimatum_simple_rus_no_reg',
         'display_name': "Ultimatum Game no Regions",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'my_survey'],
+        'app_sequence': ['ultimatum_simple_rus_no_reg', 'covid_survey'],
+    },
+    {
+        'name': 'ultimatum_simple_eng_no_reg',
+        'display_name': "Ultimatum Game no Regions ENG" ,
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum_simple_eng_no_reg', 'covid_survey'],
     },
     # {
     #     'name': 'ultimatum_simple_rus_no_reg',
@@ -511,7 +529,7 @@ SESSION_CONFIGS = [
         'name': 'trust_rus_no_reg',
         'display_name': "Trust Game no Regions",
         'num_demo_participants': 4,
-        'app_sequence': ['trust_rus_no_reg','my_survey']
+        'app_sequence': ['trust_rus_no_reg','covid_survey']
     },
     # {
     #     'name': 'auc',

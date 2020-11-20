@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Все Ваши ответы анонимны: никто кроме Вас их не видит
+{% endblock %}
+
+{% block content %}
+    <td>
+
+    </td>
+    <h1></h1>
+    {% formfield player.forecast label="Сколько Орлов чаще всего будут сообщать участники этого эксперимента?" %}
+    {% formfield player.belief label="Какова вероятность (в процентах, от 0 до 100), что Вы верно угадаете число Орлов, которое чаще всего будут сообщать участники этого эксперимента?" %}
+{#    {% formfield player.answer label="Пожалуйста, впишите в поле формы Вашу оценку того, какое Количество Орлов в среднем укажут участники этого эксперимента:" %}#}
+{##}
+{#    {% formfield player.gender label="Пожалуйста, укажите Ваш пол:" %}  <!-- this is just a placeholder of several formfields -->#}
+{#    {% formfield player.age label="Пожалуйста, укажите Ваш возраст:" %}  <!-- this is just a placeholder of several formfields -->#}
+
+    {% next_button %}
+{% endblock %}

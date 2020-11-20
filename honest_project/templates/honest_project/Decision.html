@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Дайте пожалуйста Ваш ответ
+{% endblock %}
+
+{% block content %}
+    <h1>Ваш ответ анонимный: никто кроме Вас не знает сколько у Вас Орлов
+    </h1>
+     {% formfield player.answer label="Сколько Орлов выпало у Вас за 6 попыток: " %}
+
+{#  <!--     {% next_button %} -->#}
+
+    <p>Все верно?</p>
+
+    {% next_button %}
+<!-- <div> -->
+<!--    <button name="Да, сообщить ответ" value="True">Да, сообщить ответ</button> -->
+<!--    <button name="Нет, исправить" value="False">Нет, исправить</button> -->
+<!-- </div> -->
+{#<!-- {{ player.payoff1 }}  player is stupid!! --!>#}
+{% endblock %}

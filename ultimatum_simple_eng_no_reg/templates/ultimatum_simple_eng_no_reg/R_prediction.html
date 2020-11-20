@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        Second decision of Participant 2 in Round 1.
+    {% elif subsession.round_number == 2 %}
+        Second decision of Participant 2 in Round 2.
+    {% elif subsession.round_number == 3 %}
+        Second decision of Participant 2 in Round 3.
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        <strong>Reminder:</strong> in this round Participant 1 received <strong>{{ endowment_iter_1 }} ECU</strong>,
+    {% elif subsession.round_number == 2 %}
+        <strong>Reminder:</strong> in this round Participant 1 received <strong>{{ endowment_iter_2 }} ECU</strong>,
+    {% elif subsession.round_number == 3 %}
+        <strong>Reminder:</strong> in this round Participant 1 received <strong>{{ endowment_iter_3 }} ECU</strong>.
+    {% endif %}
+    </p>
+
+
+    <p>
+        {% formfield group.R_prediction label='How do you think, how many ECU of that amount has Participant 1 decided to transfer to you in this round?' %}
+
+    </p>
+
+
+    <p>
+        Please press <strong>Next</strong>.
+    </p>
+
+    {% next_button %}
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

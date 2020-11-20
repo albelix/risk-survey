@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{##}
+{#    Пожалуйста, укажите Ваш пол: {{ player.gender }}#}
+{#    Пожалуйста, укажите Ваш возраст: {{ player.age }}#}
+{#    {%  formfields %}#}
+
+    Пожалуйста, подбросьте свою монету 6 раз подряд и запомните число Орлов. Когда закончите, нажмите Далее.
+{% endblock %}
+
+{% block content %}
+
+{%  next_button %}
+
+{% endblock %}
+
+

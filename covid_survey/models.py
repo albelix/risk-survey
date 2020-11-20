@@ -9,26 +9,91 @@ import random
 
 class Constants(BaseConstants):
     name_in_url = 'covid_survey'
-# from otree.api import (
-#     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
-#     Currency as c, currency_range
-# )
-# import random
-
-import random
-
-from otree.constants import BaseConstants
-from otree.models import BaseSubsession, BaseGroup, BasePlayer
-
-from otree.db import models
-# from otree import widgets
-# from otree.common import Currency as c, currency_range, safe_json
-
-
-class Constants(BaseConstants):
-    name_in_url = 'my_survey'
     players_per_group = None
     num_rounds = 1
+
+    IncrementChoices5DNK=[
+        [1, 'Безусловно увеличился'],
+        [2, 'Скорее увеличился'],
+        [3, 'Не изменился'],
+        [4, 'Скорее уменьшился'],
+        [5, 'Безусловно уменьшился'],
+        [6, 'Затрудняюсь ответить'],
+    ]
+
+    AgreementChoices4DNK=[
+        [1, 'Совершенно согласен'],
+        [2, 'Скорее согласен'],
+        [3, 'Скорее не согласен'],
+        [4, 'Совершенно не согласен'],
+        [5, 'Затрудняюсь ответить'],
+    ]
+
+    TrustChoices4DNK=[
+        [1, 'Полностью доверяю'],
+        [2, 'В некоторой степени доверяю'],
+        [3, 'Не очень доверяю'],
+        [4, 'Совсем не доверяю'],
+        [5, 'Затрудняюсь ответить'],
+    ]
+
+    SimilarChoices6DNK=[
+        [1, 'Очень похож на меня'],
+        [2, 'Похож на меня'],
+        [3, 'Отчасти похож на меня'],
+        [4, 'Немного похож на меня'],
+        [5, 'Не похож на меня'],
+        [6, 'Совсем не похож на меня'],
+        [7, 'Затрудняюсь ответить'],
+    ]
+
+    AgreementChoices5DNK=[
+        [1, 'Совершенно согласен'],
+        [2, 'Скорее согласен'],
+        [3, 'И да и нет'],
+        [4, 'Скорее не согласен'],
+        [5, 'Совершенно не согласен'],
+        [6, 'Затрудняюсь ответить'],
+    ]
+
+    Sibling4=[
+        [1, '0'],
+        [2, '1'],
+        [3, '2'],
+        [4, '3'],
+        [5, '4 или более'],
+    ]
+
+    Region6 = [
+        [1, '0'],
+        [2, '1'],
+        [3, '2-3'],
+        [4, '4-6'],
+        [5, '7 или более'],
+    ]
+
+    education_choices = [
+        [1, 'Средняя школа'],
+        [2, 'Среднее профессиональное образование'],
+        [3, 'Незаконченное высшее образование'],
+        [4, 'Высшее образование'],
+        [5, 'Два и более диплома / Ученая степень'],
+    ]
+
+    #Survey1
+    Inc5DNK=IncrementChoices5DNK
+    #Survey2
+    Agree4DNK=AgreementChoices4DNK
+    #Survey3
+    Trust4DNK=TrustChoices4DNK
+    #Surveys4
+    Similar6DNK=SimilarChoices6DNK
+    #Survey5
+    Agree5DNK=AgreementChoices4DNK
+    #Survery6
+    Sib4=Sibling4
+    #Survery7
+    Reg6=Region6
 
 
 class Subsession(BaseSubsession):
@@ -44,31 +109,22 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
-    feedback1_words= models.TextField(
-        verbose_name= '''Был ли Вам понятен интерфейс и инструкции в заданиях со словами? Что бы Вы предложили улучшить или изменить?'''
+    fdb1_instructions= models.TextField(
+        verbose_name= '''Были ли Вам понятны условия эксперимента, или же что-то оставалось неясным?'''
         )
 
-    feedback2_ball = models.TextField(
-        verbose_name='''Был ли Вам понятен интерфейс и инструкции в заданиях с шариком? Что бы Вы предложили улучшить или изменить?'''
+    fdb1_yourdecision= models.TextField(
+        verbose_name= '''Пожалуйста, объясните Ваше решение в этом эксперименте. Почему Вы поступили именно таким образом?'''
         )
 
-    feedback3_gen= models.TextField(
-        verbose_name= '''Опишите в общих чертах Вашу стратегию в заданиях с шариком: как Вы выбирали сектор, 
-        изменяли ли свою стратегию в зависимости от результатов и т.д.'''
+    fdb1_othersdecision= models.TextField(
+        verbose_name= '''Как Вы думаете, какой процент участников этого эксперимента в Вашем городе принял решение Действовать'''
         )
 
-    feedback4_succ = models.TextField(
-        verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после успехов?'''
-        )
-
-    feedback5_fail = models.TextField(
-        verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после неудач?'''
-        )
-
-    feedback6_money = models.TextField(
-        verbose_name='''Если бы Вам платили за каждое правильное решение с шариками по 1000 рублей, Вы бы изменили свою стратегию? 
-        Если да, то каким образом?'''
-        )
+    fdb1_RussiaDecision = models.TextField(
+        verbose_name='''Этот эксперимент проводится в разных городах России. Как Вы думаете, какой процент участников 
+        этого эксперимента в России в целом принял решение Действовать? В каких городах он будет больше, в каких меньше?'''
+    )
 
     age = models.PositiveIntegerField(verbose_name='Ваш возраст (полных лет)',
                                         min=13, max=95,
@@ -82,6 +138,22 @@ class Player(BasePlayer):
     height = models.PositiveIntegerField(verbose_name='Ваш рост (в сантиметрах)',
                                         min=100, max=240,
                                         initial=None)
+
+    marital_status = models.PositiveIntegerField(
+        verbose_name='Ваш семейный статус',
+        choices=[
+            [1, 'Не женаты/не замужем'],
+            [2, 'Женаты/замужем'],
+            [3, 'В отношениях, но официально не состоите в браке'],
+            [4, 'Разведены'],
+            [5, 'Живете отдельно от супруга/и'],
+            [6, 'Вдовец/Вдова'],
+            [7, 'Затрудняюсь ответить']
+        ],
+        widget=widgets.RadioSelect()
+    )
+
+
 
     field = models.PositiveIntegerField(verbose_name='Ваша специализация (выберите наиболее подходящую)',
         choices=[[1, 'Экономика, финансы, менеджмент'], [2, 'Социальные науки, психология, политология'], [3, 'Право'],  [4, 'Международные отношения'],

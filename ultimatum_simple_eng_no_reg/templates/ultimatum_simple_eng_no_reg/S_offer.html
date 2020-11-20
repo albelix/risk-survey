@@ -1,0 +1,64 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    {% if subsession.round_number == 1 %}
+        First decision of Participant 1 in Round 1.
+    {% elif subsession.round_number == 2 %}
+        First decision of Participant 1 in Round 2.
+    {% elif subsession.round_number == 3 %}
+        First decision of Participant 1 in Round 3.
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        You are <strong>Participant 1</strong>
+    </p>
+
+    <p>
+    {% if subsession.round_number == 1 %}
+        In this round you have received the initial amount of <strong>{{ endowment_iter_1 }} ECU</strong>,
+    {% elif subsession.round_number == 2 %}
+        In this round you have received the initial amount of <strong>{{ endowment_iter_2 }} ECU</strong>,
+    {% elif subsession.round_number == 3 %}
+        In this round you have received the initial amount of <strong>{{ endowment_iter_3 }} ECU</strong>.
+    {% endif %}
+    </p>
+
+    {% if subsession.round_number == 1 %}
+
+        <p>
+        Please indicate how many ECU of the amount you have received in this round you decide to transfer to Participant 2 (from 0 to {{ endowment_iter_1 }}).
+        </p>
+        {% formfield group.S_transfer label='How many ECU you decide to transfer to Participant 2:'%}
+        {% formfield group.S_self_part label='How many ECU you decide to keep for yourself:'%}
+
+    {% elif subsession.round_number == 2 %}
+
+        <p>
+         Please indicate how many ECU of the amount you have received in this round you decide to transfer to Participant 2 (from 0 to {{ endowment_iter_2 }}).
+        </p>
+        {% formfield group.S_transfer label='How many ECU you decide to transfer to Participant 2:'%}
+        {% formfield group.S_self_part label='How many ECU you decide to keep for yourself:'%}
+
+    {% elif subsession.round_number == 3 %}
+
+        <p>
+         Please indicate how many ECU of the amount you have received in this round you decide to transfer to Participant 2 (from 0 to  {{ endowment_iter_3 }}).
+        </p>
+        {% formfield group.S_transfer label='How many ECU you decide to transfer to Participant 2:'%}
+        {% formfield group.S_self_part label='How many ECU you decide to keep for yourself:'%}
+
+    {% endif %}
+
+    <p>
+        Please press <strong>Next</strong>.
+    </p>
+
+    {% next_button %}
+    {% include Constants.instructions_template %}
+
+{% endblock %}
