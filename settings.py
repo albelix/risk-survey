@@ -6,8 +6,8 @@ from os import environ
 # import otree.settings
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# EXTENSION_APPS = ['realefforttask']
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#EXTENSION_APPS = ['realefforttask']
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
@@ -133,7 +133,7 @@ DEMO_PAGE_INTRO_HTML = """
 #CHANNEL_ROUTING = 'bribery_effort_info_IT.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 POINTS_DECIMAL_PLACES = 0 #2
 REAL_WORLD_CURRENCY_DECIMAL_PLACES = 2
 
@@ -319,8 +319,8 @@ ROOMS = [
 
 ALLOWED_HOSTS=['*']
 
-# CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
-# CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_base.routing.channel_routing'
+#CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
 
 
 SESSION_CONFIG_DEFAULTS = {
@@ -440,7 +440,7 @@ SESSION_CONFIGS = [
     #     'name': 'realefforttask',
     #     'display_name': 'Real Effort Task',
     #     'num_demo_participants': 1,
-    #     'app_sequence': ['realefforttask', 'my_survey_eng'],
+    #     'app_sequence': ['realefforttask', 'my_survey'],
     # },
     # # {
     #     'name': 'GameOct18',

@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{##}
+{#    Пожалуйста, укажите Ваш пол: {{ player.gender }}#}
+{#    Пожалуйста, укажите Ваш возраст: {{ player.age }}#}
+{#    {%  formfields %}#}
+    Instructions
+<!--Это задание состоит из 20 раундов. В каждом раунде Вам будут предложены две квадратные матрицы из двузначных чисел,
+    сгенерированных случайным образом. Вам надо будет найти наибольшее число в каждой из матриц (оно обязательно будет),
+    сложить их, и вписать полученную сумму в окошко на экране. Если Вы вписали сумму верно, Вы успешно выполнили задание, если нет - не справились.
+
+    В начале каждого раунда Вам будет предложено выбор размерность обеих матриц - от 4х4 до 12х12. На выполнение
+    задания в каждом раунде Вам отводится 45 секунд, независимо от выбранной Вами размерности матриц. Чем больше размерность
+    матриц, тем сложнее будет в них найти наибольшее число, и дать правильный ответ. В случае успешного
+    выполнения задания Вы получите число очков, равное количеству строк в выбранной Вами матрице. В случае неудачи вы получите 0 за этот раунд.
+
+    В конце раунда Вы увидите на экране, успешно или нет выполнили Вы задание в этом раунде, и общее число заработанных Вами очков.
+    В каждом следующем раунде Вы можете выбрать матрицу любой другой размерности, с учетом Вашего предшествующего опыта.
+
+    Ваша цель - заработать как можно больше очков в каждом раунде. По окончании эксперимента один из раундов будет выбран случайным образом,
+    и Вы получите вознаграждение, соответствующее тому числу очков, которое Вы выиграли в этом раунде.
+
+    Если Вы готовы, нажмите Далее
+-->
+{% endblock %}
+
+{% block content %}
+    This task consists of 20 rounds. In each round you will be shown two square matrices with randomly drawn two-digit
+    numbers. Your task is to find the maximum number in each of these matrices, sum them up and write the result down to
+    the form. If you have successfully accomplished all that, you have done your assignment right, if not - you failed it.
+
+    <br>
+    <br>
+
+    At the beginning of each round, you will be asked to select the size of both matrices (difficulty level) for this round: from 4x4 to 12x12.
+    You will have fixed time allowance of 45 sec. per task in each round, regardless of the matrix size.
+    Hence the larger is matrix size, the more difficult is it to give the right answer. If your answer is correct,
+    you will get the number of points equal to difficulty level that you have chosen. In case of failure, you will get 0.
+
+    <br>
+    <br>
+
+    At the end of round you will see your performance for this round. Next round you may change your difficulty level
+    in light of your experience or for any other reason.
+
+    <br>
+    <br>
+
+    Your task is to earn as many points as you can. At the end of the experiment, one round will be chosen at random, and you
+    will earn the number of points corresponding to your performance in it.
+
+    <br>
+    <br>
+
+    Please press the Next button to proceed.
+
+    <br>
+    <br>
+
+    {%  next_button %}
+
+{% endblock %}
+
+
