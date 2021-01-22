@@ -1,0 +1,57 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'cem/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    {% trans "Instructions" %}
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper instructions">
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                In this task, you will have to make {{ n }} decisions presented in rows on your screen. Each decision is a
+                choice between "Option A" and "Option B". You make {{ n }} choices by choosing the radio button corresponding
+                to either of these options in each row.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo p=probability %}
+                "Option A" is a lottery that pays {{ hi }} (High) with {{ p }} probability and {{ lo }} (Low) otherwise;
+                "Option B" yields a varying, but certain (100%) payoff.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                After you have made all of your {{ n }} decisions, one of them will be randomly chosen for
+                your payment. If you have chosen "Option A" in this decision, it will be randomly determined
+                with the corresponding probability whether Low or High outcome will constitute your payoff.
+                If you chose to opt for "Option B" in this decision, the sure amount in this decision will be your payoff.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                Once you are ready to proceed, please press Next button.
+            {% endblocktrans %}
+        </p>
+    </div>
+
+    {% next_button %}
+{% endblock %}

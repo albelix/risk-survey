@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results <!-- Результаты -->
+{% endblock %}
+
+{% block content %}
+    <table class="table table-striped">
+        <tr>
+            <td>You have chosen difficulty level <!-- Вы выбрали уровень сложности --></td>
+            <td>{{ player.get_difficulty_level }}</td>
+        </tr>
+        <tr>
+            <td>Right answer will bring you: <!-- Каждая правильно решенная задача на этом уровне сложности принесла вам--> </td>
+            <td>{{ player.get_fee }}</td>
+        </tr>
+        <tr>
+            <td>Number of attempts: <!-- You have tried to solve Вы попытались решить--></td>
+            <td>{{ player.finished_tasks.count }}</td>
+        </tr>
+        <tr>
+            <td>You gave right answer to <!-- Вы правильно решили --></td>
+            <td>{{ player.num_tasks_correct }} tasks <!-- заданий --> </td>
+        </tr>
+        <tr>
+            <td>You gave wrong answer to <!-- Вы неправильно решили --></td>
+            <td>{{ player.num_tasks_incorrect }} tasks <!-- заданий--> </td>
+        </tr>
+        <tr>
+            <td>In this round you have earned <!-- За этот раунд вы заработали --></td>
+            <td>{{ player.payoff }}</td>
+        </tr>
+
+    </table>
+    {% next_button %}
+
+{% endblock %}

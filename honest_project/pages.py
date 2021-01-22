@@ -16,7 +16,7 @@ class Decision(Page):
 
 class Belief(Page):
     form_model = 'player'
-    form_fields = ['forecast', 'belief']
+    form_fields = ['group_name', 'gender', 'age', 'forecast_bus', 'belief_bus', 'forecast_gos', 'belief_gos']
 
     # def get_form_fields(self):
     #     return ['forecast']

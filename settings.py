@@ -398,32 +398,32 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 1,
     #     'app_sequence': ['bret'],
     # },
-    {
-        'name': 'PG_standard',
-        'display_name': "Базовая игра КУСБ",
-        'num_demo_participants': 7,
-        'app_sequence': ['PG_standard',
-                         'PG_threshold',
-                         'my_survey'
-                         ],
-        # 'use_browser_bots': True
-    },
-    {
-        'name': 'PG_standard_bots',
-        'display_name': "Базовая игра КУСБ - bots",
-        'num_demo_participants': 7,
-        'app_sequence': ['PG_standard',
-                         'PG_threshold',
-                         'my_survey'
-                         ],
-        # 'use_browser_bots': True
-    },
-    {
-        'name': 'PG_threshold',
-        'display_name': "Пороговая игра КУСБ",
-        'num_demo_participants': 7,
-        'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
-    },
+    # {
+    #     'name': 'PG_standard',
+    #     'display_name': "Базовая игра КУСБ",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['PG_standard',
+    #                      'PG_threshold',
+    #                      'my_survey'
+    #                      ],
+    #     # 'use_browser_bots': True
+    # },
+    # {
+    #     'name': 'PG_standard_bots',
+    #     'display_name': "Базовая игра КУСБ - bots",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['PG_standard',
+    #                      'PG_threshold',
+    #                      'my_survey'
+    #                      ],
+    #     # 'use_browser_bots': True
+    # },
+    # {
+    #     'name': 'PG_threshold',
+    #     'display_name': "Пороговая игра КУСБ",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
+    # },
     # {
     #     'name': 'PG_punishment',
     #     'display_name': "Общественное благо с наказанием КУСБ",
@@ -491,30 +491,30 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 4,
     #     'app_sequence': ['dictator_rus', 'ultimatum_simple_rus', 'trust_rus']
     # },
-    {
-        'name': 'roshambo_single',
-        'display_name': "RSP",
-        'num_demo_participants': 1,
-        'app_sequence': ['roshambo_single', 'survey_rps']
-    },
-    {
-        'name': 'dictator_rus_no_reg',
-        'display_name': "Dictator Game no Regions",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictator_rus_no_reg', 'covid_survey']
-    },
-    {
-        'name': 'ultimatum_simple_rus_no_reg',
-        'display_name': "Ultimatum Game no Regions",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_rus_no_reg', 'covid_survey'],
-    },
-    {
-        'name': 'ultimatum_simple_eng_no_reg',
-        'display_name': "Ultimatum Game no Regions ENG" ,
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_simple_eng_no_reg', 'covid_survey'],
-    },
+    # {
+    #     'name': 'roshambo_single',
+    #     'display_name': "RSP",
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['roshambo_single', 'survey_rps']
+    # },
+    # {
+    #     'name': 'dictator_rus_no_reg',
+    #     'display_name': "Dictator Game no Regions",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['dictator_rus_no_reg', 'covid_survey']
+    # },
+    # {
+    #     'name': 'ultimatum_simple_rus_no_reg',
+    #     'display_name': "Ultimatum Game no Regions",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['ultimatum_simple_rus_no_reg', 'covid_survey'],
+    # },
+    # {
+    #     'name': 'ultimatum_simple_eng_no_reg',
+    #     'display_name': "Ultimatum Game no Regions ENG" ,
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['ultimatum_simple_eng_no_reg', 'covid_survey'],
+    # },
     # {
     #     'name': 'ultimatum_simple_rus_no_reg',
     #     'display_name': "Ultimatum Game no Regions",
@@ -525,12 +525,12 @@ SESSION_CONFIGS = [
     #     'homo': False,
     #     'hetero': True,
     # },
-    {
-        'name': 'trust_rus_no_reg',
-        'display_name': "Trust Game no Regions",
-        'num_demo_participants': 4,
-        'app_sequence': ['trust_rus_no_reg','covid_survey']
-    },
+    # {
+    #     'name': 'trust_rus_no_reg',
+    #     'display_name': "Trust Game no Regions",
+    #     'num_demo_participants': 4,
+    #     'app_sequence': ['trust_rus_no_reg','covid_survey']
+    # },
     # {
     #     'name': 'auc',
     #     'display_name': "Endogenous auction",

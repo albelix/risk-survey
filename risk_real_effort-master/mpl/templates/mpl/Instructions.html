@@ -1,0 +1,59 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'mpl/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    {% trans "Instructions" %}
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper instructions">
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                In this task, you will have to make {{ n }} decisions presented in rows on your screen. Each decision is a
+                choice between "Option A" and "Option B". You make {{ n }} choices by choosing the radio button corresponding
+                to either of these options in each row.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                Payoffs of the two options are fixed for all decisions. Chances of the high payoff and low payoff for
+                each option will vary.
+        {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                After you have made all of your {{ n }} decisions, one of them will be randomly chosen for
+                your payment. For the option you have chosen ("Option A" or "Option B" in this decision),  it will be
+                randomly determined with the corresponding probabilities whether High or Low outcome will constitute your
+                payoff.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                Once you are ready to proceed, please press Next button.
+            {% endblocktrans %}
+        </p>
+
+    </div>
+
+    {% next_button %}
+
+{% endblock %}
