@@ -4,14 +4,7 @@ from otree.api import (
 )
 # from tables import group
 
-# import random
-
-#from otree.constants import BaseConstants
-#from otree.models import BaseSubsession, BaseGroup, BasePlayer
-#from otree.db import models
-
-# from otree import widgets
-# from otree.common import Currency as c, currency_range, safe_json
+import random
 
 author = 'Alexis Belianin'
 
@@ -23,7 +16,7 @@ PG game with punishment
 class Constants(BaseConstants):
     name_in_url = 'PG_punishment'
     players_per_group = 5
-    num_rounds = 8
+    num_rounds = 2
     endowment = c(100)
     lumpsum = c(160)
     efficiency_factor = 3
@@ -33,25 +26,32 @@ class Constants(BaseConstants):
     pun_factor = 2  # efficiency of punishment
 
 
-class Subsession(BaseSubsession):
-    pass
 
+class Subsession(BaseSubsession):
+    paying_round = models.IntegerField()
+    def before_session_starts(self):
+        if self.round_number == 1:
+            paying_round = random.randint(1, Constants.num_rounds)
+            self.session.vars['paying_round'] = paying_round
 
 class Group(BaseGroup):
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
-    pgg_payoff = models.CurrencyField(doc='to store intermediary profit from pgg before punishment stage', initial=0)
-
+#    pgg_payoff = models.CurrencyField(doc='to store intermediary profit from pgg before punishment stage', initial=0)
+#    period_final_payoffs = models.CurrencyField(doc='payoffs after all punishments', min=0)
+# this is removed
     def set_pgg_payoffs(self):
         self.total_contribution = sum([p.contribution for p in self.get_players()])
         self.individual_share = self.total_contribution * Constants.efficiency_factor / Constants.players_per_group
         for p in self.get_players():
             p.pgg_payoff = Constants.endowment - p.contribution + self.individual_share
+        # for p in self.get_players():
+        #     p.pgg_self = Constants.endowment - p.contribution
 # this function is added
-    def set_payoffs(self):
-        for p in self.get_players():
-            p.final_payoff = Constants.endowment - p.contribution + self.individual_share - (p.punishment_sent + p.punishment_received)
-            print('p.payoff_is', p.final_payoff)
+#     def set_payoffs(self):
+#         for p in self.get_players():
+#             p.period_final_payoffs = Constants.endowment - p.contribution + self.individual_share - (p.punishment_sent + p.punishment_received)
+#             print('p.payoff_is', p.period_final_payoffs)
 
 
 class Player(BasePlayer):
@@ -59,9 +59,18 @@ class Player(BasePlayer):
     pgg_payoff = models.CurrencyField(doc='to store intermediary profit from pgg before punishment stage', initial=0)
     punishment_sent = models.CurrencyField(doc='amount of deduction tokens sent', min=0, max=Constants.pun_endowment)
     punishment_received = models.CurrencyField(doc='amount of pun received multiplied by factor', min=0)
+    my_contribution = models.CurrencyField(doc="""rolling cumulative contributions""")
+    my_payoff = models.CurrencyField(doc="""rolling participant total payoff""")
+#    pay_round = models.IntegerField()
+
 #    retained_income = models.CurrencyField(doc='retained part of endowment', min=0)
 #    cumulative_intermediate_profit = models.CurrencyField(doc='profit accumulated before punishment', min=0)
-    final_payoff = models.CurrencyField(doc='payoffs after all punishments', min=0)
+    #final_payoff = models.CurrencyField(doc='payoffs after all punishments', min=0)  # suppressed
+    pun_1=models.CurrencyField(label='pun_1')
+    pun_2=models.CurrencyField(label='pun_2')
+    pun_3=models.CurrencyField(label='pun_3')
+    pun_4=models.CurrencyField(label='pun_4')
+    pun_5=models.CurrencyField(label='pun_5')
 
     def set_punishment_received(self):
         all_puns_received = [getattr(i, 'pun_{}'.format(self.id_in_group)) for i in self.get_others_in_group()]
@@ -78,27 +87,22 @@ class Player(BasePlayer):
     def set_pgg(self):
         self.pgg_payoff = Constants.endowment - self.contribution + self.individual_share
 
-    def set_final_payoff(self):
-        self.final_payoff = self.pgg_payoff - (self.set_punishment_sent + self.set_punishment_received)
+    def set_payoff(self):
+        self.payoff = self.pgg_payoff - (self.punishment_sent + self.punishment_received)
 
-    # def retain_income(self):
-    #     self.retained_income = Constants.endowment - self.contribution
+    # def paying_round(self):
+    #     self.pay_round = self.subsession.vars['paying_round']
     #     return{
-    #         'retained_income': Constants.endowment - self.contribution
+    #         'pay_round': self.subsession.vars['paying_round']
     #     }
 
     def my_method(self):
-        self.my_contribution = sum([p.contribution for p in self.in_all_rounds()])
-        self.my_payoff = sum([p.payoff for p in self.in_all_rounds()]) # + self.retained_income
-        # return{
-        #     'cumulative_intermediate_income': sum([p.payoff for p in self.in_all_rounds()]) + self.retained_income
-        # }
+       self.my_contribution = sum([p.contribution for p in self.in_all_rounds()])
+       self.my_payoff = sum([p.payoff for p in self.in_all_rounds()]) # + self.retained_income  # final_payoff
 
 
-
-
-for i in range(1, Constants.players_per_group + 1):
-    Player.add_to_class('pun_{}'.format(i),
-                        models.CurrencyField(min=0,
-                                             max=Constants.pun_endowment,
-                                             verbose_name="Вычет у участника {}".format(i)))
+# for i in range(1, Constants.players_per_group + 1):
+#     Player.add_to_class('pun_{}'.format(i),
+#                         models.CurrencyField(min=0,
+#                                              max=Constants.pun_endowment,
+#                                              verbose_name="Вычет у участника {}".format(i)))

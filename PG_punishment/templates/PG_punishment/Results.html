@@ -16,13 +16,13 @@
         <br> <br>
         Ваша доля от доходов с общего счета составила {{ group.individual_share }}.
         <br> <br>
-        Ваш общий доход в текущем раунде равен {{ player.payoff }}.
+        Ваш общий доход в текущем раунде составил {{ player.pgg_payoff }}.
         <br> <br>
         У вас было вычтено {{ player.punishment_received }}.
         <br> <br>
         Вы потратили на вычеты {{ player.punishment_sent}}.
         <br> <br>
-        Ваш итоговый доход за текущий период (добавлено на ваш счет) {{ player.final_payoff }}.
+        Ваш итоговый доход за текущий период (добавлено на ваш счет) {{ player.payoff }}.
     </div>
 </div>
 
@@ -33,7 +33,7 @@
 <table class="table table-stripped">
 
     <tr>
-        <td>Ваш (участника {{ player.id_in_group }}) накопленный доход составляет</td>
+        <td>Ваш (участника {{ player.id_in_group }}) накопленный доход составил </td>
         <td> {{ player.my_payoff }}</td>
     </tr>
     <tr>
@@ -50,7 +50,7 @@
 <table class="table table-stripped">
     <thead>
         <th></th>
-        <th> Накопленный доход</th>
+        <th> Накопленный доход на начало периода</th>
         <th> Сумма взносов</th>
     </thead>
     {% for p, oth_payoff, oth_contribution in other_players_data %} <!-- for p in group.get_players %} -->

@@ -63,6 +63,7 @@ ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY, USD
 REAL_WORLD_CURRENCY_CODE = 'RUB' #'EUR'
 USE_POINTS = True
+POINTS_CUSTOM_NAME = 'токен'
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
@@ -375,6 +376,12 @@ SESSION_CONFIGS = [
     #     'use_browser_bots': True
     # },
     {
+        'name': 'covid_game',
+        'display_name': "Decisions in covid game",
+        'num_demo_participants': 1,
+        'app_sequence': ['covid'],
+    },
+    {
         'name': 'covid_survey',
         'display_name': "Survey for covid",
         'num_demo_participants': 1,
@@ -424,12 +431,20 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 7,
     #     'app_sequence': ['PG_threshold'],         #'use_browser_bots': False
     # },
-    # {
-    #     'name': 'PG_punishment',
-    #     'display_name': "Общественное благо с наказанием КУСБ",
-    #     'num_demo_participants': 5,
-    #     'app_sequence': ['PG_punishment'],         #'use_browser_bots': False
-    # },
+    {
+        'name': 'PG_emotions',
+        'display_name': "Public goods with emotions",
+        'num_demo_participants': 6,
+        'app_sequence': ['PG_emotions'],
+        'use_browser_bots': False
+    },
+    {
+        'name': 'PG_punishment',
+        'display_name': "Общественное благо с наказанием КУСБ",
+        'num_demo_participants': 5,
+        'app_sequence': ['PG_punishment'],
+        'use_browser_bots': False
+    },
     # # # {
     #     'name': 'Russian_games',
     #     'display_name': "Dict-Ultim-Trust Games in Russian",

@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Принятие решений III - результаты для участника {{ player.id_in_group }}
+    Принятие решений: итоговые результаты для участника {{ player.id_in_group }}
 {% endblock %}
 
 {% block content %}
@@ -29,7 +29,14 @@
 
         <br> <br>
 
-        Пожалуйста, дождитесь окончания!
+        Выигрыш выпал за раунд {{ paying_round }}
+
+        <br> <br>
+
+        Вы заработали  {{ total_pay }}
+
+        <br> <br>
+
     </p>
 
     {% next_button %}

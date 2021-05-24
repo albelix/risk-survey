@@ -51,7 +51,7 @@ class Constants(BaseConstants):
 
     # show results page summarizing the task's outcome including payoff information
     # if <results = True>, a separate page containing all relevant information is displayed after finishing the task
-    # if <results = False>, the template "Decision.html" will not be rendered
+    # if <results = False>, the template "Waiting.html" will not be rendered
     results = True
 
     # ---------------------------------------------------------------------------------------------------------------- #
