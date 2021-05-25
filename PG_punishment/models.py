@@ -37,7 +37,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
-#    pgg_payoff = models.CurrencyField(doc='to store intermediary profit from pgg before punishment stage', initial=0)
+    pgg_payoff = models.CurrencyField(doc='to store intermediary profit from pgg before punishment stage', initial=0)
 #    period_final_payoffs = models.CurrencyField(doc='payoffs after all punishments', min=0)
 # this is removed
     def set_pgg_payoffs(self):
@@ -85,7 +85,7 @@ class Player(BasePlayer):
         self.set_punishment_received()
 
     def set_pgg(self):
-        self.pgg_payoff = Constants.endowment - self.contribution + self.individual_share
+        self.pgg_payoff = Constants.endowment - self.contribution + self.group.individual_share
 
     def set_payoff(self):
         self.payoff = self.pgg_payoff - (self.punishment_sent + self.punishment_received)

@@ -44,8 +44,8 @@ class Guess(Page):
 
 class BeforeResults(WaitPage):
     def after_all_players_arrive(self):
-        self.group.set_pgg_payoffs()
         for p in self.group.get_players():
+            p.group.set_pgg_payoffs()
             p.set_pgg()
             p.set_guess()
 
@@ -84,8 +84,9 @@ class EmoPage_Sat(Page):
 
 class EmoWaitPage1(WaitPage):
     def after_all_players_arrive(self):
+#        self.group.set_pgg_payoffs()
         for p in self.group.get_players():
-            p.set_pgg()
+#            p.set_pgg() #_payoffs()
             p.set_anger()
             p.set_satis()
         #    p.set_anger_estimated()

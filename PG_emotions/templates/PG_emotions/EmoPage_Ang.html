@@ -17,7 +17,6 @@
 
     <br> <br>
 
-
     <div class="card">
 
         <div class="card-body">
@@ -28,7 +27,6 @@
 
         </div>
     </div>
-
 
     <table class="table table-sripped" style="width:500px; margin-top:20px;">
         <thead>
@@ -45,7 +43,7 @@
                 <td> Участник {{ i.id_in_group }}</td> <!-- i.partner  -->
                 <td> {{ i.pgg_payoff }}</td>
                 <td> {{ i.contribution }}</td>
-                <td> {% formfield field label='' %}</td>
+                <td> <div class="d-flex flex-md-row">{% formfield field label='' %}</div></td>
             </tr>
         {% endfor %}
         </tbody>

@@ -72,6 +72,7 @@ class Group(BaseGroup):
         self.mean_normative = sum([p.normative for p in self.get_players()]) / Constants.players_per_group
 
     def set_pgg_payoffs(self):
+        print("contributio", sum([p.contribution for p in self.get_players()]))
         self.total_contribution = sum([p.contribution for p in self.get_players()])
         self.individual_share = self.total_contribution * Constants.efficiency_factor / Constants.players_per_group
         for p in self.get_players():
