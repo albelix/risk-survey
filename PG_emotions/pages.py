@@ -6,9 +6,9 @@ from .models import Constants
 # from django.forms.models import inlineformset_factory
 # from django import forms
 
-class Introduction(Page):
-    def is_displayed(self):
-        return self.round_number == 1
+# class Introduction(Page):
+#     def is_displayed(self):
+#         return self.round_number == 1
 
 
 class Normative(Page):
@@ -187,7 +187,7 @@ class ResultsSummary(Page):
 
 
 page_sequence = [
-    Introduction,
+#    Introduction,
     Normative,
     BeforeContrib,
     Results0,
