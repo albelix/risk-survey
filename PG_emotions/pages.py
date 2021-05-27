@@ -8,7 +8,7 @@ from .models import Constants
 
 class Introduction(Page):
     def is_displayed(self):
-        return self.subsession.round_number == 1
+        return self.round_number == 1
 
 
 class Normative(Page):

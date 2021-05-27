@@ -6,11 +6,13 @@ from .models import Constants
 
 class PlayerBot(Bot):
 
-    def play_round(self):
+    @property
+    def play_round(self, check_html=None):
+        yield (pages.Introduction, {{}}) # this is not working: remove Introduction page to test with bots from everywhere
         yield (pages.Normative, {'normative': c(12)})
         yield (pages.Contribution, {'contribution': c(8)})
         yield (pages.Guess, {'guess': c(5)})
- 
+
         if self.player.id_in_group == 1:
             yield (pages.EmoPage_Ang, {'anger_2': c(5), 'anger_3': c(1), 'anger_4': c(5), 'anger_5': c(1), 'anger_6': c(3)})
         elif self.player.id_in_group == 2:

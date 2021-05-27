@@ -49,9 +49,9 @@ class Subsession(BaseSubsession):
             paying_round = random.randint(1, Constants.num_rounds)
             self.session.vars['paying_round'] = paying_round
 
-    def vars_for_admin_report(self):
-        participant_payoffs = sorted([p.participant.payoff for p in self.get_players()])
-        return {'payoffs': participant_payoffs}
+    # def vars_for_admin_report(self):
+    #     participant_payoffs = sorted([p.participant.payoff for p in self.get_players()])
+    #     return {'payoffs': participant_payoffs}
 
 class Group(BaseGroup):
     mean_normative = models.CurrencyField(doc="""Mean normative contribution expected ex ante""")
