@@ -16,7 +16,7 @@
             <br> <br>
             Ваша доля от доходов с общего счета составила {{ group.individual_share }}.
             <br> <br>
-            Ваш общий доход в текущем раунде равен {{ player.payoff }}.
+            Ваш общий доход в текущем раунде равен {{ player.pgg_payoff }}.
             <br> <br>
             Ваш итоговый доход за текущий период (добавлено на ваш счет) {{ player.pgg_payoff }}.
         </div>
@@ -29,7 +29,7 @@
     <table class="table table-stripped">
 
         <tr>
-            <td>Ваш (участника {{ player.id_in_group }}) накопленный доход составляет</td>
+            <td>Ваш (участника {{ player.id_in_group }}) накопленный доход за предыдущие раунды составляет</td>
             <td> {{ player.my_payoff }}</td>
         </tr>
         <tr>

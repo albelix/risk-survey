@@ -135,7 +135,7 @@ DEMO_PAGE_INTRO_HTML = """
 #CHANNEL_ROUTING = 'bribery_effort_withinfo.routing.channel_routing'
 #CHANNEL_ROUTING = 'bribery_effort_thirdparty.routing.channel_routing'
 #BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-POINTS_DECIMAL_PLACES = 0 #2
+POINTS_DECIMAL_PLACES = 0
 REAL_WORLD_CURRENCY_DECIMAL_PLACES = 2
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -393,13 +393,13 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['my_survey'],
     },
-    # {
-    #     'name': 'quiz',
-    #     'display_name': "Quiz",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['quiz'],
-    # },
-    # {
+    {
+        'name': 'PG_E_survey',
+        'display_name': "PG_E_survey",
+        'num_demo_participants': 1,
+        'app_sequence': ['PG_E_survey'],
+    },
+    #{
     #     'name': 'BRET',
     #     'display_name': "BRET",
     #     'num_demo_participants': 1,
@@ -435,7 +435,7 @@ SESSION_CONFIGS = [
         'name': 'PG_emotions',
         'display_name': "Public goods with emotions",
         'num_demo_participants': 6,
-        'app_sequence': ['PG_emotions'],
+        'app_sequence': ['PG_emotions', 'PG_E_survey'],
         'use_browser_bots': False
     },
     {

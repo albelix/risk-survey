@@ -82,5 +82,5 @@ class MyPage(Page):
 
 
 page_sequence = [
-    MyPage #, Yourself #, polit, City,
+    MyPage, #, Yourself #, polit, City,
 ]

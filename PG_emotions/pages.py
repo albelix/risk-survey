@@ -6,7 +6,13 @@ from .models import Constants
 # from django.forms.models import inlineformset_factory
 # from django import forms
 
+class Introduction(Page):
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
 class Normative(Page):
+    timeout_seconds = 60
     form_model = models.Player
     form_fields = ['normative']
 
@@ -21,8 +27,11 @@ class BeforeContrib(WaitPage):
         self.group.set_normative()
         # self.group.set_pgg_self()
 
+class Results0(Page):
+    pass
 
 class Contribution(Page):
+    timeout_seconds = 60
     form_model = models.Player
     form_fields = ['contribution']
 
@@ -31,8 +40,16 @@ class Contribution(Page):
             'current_round': self.subsession.round_number
         }
 
+class BeforeGuess(WaitPage):
+    def after_all_players_arrive(self):
+        for p in self.group.get_players():
+            p.group.set_pgg_payoffs()
+
+class Results1(Page):
+    pass
 
 class Guess(Page):
+    timeout_seconds = 60
     form_model = models.Player
     form_fields = ['guess']
 
@@ -45,7 +62,6 @@ class Guess(Page):
 class BeforeResults(WaitPage):
     def after_all_players_arrive(self):
         for p in self.group.get_players():
-            p.group.set_pgg_payoffs()
             p.set_pgg()
             p.set_guess()
 
@@ -89,17 +105,9 @@ class EmoWaitPage1(WaitPage):
 #            p.set_pgg() #_payoffs()
             p.set_anger()
             p.set_satis()
-        #    p.set_anger_estimated()
-        #    p.set_satis_estimated()
 
-# class EmoWaitPage2(WaitPage):
-#     def after_all_players_arrive(self):
-#         self.group.set_anger_mean()
-#         self.group.set_satis_mean()
-
-    # def after_all_players_arrive(self):
-    #     for p in self.group.get_players():
-    #         p.final_payoff()
+class Results2(Page):
+    pass
 
 class Emoest_Ang(Page):
     form_model = models.Player
@@ -157,12 +165,7 @@ class EmoWaitPage2(WaitPage):
             p.set_reward()
             p.set_guess_payoff()
             p.set_payoff()
-
-
-# class Results1(WaitPage):
-#     def after_all_players_arrive(self):
-#         for p in self.group.get_players():
-
+            p.set_final_payoff()
 
 class ResultsSummary(Page):
     def is_displayed(self):
@@ -176,7 +179,7 @@ class ResultsSummary(Page):
             'total_pay': self.player.in_round(self.session.vars['paying_round']).payoff,
             'guess_pay': self.player.reward_payoff,
             'guess_paying_round': self.session.vars['paying_round'],
-            'participant_payoff': sum([p.payoff for p in self.player.in_all_rounds()]),
+            'participant_payoff': self.participant.payoff + self.player.reward_payoff, # sum([p.payoff for p in self.player.in_all_rounds()]),
             #            'player_in_all_rounds': self.player.in_all_rounds(),
         }
     # def is_displayed(self):
@@ -184,14 +187,19 @@ class ResultsSummary(Page):
 
 
 page_sequence = [
+    Introduction,
     Normative,
     BeforeContrib,
+    Results0,
     Contribution,
+    BeforeGuess,
+    Results1,
     Guess,
     BeforeResults,
     EmoPage_Ang,
     EmoPage_Sat,
     EmoWaitPage1,
+    Results2,
     Emoest_Ang,
     Emoest_Sat,
     EmoWaitPage2,

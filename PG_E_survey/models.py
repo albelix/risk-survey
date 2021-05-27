@@ -1,34 +1,20 @@
-from __future__ import division
-
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
-import random
 
 
-class Constants(BaseConstants):
-    name_in_url = 'my_survey'
-# from otree.api import (
-#     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
-#     Currency as c, currency_range
-# )
-# import random
+author = 'Alexis Belianin'
 
-import random
-
-from otree.constants import BaseConstants
-from otree.models import BaseSubsession, BaseGroup, BasePlayer
-
-from otree.db import models
-# from otree import widgets
-# from otree.common import Currency as c, currency_range, safe_json
-
+doc = """
+Your app description
+"""
 
 class Constants(BaseConstants):
-    name_in_url = 'my_survey'
+    name_in_url = 'PG_E_survey'
     players_per_group = None
     num_rounds = 1
+
 
 
 class Subsession(BaseSubsession):
@@ -44,37 +30,42 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
-    feedback1_words= models.TextField(
-        verbose_name= '''Был ли Вам понятен интерфейс и инструкции в заданиях со словами? Что бы Вы предложили улучшить или изменить?'''
+    feedback0_strategy= models.TextField(
+        verbose_name= '''Опишите в общих чертах Вашу стратегию в игре: как Вы выбирали сколько внести в групповой проект, 
+        изменяли ли свою стратегию со временем и почему и т.д.'''
         )
 
-    feedback2_ball = models.TextField(
-        verbose_name='''Был ли Вам понятен интерфейс и инструкции в заданиях с шариком? Что бы Вы предложили улучшить или изменить?'''
+    feedback1_Anger= models.TextField(
+        verbose_name= '''Испытывали ли Вы возмущение поведением других игроков в игре, и если да, то кого, когда и почему?'''
         )
 
-    feedback3_gen= models.TextField(
-        verbose_name= '''Опишите в общих чертах Вашу стратегию в заданиях с шариком: как Вы выбирали сектор, 
-        изменяли ли свою стратегию в зависимости от результатов и т.д.'''
+    feedback2_Satisfaction = models.TextField(
+        verbose_name='''Испытывали ли Вы чувство удовлетворения от поведения других игроков в игре, и если да, то кого, когда и почему?'''
         )
 
-    feedback4_succ = models.TextField(
-        verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после успехов?'''
+    feedback3_emotions = models.TextField(
+        verbose_name='''Влияли ли как-то эти эмоции на Ваше поведение в игре? А другие эмоции (какие?)'''
         )
 
-    feedback5_fail = models.TextField(
-        verbose_name='''Как менялась Ваша стратегия в заданиях с шариком после неудач?'''
+    satis=models.PositiveIntegerField(
+        verbose_name='''Оцените в целом Ваше настроение сегодня по шкале от 1 «ужасное» до 10 «превосходное»)''',
+          choices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                    widget = widgets.RadioSelectHorizontal()
+    )
+
+    feedback5_feedback = models.TextField(
+        verbose_name='''Повлияло ли как-то на Ваше настроение то, что Вы испытали в ходе этой игры, и если да, то каким образом?'''
         )
 
-    feedback6_money = models.TextField(
-        verbose_name='''Если бы Вам платили за каждое правильное решение с шариками по 1000 рублей, Вы бы изменили свою стратегию? 
-        Если да, то каким образом?'''
+    feedback6_guess = models.TextField(
+        verbose_name='''Как Вы думаете, верно ли Вы угадывали эмоции других участников этой игры?'''
         )
 
     age = models.PositiveIntegerField(verbose_name='Ваш возраст (полных лет)',
                                         min=13, max=95,
                                         initial=None)
 
-    gender = models.BooleanField(initial=None,
+    female = models.BooleanField(initial=None,
                                 choices=[[0,'Мужской'],[1,'Женский']],
                                 verbose_name='Ваш пол',
                                 widget=widgets.RadioSelect())
@@ -96,7 +87,7 @@ class Player(BasePlayer):
 
     yearsinmsc = models.PositiveIntegerField(
         verbose_name='''
-    Укажите, сколько лет Вы живете в Вашем городе. Впишите число, округленное до ближайшего целого числа лет.''',
+    Укажите, сколько лет Вы живете в Москве. Впишите число, округленное до ближайшего целого числа лет.''',
         min = 0, max=95,
         initial = None)
 
@@ -141,115 +132,115 @@ class Player(BasePlayer):
                          widget = widgets.RadioSelect()
     )
 
-    riskHL1=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.10; 40 рублей, 0.90] или Б: [650 рублей, 0.10; 500 рублей, 0.90]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
+    riskKelly=models.PositiveIntegerField(
+        verbose_name='''Вы выиграли в лотерею 1 млн. рублей. Хороший знакомый предлагает Вам вложить некоторую часть из этой суммы
+        в предприятие, которое удвоит вложенную Вами сумму с вероятностью 1/3, или окажется неудачным и Вы потеряете все вложенные деньги с 
+        вероятностью 2/3. Какую сумму Вы готовы вложить в это предприятие?''',
+               choices = [
+                             [1, '1 млн.рублей'],
+                             [2, '800 тысяч рублей'],
+                             [3, '600 тысяч рублей'],
+                             [4, '400 тысяч рублей'],
+                             [5, '200 тысяч рублей'],
+                             [6, 'Нисколько, все оставлю у себя'],
+                         ],
+                         widget = widgets.RadioSelect()
     )
 
-    riskHL2=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.20; 40 рублей, 0.80] или Б: [650 рублей, 0.20; 500 рублей, 0.80]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL3=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.30; 40 рублей, 0.70] или Б: [650 рублей, 0.30; 500 рублей, 0.70]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL4=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.40; 40 рублей, 0.60] или Б: [650 рублей, 0.40; 500 рублей, 0.60]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL5=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.50; 40 рублей, 0.50] или Б: [650 рублей, 0.50; 500 рублей, 0.50]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL6=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.60; 40 рублей, 0.40] или Б: [650 рублей, 0.60; 500 рублей, 0.40]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL7=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.70; 40 рублей, 0.30] или Б: [650 рублей, 0.70; 500 рублей, 0.30]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL8=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.80; 40 рублей, 0.20] или Б: [650 рублей, 0.80; 500 рублей, 0.20]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL9=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 0.90; 40 рублей, 0.10] или Б: [650 рублей, 0.90; 500 рублей, 0.10]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
-    riskHL10=models.BooleanField(
-        verbose_name='''Выберите одну из двух лотерей
-        A: [1200 рублей, 1.00; 40 рублей, 0.00] или Б: [650 рублей, 1.00; 500 рублей, 0.00]''',
-        choices = [
-            [0, 'А'],
-            [1, 'Б'],
-        ],
-        widget = widgets.RadioSelectHorizontal()
-    )
 
-    income = models.PositiveIntegerField(
-        verbose_name='''Какое высказывание наиболее точно описывает финансовое положение вашей семьи?''',
-        choices=[
-            [1, 'Едва сводим концы с концами, денег не хватает на выживание;'],
-            [2, 'Живем от зарплаты до зарплаты, денег хватает только на неотложные нужды;'],
-            [3, 'На ежедневные расходы хватает денег, но уже покупка одежды требует накоплений;'],
-            [4, 'Вполне хватает денег, даже имеются некоторые накопления, но крупные покупки требуется планировать заранее;'],
-            [5, 'Можем позволить себе крупные траты при первой необходимости.'],
-        ],
-        widget=widgets.RadioSelect()
-    )
+    # riskHL1=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.10; 40 рублей, 0.90] или Б: [650 рублей, 0.10; 500 рублей, 0.90]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    #
+    # riskHL2=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.20; 40 рублей, 0.80] или Б: [650 рублей, 0.20; 500 рублей, 0.80]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL3=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.30; 40 рублей, 0.70] или Б: [650 рублей, 0.30; 500 рублей, 0.70]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL4=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.40; 40 рублей, 0.60] или Б: [650 рублей, 0.40; 500 рублей, 0.60]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL5=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.50; 40 рублей, 0.50] или Б: [650 рублей, 0.50; 500 рублей, 0.50]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL6=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.60; 40 рублей, 0.40] или Б: [650 рублей, 0.60; 500 рублей, 0.40]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL7=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.70; 40 рублей, 0.30] или Б: [650 рублей, 0.70; 500 рублей, 0.30]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL8=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.80; 40 рублей, 0.20] или Б: [650 рублей, 0.80; 500 рублей, 0.20]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL9=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 0.90; 40 рублей, 0.10] или Б: [650 рублей, 0.90; 500 рублей, 0.10]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
+    # riskHL10=models.BooleanField(
+    #     verbose_name='''Выберите одну из двух лотерей
+    #     A: [1200 рублей, 1.00; 40 рублей, 0.00] или Б: [650 рублей, 1.00; 500 рублей, 0.00]''',
+    #     choices = [
+    #         [0, 'А'],
+    #         [1, 'Б'],
+    #     ],
+    #     widget = widgets.RadioSelectHorizontal()
+    # )
 
-    satis=models.PositiveIntegerField(
-        verbose_name='''Учитывая все обстоятельства, насколько Вы удовлетворены вашей жизнью в целом в эти дни? (от 1 «полностью не удовлетворен» до 10 «полностью удовлетворен»)''',
-          choices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                    widget = widgets.RadioSelectHorizontal()
-    )
+
 
     trust = models.PositiveIntegerField(
         verbose_name ='''Как Вы считаете, в целом большинству людей можно доверять, или же при общении с другими людьми 
@@ -267,6 +258,18 @@ class Player(BasePlayer):
     ''',
         choices=[1,2,3,4,5,6,7,8,9,10],
         widget=widgets.RadioSelectHorizontal()
+    )
+
+    income = models.PositiveIntegerField(
+        verbose_name='''Какое высказывание наиболее точно описывает финансовое положение вашей семьи?''',
+        choices=[
+            [1, 'Едва сводим концы с концами, денег не хватает на выживание;'],
+            [2, 'Живем от зарплаты до зарплаты, денег хватает только на неотложные нужды;'],
+            [3, 'На ежедневные расходы хватает денег, но уже покупка одежды требует накоплений;'],
+            [4, 'Вполне хватает денег, даже имеются некоторые накопления, но крупные покупки требуется планировать заранее;'],
+            [5, 'Можем позволить себе крупные траты при первой необходимости.'],
+        ],
+        widget=widgets.RadioSelect()
     )
     #
     #
@@ -339,5 +342,4 @@ class Player(BasePlayer):
     #                                ],
     #                                widget = widgets.RadioSelect()
     # )
-
 
