@@ -24,7 +24,7 @@ PG game with emotions
 class Constants(BaseConstants):
     name_in_url = 'PG_2021'
     players_per_group = 6
-    num_rounds = 2
+    num_rounds = 8
     endowment = c(20)
     lumpsum = c(150)
     efficiency_factor = 2
