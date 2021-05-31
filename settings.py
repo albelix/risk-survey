@@ -439,6 +439,13 @@ SESSION_CONFIGS = [
         'use_browser_bots': False
     },
     {
+        'name': 'PG_emotions_restricted',
+        'display_name': "Public goods with emotions, no display",
+        'num_demo_participants': 6,
+        'app_sequence': ['PG_emotions_restricted', 'PG_E_survey'],
+        'use_browser_bots': False
+    },
+    {
         'name': 'PG_punishment',
         'display_name': "Общественное благо с наказанием КУСБ",
         'num_demo_participants': 5,

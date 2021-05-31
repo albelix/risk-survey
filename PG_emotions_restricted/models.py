@@ -17,12 +17,12 @@ import itertools
 author = 'Alexis Belianin'
 
 doc = """
-PG game with emotions 
+PG game with emotions - restricted no emotions display 
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'PG_2021'
+    name_in_url = 'PG_2021_R'
     players_per_group = 6
     num_rounds = 8
     endowment = c(20)
@@ -64,7 +64,7 @@ class Group(BaseGroup):
         self.mean_normative = sum([p.normative for p in self.get_players()]) / Constants.players_per_group
 
     def set_pgg_payoffs(self):
-        print("contribution", sum([p.contribution for p in self.get_players()]))
+    #    print("contribution", sum([p.contribution for p in self.get_players()]))
         self.total_contribution = sum([p.contribution for p in self.get_players()])
         self.individual_share = self.total_contribution * Constants.efficiency_factor / Constants.players_per_group
         for p in self.get_players():
@@ -161,19 +161,19 @@ class Player(BasePlayer):
 
     reward_guess = models.CurrencyField(doc="""reward for guess about contributions""")
 
-    reward_anger_1 = models.CurrencyField(label='ra_1', min=1, max=5)
-    reward_anger_2 = models.CurrencyField(label='ra_2', min=1, max=5)
-    reward_anger_3 = models.CurrencyField(label='ra_3', min=1, max=5)
-    reward_anger_4 = models.CurrencyField(label='ra_4', min=1, max=5)
-    reward_anger_5 = models.CurrencyField(label='ra_5', min=1, max=5)
-    reward_anger_6 = models.CurrencyField(label='ra_6', min=1, max=5)
-
-    reward_satis_1 = models.CurrencyField(label='rs_1', min=1, max=5)
-    reward_satis_2 = models.CurrencyField(label='rs_2', min=1, max=5)
-    reward_satis_3 = models.CurrencyField(label='rs_3', min=1, max=5)
-    reward_satis_4 = models.CurrencyField(label='rs_4', min=1, max=5)
-    reward_satis_5 = models.CurrencyField(label='rs_5', min=1, max=5)
-    reward_satis_6 = models.CurrencyField(label='rs_6', min=1, max=5)
+    # reward_anger_1 = models.CurrencyField(label='ra_1', min=1, max=5)
+    # reward_anger_2 = models.CurrencyField(label='ra_2', min=1, max=5)
+    # reward_anger_3 = models.CurrencyField(label='ra_3', min=1, max=5)
+    # reward_anger_4 = models.CurrencyField(label='ra_4', min=1, max=5)
+    # reward_anger_5 = models.CurrencyField(label='ra_5', min=1, max=5)
+    # reward_anger_6 = models.CurrencyField(label='ra_6', min=1, max=5)
+    #
+    # reward_satis_1 = models.CurrencyField(label='rs_1', min=1, max=5)
+    # reward_satis_2 = models.CurrencyField(label='rs_2', min=1, max=5)
+    # reward_satis_3 = models.CurrencyField(label='rs_3', min=1, max=5)
+    # reward_satis_4 = models.CurrencyField(label='rs_4', min=1, max=5)
+    # reward_satis_5 = models.CurrencyField(label='rs_5', min=1, max=5)
+    # reward_satis_6 = models.CurrencyField(label='rs_6', min=1, max=5)
 
     reward_anger = models.CurrencyField(doc="""reward for anger estimation""")
     reward_satis = models.CurrencyField(doc="""reward for satisfaction estimation""")
@@ -187,7 +187,7 @@ class Player(BasePlayer):
         self.mean_guess = sum([p.guess for p in self.group.get_players()]) / Constants.players_per_group
 
     def set_guess_reward(self):
-        self.reward_guess = (400-(self.mean_guess - self.guess)**2) / 10
+        self.reward_guess = (1100-(self.mean_guess - self.guess)**2) / 10
 
     def set_anger(self):
         anger_stated = [getattr(i, 'anger_{}'.format(self.id_in_group)) for i in self.get_others_in_group()]
@@ -205,104 +205,98 @@ class Player(BasePlayer):
     def set_anger_reward(self):
         #listang = ['eang_1', 'eang_2', 'eang_3', 'eang_4', 'eang_5', 'eang_6']
         for p in self.group.get_players(): #self.anger_estimated = sum([getattr(i, 'eang_{}'.format(self.id_in_group)) for i in self.group.get_players()])/ (Constants.players_per_group)
-           #for i in self.get_others_in_group():
-        #    p.reward_anger_[p] = 25 - ((getattr(p, 'eang_{}'.format(self.id_in_group))) - self.mean_anger[p]) ** 2
-            # p.reward_anger_1 = 25 - (self.eang_1 - self.mean_anger) ** 2
-            # p.reward_anger_2 = 25 - (self.eang_2 - self.mean_anger) ** 2
-            # p.reward_anger_3 = 25 - (self.eang_3 - self.mean_anger) ** 2
-            # p.reward_anger_4 = 25 - (self.eang_4 - self.mean_anger) ** 2
-            # p.reward_anger_5 = 25 - (self.eang_5 - self.mean_anger) ** 2
-            # p.reward_anger_6 = 25 - (self.eang_6 - self.mean_anger) ** 2
-            if self.id_in_group==1:
-                self.reward_anger_1 = 0
-                self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger)**2)/2
-                self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger)**2)/2
-                self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger)**2)/2
-                self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger)**2)/2
-                self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger)**2)/2
-            elif self.id_in_group==2:
-                self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
-                self.reward_anger_2 = 0
-                self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger) ** 2)/2
-                self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger) ** 2)/2
-                self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger) ** 2)/2
-                self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
-            elif self.id_in_group==3:
-                self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
-                self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger) ** 2)/2
-                self.reward_anger_3 = 0
-                self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger) ** 2)/2
-                self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger) ** 2)/2
-                self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
-            elif self.id_in_group==4:
-                self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
-                self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger) ** 2)/2
-                self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger) ** 2)/2
-                self.reward_anger_4 = 0
-                self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger) ** 2)/2
-                self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
-            elif self.id_in_group==5:
-                self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
-                self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger) ** 2)/2
-                self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger) ** 2)/2
-                self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger) ** 2)/2
-                self.reward_anger_5 = 0
-                self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
-            elif self.id_in_group==6:
-                self.reward_anger_1 = Constants.rewval - (self.eang_1 - self.mean_anger) ** 2
-                self.reward_anger_2 = Constants.rewval - (self.eang_2 - self.mean_anger) ** 2
-                self.reward_anger_3 = Constants.rewval - (self.eang_3 - self.mean_anger) ** 2
-                self.reward_anger_4 = Constants.rewval - (self.eang_4 - self.mean_anger) ** 2
-                self.reward_anger_5 = Constants.rewval - (self.eang_5 - self.mean_anger) ** 2
-                self.reward_anger_6 = 0
-            self.reward_anger = self.reward_anger_1 + self.reward_anger_2 + self.reward_anger_3+ self.reward_anger_4+ self.reward_anger_5 + self.reward_anger_6
+            p.reward_anger=0
+            # if self.id_in_group==1:
+            #     self.reward_anger_1 = 0
+            #     self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger)**2)/2
+            #     self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger)**2)/2
+            #     self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger)**2)/2
+            #     self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger)**2)/2
+            #     self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger)**2)/2
+            # elif self.id_in_group==2:
+            #     self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_2 = 0
+            #     self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
+            # elif self.id_in_group==3:
+            #     self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_3 = 0
+            #     self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
+            # elif self.id_in_group==4:
+            #     self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_4 = 0
+            #     self.reward_anger_5 = (Constants.rewval - (self.eang_5 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
+            # elif self.id_in_group==5:
+            #     self.reward_anger_1 = (Constants.rewval - (self.eang_1 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_2 = (Constants.rewval - (self.eang_2 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_3 = (Constants.rewval - (self.eang_3 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_4 = (Constants.rewval - (self.eang_4 - self.mean_anger) ** 2)/2
+            #     self.reward_anger_5 = 0
+            #     self.reward_anger_6 = (Constants.rewval - (self.eang_6 - self.mean_anger) ** 2)/2
+            # elif self.id_in_group==6:
+            #     self.reward_anger_1 = Constants.rewval - (self.eang_1 - self.mean_anger) ** 2
+            #     self.reward_anger_2 = Constants.rewval - (self.eang_2 - self.mean_anger) ** 2
+            #     self.reward_anger_3 = Constants.rewval - (self.eang_3 - self.mean_anger) ** 2
+            #     self.reward_anger_4 = Constants.rewval - (self.eang_4 - self.mean_anger) ** 2
+            #     self.reward_anger_5 = Constants.rewval - (self.eang_5 - self.mean_anger) ** 2
+            #     self.reward_anger_6 = 0
+            # self.reward_anger = self.reward_anger_1 + self.reward_anger_2 + self.reward_anger_3+ self.reward_anger_4+ self.reward_anger_5 + self.reward_anger_6
             print('reward anger', self.reward_anger) #return {self.reward_anger}
 
     def set_satis_reward(self):
         for p in self.group.get_players(): #self.satis_estimated = sum([getattr(i, 'esat_{}'.format(self.id_in_group)) for i in self.group.get_players()])/ (Constants.players_per_group)
-            if self.id_in_group == 1:
-                self.reward_satis_1 = 0
-                self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
-                self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
-                self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
-                self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
-                self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
-            elif self.id_in_group == 2:
-                self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
-                self.reward_satis_2 = 0
-                self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
-                self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
-                self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
-                self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
-            elif self.id_in_group == 3:
-                self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
-                self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
-                self.reward_satis_3 = 0
-                self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
-                self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
-                self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
-            elif self.id_in_group == 4:
-                self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
-                self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
-                self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
-                self.reward_satis_4 = 0
-                self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
-                self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
-            elif self.id_in_group == 5:
-                self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
-                self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
-                self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
-                self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
-                self.reward_satis_5 = 0
-                self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
-            elif self.id_in_group == 6:
-                self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
-                self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
-                self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
-                self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
-                self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
-                self.reward_satis_6 = 0
-            self.reward_satis = self.reward_satis_1 + self.reward_satis_2 + self.reward_satis_3 + self.reward_satis_4 + self.reward_satis_5 + self.reward_satis_6
+            p.reward_satis=0
+            # if self.id_in_group == 1:
+            #     self.reward_satis_1 = 0
+            #     self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
+            # elif self.id_in_group == 2:
+            #     self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_2 = 0
+            #     self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
+            # elif self.id_in_group == 3:
+            #     self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_3 = 0
+            #     self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
+            # elif self.id_in_group == 4:
+            #     self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_4 = 0
+            #     self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
+            # elif self.id_in_group == 5:
+            #     self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_5 = 0
+            #     self.reward_satis_6 = (Constants.rewval - (self.esat_6 - self.mean_satis) ** 2)/2
+            # elif self.id_in_group == 6:
+            #     self.reward_satis_1 = (Constants.rewval - (self.esat_1 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_2 = (Constants.rewval - (self.esat_2 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_3 = (Constants.rewval - (self.esat_3 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_4 = (Constants.rewval - (self.esat_4 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_5 = (Constants.rewval - (self.esat_5 - self.mean_satis) ** 2)/2
+            #     self.reward_satis_6 = 0
+            # self.reward_satis = self.reward_satis_1 + self.reward_satis_2 + self.reward_satis_3 + self.reward_satis_4 + self.reward_satis_5 + self.reward_satis_6
             print('reward satis', self.reward_satis)  # return {self.reward_satis}
 
     def set_reward(self):
