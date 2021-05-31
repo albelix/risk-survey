@@ -187,7 +187,7 @@ class Player(BasePlayer):
         self.mean_guess = sum([p.guess for p in self.group.get_players()]) / Constants.players_per_group
 
     def set_guess_reward(self):
-        self.reward_guess = (1100-(self.mean_guess - self.guess)**2) / 10
+        self.reward_guess = (400-(self.mean_guess - self.guess)**2) / 4
 
     def set_anger(self):
         anger_stated = [getattr(i, 'anger_{}'.format(self.id_in_group)) for i in self.get_others_in_group()]
