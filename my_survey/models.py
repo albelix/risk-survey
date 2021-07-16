@@ -8,7 +8,7 @@ import random
 
 
 class Constants(BaseConstants):
-    name_in_url = 'my_survey'
+    name_in_url = 'my_survey_rus'
 # from otree.api import (
 #     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
 #     Currency as c, currency_range
@@ -26,7 +26,7 @@ from otree.db import models
 
 
 class Constants(BaseConstants):
-    name_in_url = 'my_survey'
+    name_in_url = 'my_survey_rus'
     players_per_group = None
     num_rounds = 1
 

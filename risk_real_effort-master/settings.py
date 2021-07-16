@@ -45,6 +45,18 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['scl','my_survey_eng'],
     },
+    {
+        'name': 'dynrisk',
+        'display_name': "dynrisk",
+        'num_demo_participants': 1,
+        'app_sequence': ['dynrisk', 'my_survey_eng'],
+    },
+    {
+        'name': 'my_survey_rus',
+        'display_name': "my_survey_rus",
+        'num_demo_participants': 1,
+        'app_sequence': ['my_survey_rus'],
+    },
 ]
 
 # ISO-639 code

@@ -1,0 +1,19 @@
+{% extends "global/PInstructions.htmlage.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ваши решения
+{% endblock %}
+
+{% block content %}
+
+    <td>Вы выбираете доходность {{Constants.income}} players</td>
+    <h1>Риск: {{player.volatility}}</h1>
+    <td>Вы выбираете просадку {{ Constants.dropdown }}</td>
+    {% formfields %}
+{#    {% formfields %}  <!-- this is just a placeholder of several formfields -->#}
+{#<!--     {% formfield player.age %} -->#}
+{#    {% next_button %}#}
+    {% next_button %}
+
+{% endblock %}

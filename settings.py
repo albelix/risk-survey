@@ -388,10 +388,10 @@ SESSION_CONFIGS = [
         'app_sequence': ['covid_survey'],
     },
     {
-        'name': 'my_survey',
+        'name': 'my_survey_rus',
         'display_name': "Survey for risky choice",
         'num_demo_participants': 1,
-        'app_sequence': ['my_survey'],
+        'app_sequence': ['my_survey_rus'],
     },
     {
         'name': 'PG_E_survey',
@@ -411,7 +411,7 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 7,
     #     'app_sequence': ['PG_standard',
     #                      'PG_threshold',
-    #                      'my_survey'
+    #                      'my_survey_rus'
     #                      ],
     #     # 'use_browser_bots': True
     # },
@@ -421,7 +421,7 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 7,
     #     'app_sequence': ['PG_standard',
     #                      'PG_threshold',
-    #                      'my_survey'
+    #                      'my_survey_rus'
     #                      ],
     #     # 'use_browser_bots': True
     # },
@@ -462,7 +462,7 @@ SESSION_CONFIGS = [
     #     'name': 'realefforttask',
     #     'display_name': 'Real Effort Task',
     #     'num_demo_participants': 1,
-    #     'app_sequence': ['realefforttask', 'my_survey'],
+    #     'app_sequence': ['realefforttask', 'my_survey_rus'],
     # },
     # # {
     #     'name': 'GameOct18',

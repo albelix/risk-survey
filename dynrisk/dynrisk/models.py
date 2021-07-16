@@ -17,15 +17,15 @@ import itertools
 author = 'Alexis Belianin'
 
 doc = """
-PG game with emotions 
+Dynamic risk preferences 
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'PG_2021'
-    players_per_group = 6
+    name_in_url = 'DRM_2021'
+    players_per_group = 1
     num_rounds = 8
-    endowment = c(20)
+    endowment = c(100)
     lumpsum = c(150)
     efficiency_factor = 2
     contribution_limits = currency_range(0, endowment, 1)  # define range of contribs
